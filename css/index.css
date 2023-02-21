@@ -1,3 +1,101 @@
-html {
-  /* font-size system here */
+.background-columns > div {
+  border-left: 1px solid rgba(233, 233, 233, 0.8);
+  border-right: 1px solid rgba(233, 233, 233, 0.8);
+}
+
+nav {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.6rem;
+}
+
+.name {
+  font-size: 2.4rem;
+  max-width: 50%;
+}
+
+/* 
+ * TOP SECTION
+ * /////////////////////////////////////////////////
+ */
+
+.top-section {
+  padding: 10px 0;
+  height: 100vh; /* In case browser doesn't support svh, falls back to vh */
+  height: 100svh;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 1.6rem;
+}
+
+.top-section > p {
+  max-width: 30%;
+}
+
+.top-section > p:last-of-type {
+  text-align: right;
+}
+
+/* 
+ * PROJECTS SECTION
+ * /////////////////////////////////////////////////
+ */
+
+.projects {
+  display: grid;
+  grid-auto-rows: 65vh;
+  padding-top: 10vh;
+}
+
+.project {
+  display: grid;
+  align-items: center;
+}
+
+.project__image__container {
+  height: 70%;
+}
+
+.project__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project__name {
+  margin-top: 1.6rem;
+  font-size: 2.4rem;
+}
+
+/* 
+ * FOOTER
+ * /////////////////////////////////////////////////
+ */
+
+footer {
+  background: rgba(238, 238, 238, 0.5);
+  border: 1px solid #ccc;
+  border-radius: 2rem 2rem 0 0;
+  padding: 4.2rem 1rem;
+  margin: 20vh -10px 0;
+}
+
+.footer__label {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.footer__info {
+  font-size: 1.6rem;
+  margin-bottom: 3.2rem;
+}
+
+.footer__info:last-of-type {
+  margin-bottom: 0;
 }

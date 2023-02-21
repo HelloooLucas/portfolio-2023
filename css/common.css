@@ -1,0 +1,34 @@
+html {
+  font-family: "Inter";
+  font-size: calc(100vw / 340 * 10);
+  font-weight: 200;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #334;
+}
+
+body {
+  margin: 0 10px;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.background-columns {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
