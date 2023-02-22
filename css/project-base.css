@@ -3,35 +3,8 @@
   border-right: 1px solid rgba(233, 233, 233, 0.8);
 }
 
-.mb-md {
-  margin-bottom: 9.6rem;
-}
-
-.mb-xl {
-  margin-bottom: 19.2rem;
-}
-
-.align-right {
-  text-align: right;
-}
-
 .span-3 {
   max-width: 75%;
-}
-
-nav {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  display: flex;
-  justify-content: space-between;
-  font-size: 1.6rem;
-}
-
-.name {
-  font-size: 2.4rem;
-  max-width: 50%;
 }
 
 /* 
@@ -98,11 +71,6 @@ nav {
 .title {
   font-size: 4.8rem;
   margin: 0 0 2.4rem 25%;
-}
-
-p {
-  font-size: 1.2rem;
-  line-height: 1.5;
 }
 
 .full-image {

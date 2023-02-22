@@ -18,6 +18,32 @@ a {
   color: inherit;
 }
 
+p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.mb-sm {
+  margin-bottom: 6.4rem;
+}
+
+.mb-md {
+  margin-bottom: 9.6rem;
+}
+
+.mb-xl {
+  margin-bottom: 19.2rem;
+}
+
+.align-right {
+  text-align: right;
+}
+
+/* 
+ * GRID
+ * /////////////////////////////////////////////////
+ */
+
 .background-columns {
   z-index: -1;
   position: fixed;
@@ -31,4 +57,56 @@ a {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
+}
+
+/* 
+ * NAV
+ * /////////////////////////////////////////////////
+ */
+
+nav {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.6rem;
+}
+
+nav > a {
+  height: min-content;
+}
+
+.name {
+  font-size: 2.4rem;
+  max-width: 50%;
+}
+
+/* 
+ * FOOTER
+ * /////////////////////////////////////////////////
+ */
+
+footer {
+  background: rgba(238, 238, 238, 0.5);
+  border: 1px solid #ccc;
+  border-radius: 2rem 2rem 0 0;
+  padding: 4.2rem 1rem;
+  margin: 20vh -10px 0;
+}
+
+.footer__label {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.footer__info {
+  font-size: 1.6rem;
+  margin-bottom: 3.2rem;
+}
+
+.footer__info:last-of-type {
+  margin-bottom: 0;
 }
