@@ -19,14 +19,28 @@
   max-width: 75%;
 }
 
+nav {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.6rem;
+}
+
+.name {
+  font-size: 2.4rem;
+  max-width: 50%;
+}
+
 /* 
  * HEADER SECTION
  * /////////////////////////////////////////////////
  */
 
 .header {
-  padding-top: 10px;
-  margin-bottom: 12.8rem;
+  margin: 8.3rem 0 12.8rem;
 }
 
 .header__image {
