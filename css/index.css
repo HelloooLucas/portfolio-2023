@@ -9,21 +9,39 @@
  */
 
 .top-section {
-  padding: 10px 0;
+  padding: var(--body-margins) 0;
   height: 100vh; /* In case browser doesn't support svh, falls back to vh */
   height: 100svh;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  font-size: 1.6rem;
+  align-items: end;
+  font-size: clamp(16px, 1.6rem, 24px);
 }
 
-.top-section > p {
-  max-width: 30%;
+.top-section__position {
+  grid-column: 1 / span 2;
 }
 
-.top-section > p:last-of-type {
+.top-section__portfolio {
   text-align: right;
+  grid-column: -3 / span 2;
+}
+
+@media screen and (min-width: 1024px) {
+  .top-section {
+    align-items: center;
+  }
+
+  .top-section__position {
+    grid-column: 5 / span 2;
+    /* Specifying grid-rows is necessary otherwise items won't overlap */
+    grid-row: 1 / 2;
+    /* Alternative syntax */
+    /* grid-area: 1 / 5 / 2 / 7; */
+  }
+
+  .top-section__portfolio {
+    grid-column: 6 / span 2;
+    grid-row: 1 / 2;
+  }
 }
 
 /* 
@@ -32,27 +50,67 @@
  */
 
 .projects {
-  display: grid;
-  grid-auto-rows: 65vh;
-  padding-top: 10vh;
+  padding-top: 20vh;
 }
 
 .project {
-  display: grid;
-  align-items: center;
+  margin-bottom: 25vh;
 }
 
-.project__image__container {
-  height: 70%;
+.project__index {
+  font-size: 24px;
+  display: none;
 }
 
-.project__image {
+.project__block {
+  grid-column: 1 / -1;
+}
+
+.project__block__image {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 5 / 3;
   object-fit: cover;
 }
 
-.project__name {
+.project__block__name {
   margin-top: 1.6rem;
   font-size: 2.4rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .project__index {
+    display: block;
+  }
+
+  .project__block__name {
+    display: none;
+  }
+
+  .project[data-project="sopra-banking"] > .project__block {
+    grid-column: 4 / span 4;
+  }
+  .project[data-project="sopra-banking"] > .project__index {
+    grid-column: 3;
+  }
+
+  .project[data-project="last-quest"] > .project__block {
+    grid-column: 2 / span 4;
+  }
+  .project[data-project="last-quest"] > .project__index {
+    grid-column: 1;
+  }
+
+  .project[data-project="solers-io"] > .project__block {
+    grid-column: 5 / span 4;
+  }
+  .project[data-project="solers-io"] > .project__index {
+    grid-column: 4;
+  }
+
+  .project[data-project="atelier-tote-bag"] > .project__block {
+    grid-column: 3 / span 4;
+  }
+  .project[data-project="atelier-tote-bag"] > .project__index {
+    grid-column: 2;
+  }
 }

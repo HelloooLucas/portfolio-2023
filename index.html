@@ -20,84 +20,108 @@
   </head>
 
   <body>
-    <nav>
-      <a href="/">
-        <h1 class="name">Lucas Montenoise</h1>
+    <nav class="grid">
+      <a class="name" href="/">
+        <h1>
+          Lucas <br />
+          Montenoise
+        </h1>
       </a>
-      <a href="/about.html">about</a>
+      <a class="about" href="/about.html">about</a>
     </nav>
 
-    <section class="top-section">
-      <p>frontend dev</p>
-      <p>portfolio 2023</p>
+    <section class="top-section grid">
+      <p class="top-section__position">
+        frontend<br />
+        dev
+      </p>
+      <p class="top-section__portfolio">
+        portfolio<br />
+        2023
+      </p>
     </section>
 
     <section class="projects">
-      <div class="project">
-        <div class="project__image__container">
+      <div class="project grid" data-project="sopra-banking">
+        <span class="project__index">1</span>
+        <div class="project__block">
           <a href="/sopra-banking">
             <img
               src="images/iceland.jpg"
-              class="project__image"
+              class="project__block__image"
               alt="icelandic landscape"
             />
-            <h2 class="project__name">sopra banking</h2>
+            <h2 class="project__block__name">sopra banking</h2>
           </a>
         </div>
       </div>
 
-      <div class="project">
-        <div class="project__image__container">
+      <div class="project grid" data-project="last-quest">
+        <span class="project__index">2</span>
+        <div class="project__block">
           <a href="/last-quest">
             <img
               src="images/iceland.jpg"
-              class="project__image"
+              class="project__block__image"
               alt="icelandic landscape"
             />
-            <h2 class="project__name">last quest</h2>
+            <h2 class="project__block__name">last quest</h2>
           </a>
         </div>
       </div>
 
-      <div class="project">
-        <div class="project__image__container">
+      <div class="project grid" data-project="solers-io">
+        <span class="project__index">3</span>
+        <div class="project__block">
           <a href="/solers-io">
             <img
               src="images/iceland.jpg"
-              class="project__image"
+              class="project__block__image"
               alt="icelandic landscape"
             />
-            <h2 class="project__name">solers io</h2>
+            <h2 class="project__block__name">solers io</h2>
           </a>
         </div>
       </div>
 
-      <div class="project">
-        <div class="project__image__container">
+      <div class="project grid" data-project="atelier-tote-bag">
+        <span class="project__index">4</span>
+        <div class="project__block">
           <a href="/atelier-tote-bag">
             <img
               src="images/iceland.jpg"
-              class="project__image"
+              class="project__block__image"
               alt="icelandic landscape"
             />
-            <h2 class="project__name">atelier tote bag</h2>
+            <h2 class="project__block__name">atelier tote bag</h2>
           </a>
         </div>
       </div>
     </section>
 
-    <footer>
-      <span class="footer__label">email</span>
-      <p class="footer__info">montenoise.lucas@gmail.com</p>
+    <div class="grid">
+      <footer>
+        <div class="year">
+          <span>2023</span>
+        </div>
+        <div class="info">
+          <span class="footer__label">email</span>
+          <p class="footer__info">montenoise.lucas@gmail.com</p>
 
-      <span class="footer__label">instagram</span>
-      <p class="footer__info">@hellooolucas</p>
+          <span class="footer__label">instagram</span>
+          <p class="footer__info">@hellooolucas</p>
 
-      <span class="footer__label">design & dev</span>
-      <p class="footer__info">lucas montenoise</p>
-    </footer>
+          <span class="footer__label">design & dev</span>
+          <p class="footer__info">lucas montenoise</p>
+        </div>
+      </footer>
+    </div>
 
     <div class="background-columns grid">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
       <div></div>
       <div></div>
       <div></div>

@@ -7,6 +7,11 @@
   max-width: 75%;
 }
 
+p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
 /* 
  * HEADER SECTION
  * /////////////////////////////////////////////////
@@ -26,7 +31,7 @@
 
 .header__info {
   border-radius: 0 0 2rem 2rem;
-  background: rgba(238, 238, 238, 0.5);
+  background: rgba(238, 238, 238, 0.3);
   border: 1px solid #ccc;
 }
 
