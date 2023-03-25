@@ -121,31 +121,27 @@ nav {
  * /////////////////////////////////////////////////
  */
 
-footer {
+.footer__wrapper {
   grid-column: 1 / -1;
   background: rgba(238, 238, 238, 0.3);
   border: 1px solid #ccc;
   border-radius: 20px 20px 0 0;
-  padding: 100px 10px;
+  padding: 60px 10px 40px;
   margin: 0 -10px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-gap: 20px;
 }
 
-.year {
-  display: none;
-}
-
 .footer__label {
   display: block;
-  font-size: clamp(12px, 1.2rem, 16px);
-  margin-bottom: 16px;
+  font-size: clamp(10px, 1rem, 14px);
+  margin-bottom: 10px;
 }
 
 .footer__info {
-  font-size: clamp(16px, 1.6rem, 24px);
-  margin-bottom: 60px;
+  font-size: clamp(14px, 1.4rem, 18px);
+  margin-bottom: 40px;
 }
 
 .footer__info:last-of-type {
@@ -153,34 +149,22 @@ footer {
 }
 
 @media screen and (min-width: 768px) {
-  footer {
+  .footer__wrapper {
     margin: 0 -20px;
+    padding: 60px 20px 40px;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  footer {
+  .footer__wrapper {
     grid-column: 2 / -2;
     margin: 0 0 10vh;
     border-radius: 20px;
     padding: 45px 0;
     align-items: end;
   }
-  .year {
-    display: block;
-    overflow: hidden;
-  }
-
-  .year > span {
-    font-weight: 100;
-    font-size: 180px;
-    writing-mode: vertical-lr;
-    rotate: 180deg;
-    position: relative;
-    left: 160px;
-  }
 
   .info {
-    grid-column: 3 / span 2;
+    grid-column: 2 / span 2;
   }
 }
