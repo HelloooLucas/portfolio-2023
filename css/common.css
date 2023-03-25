@@ -17,7 +17,6 @@
 
 html {
   font-family: "Inter";
-  font-size: calc(100vw / 340 * 10);
   font-weight: 200;
   letter-spacing: 0.03em;
   line-height: 1.2;
@@ -97,7 +96,7 @@ nav {
   top: var(--body-margins);
   left: var(--body-margins);
   right: var(--body-margins);
-  font-size: clamp(16px, 1.6rem, 24px);
+  font-size: clamp(16px, 0.751rem + 1.17vw, 24px);
 }
 
 .name {
@@ -133,12 +132,12 @@ nav {
 
 .footer__label {
   display: block;
-  font-size: clamp(10px, 1rem, 14px);
+  font-size: clamp(10px, 0.501rem + 0.585vw, 14px);
   margin-bottom: 10px;
 }
 
 .footer__info {
-  font-size: clamp(14px, 1.4rem, 18px);
+  font-size: clamp(14px, 0.751rem + 0.585vw, 18px);
   margin-bottom: 40px;
 }
 

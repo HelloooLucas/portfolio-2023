@@ -13,7 +13,7 @@
   height: 100vh; /* In case browser doesn't support svh, falls back to vh */
   height: 100svh;
   align-items: end;
-  font-size: clamp(16px, 1.6rem, 24px);
+  font-size: clamp(16px, 0.751rem + 1.17vw, 24px);
 }
 
 .top-section__position {
@@ -73,8 +73,8 @@
 }
 
 .project__block__name {
-  margin-top: 1.6rem;
-  font-size: 2.4rem;
+  margin-top: 0.7em;
+  font-size: clamp(24px, 0.754rem + 3.509vw, 48px);
 }
 
 @media screen and (min-width: 1024px) {

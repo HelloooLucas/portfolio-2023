@@ -110,7 +110,8 @@ p {
  */
 
 .title {
-  font-size: clamp(48px, 4.8rem, 160px);
+  /* https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/ */
+  font-size: clamp(48px, -0.48rem + 16.374vw, 160px);
   margin-bottom: 24px;
 }
 
@@ -147,7 +148,7 @@ img {
 }
 
 .middle-title {
-  font-size: clamp(36px, 3.2rem, 60px);
+  font-size: clamp(36px, 1.504rem + 3.509vw, 60px);
   margin-bottom: 24px;
 }
 .middle-title > span {
@@ -245,10 +246,10 @@ img {
 
 .next-project__label {
   display: block;
-  font-size: clamp(12px, 1.2rem, 24px);
+  font-size: clamp(12px, 0.377rem + 1.754vw, 24px);
   margin-bottom: 24px;
 }
 
 .next-project__title {
-  font-size: clamp(32px, 3.2rem, 48px);
+  font-size: clamp(32px, 1.503rem + 2.339vw, 48px);
 }
