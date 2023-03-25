@@ -1,5 +1,6 @@
 :root {
   --body-margins: 10px;
+  --nav-height: 60px;
 }
 
 @media screen and (min-width: 768px) {
@@ -35,15 +36,15 @@ a {
 }
 
 .mb-sm {
-  margin-bottom: 6.4rem;
+  margin-bottom: 64px;
 }
 
 .mb-md {
-  margin-bottom: 9.6rem;
+  margin-bottom: 96px;
 }
 
 .mb-xl {
-  margin-bottom: 19.2rem;
+  margin-bottom: 192px;
 }
 
 .align-right {
@@ -68,21 +69,21 @@ a {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr;
-  grid-row-gap: 0;
-  grid-column-gap: 10px;
+  row-gap: 0;
+  column-gap: 10px;
 }
 
 @media screen and (min-width: 768px) {
   .grid {
     grid-template-columns: repeat(6, 1fr);
-    grid-column-gap: 15px;
+    column-gap: 15px;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .grid {
     grid-template-columns: repeat(8, 1fr);
-    grid-column-gap: 20px;
+    column-gap: 20px;
   }
 }
 
@@ -125,14 +126,9 @@ nav {
 
 .footer__wrapper {
   grid-column: 1 / -1;
-  background: rgba(238, 238, 238, 0.3);
   border: 1px solid #ccc;
   border-radius: 20px 20px 0 0;
-  padding: 60px 10px 40px;
   margin: 0 -10px;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: 20px;
 }
 
 .footer__label {

@@ -114,3 +114,16 @@
     grid-column: 2;
   }
 }
+
+/* 
+ * FOOTER
+ * /////////////////////////////////////////////////
+ */
+
+.home-footer {
+  background: rgba(238, 238, 238, 0.3);
+  padding: 60px 10px 40px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 20px;
+}
