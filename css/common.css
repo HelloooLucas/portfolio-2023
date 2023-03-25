@@ -67,20 +67,22 @@ a {
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
+  grid-template-rows: 1fr;
+  grid-row-gap: 0;
+  grid-column-gap: 10px;
 }
 
 @media screen and (min-width: 768px) {
   .grid {
     grid-template-columns: repeat(6, 1fr);
-    grid-gap: 15px;
+    grid-column-gap: 15px;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .grid {
     grid-template-columns: repeat(8, 1fr);
-    grid-gap: 20px;
+    grid-column-gap: 20px;
   }
 }
 
