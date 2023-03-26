@@ -16,11 +16,12 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/index.css" />
+
     <title>Lucas Montenoise</title>
   </head>
 
-  <body>
-    <nav class="grid">
+  <body class="grid">
+    <nav>
       <a class="name" href="/">
         <h1>
           Lucas <br />
@@ -41,76 +42,67 @@
       </p>
     </section>
 
-    <section class="projects">
-      <div class="project grid" data-project="sopra-banking">
-        <span class="project__index">1</span>
-        <div class="project__block">
-          <a href="/sopra-banking">
-            <img
-              src="images/iceland.jpg"
-              class="project__block__image"
-              alt="icelandic landscape"
-            />
-            <h2 class="project__block__name">sopra banking</h2>
-          </a>
-        </div>
-      </div>
+    <article class="project sopra-banking">
+      <span class="project__index">1</span>
+      <a class="project__block" href="/sopra-banking">
+        <img
+          src="images/iceland.jpg"
+          class="project__block__image"
+          alt="icelandic landscape"
+        />
+        <h2 class="project__block__name">sopra banking</h2>
+      </a>
+    </article>
 
-      <div class="project grid" data-project="last-quest">
-        <span class="project__index">2</span>
-        <div class="project__block">
-          <a href="/last-quest">
-            <img
-              src="images/iceland.jpg"
-              class="project__block__image"
-              alt="icelandic landscape"
-            />
-            <h2 class="project__block__name">last quest</h2>
-          </a>
-        </div>
-      </div>
+    <article class="project last-quest">
+      <span class="project__index">2</span>
+      <a class="project__block" href="/last-quest">
+        <img
+          src="images/iceland.jpg"
+          class="project__block__image"
+          alt="icelandic landscape"
+        />
+        <h2 class="project__block__name">last quest</h2>
+      </a>
+    </article>
 
-      <div class="project grid" data-project="solers-io">
-        <span class="project__index">3</span>
-        <div class="project__block">
-          <a href="/solers-io">
-            <img
-              src="images/iceland.jpg"
-              class="project__block__image"
-              alt="icelandic landscape"
-            />
-            <h2 class="project__block__name">solers io</h2>
-          </a>
-        </div>
-      </div>
+    <!-- Make all projects change layout at 768px instead of 1024px -->
+    <!-- Event if it's all full width + indexes and no rollover -->
+    <article class="project solers-io">
+      <span class="project__index">3</span>
+      <a class="project__block" href="/solers-io">
+        <img
+          src="images/iceland.jpg"
+          class="project__block__image"
+          alt="icelandic landscape"
+        />
+        <h2 class="project__block__name">solers io</h2>
+      </a>
+    </article>
 
-      <div class="project grid" data-project="atelier-tote-bag">
-        <span class="project__index">4</span>
-        <div class="project__block">
-          <a href="/atelier-tote-bag">
-            <img
-              src="images/iceland.jpg"
-              class="project__block__image"
-              alt="icelandic landscape"
-            />
-            <h2 class="project__block__name">atelier tote bag</h2>
-          </a>
-        </div>
-      </div>
-    </section>
+    <article class="project atelier-tote-bag">
+      <span class="project__index">4</span>
+      <a class="project__block" href="/atelier-tote-bag">
+        <img
+          src="images/iceland.jpg"
+          class="project__block__image"
+          alt="icelandic landscape"
+        />
+        <h2 class="project__block__name">atelier tote bag</h2>
+      </a>
+    </article>
 
-    <footer class="grid">
-      <div class="footer__wrapper default-footer">
-        <div class="info">
-          <span class="footer__label">email</span>
-          <p class="footer__info">montenoise.lucas@gmail.com</p>
+    <!-- Make footer change layout at 768px instead of 1024px -->
+    <footer class="default-footer">
+      <div class="info">
+        <span class="footer__label">email</span>
+        <p class="footer__info">montenoise.lucas@gmail.com</p>
 
-          <span class="footer__label">instagram</span>
-          <p class="footer__info">@hellooolucas</p>
+        <span class="footer__label">instagram</span>
+        <p class="footer__info">@hellooolucas</p>
 
-          <span class="footer__label">design & dev</span>
-          <p class="footer__info">lucas montenoise</p>
-        </div>
+        <span class="footer__label">design & dev</span>
+        <p class="footer__info">lucas montenoise</p>
       </div>
     </footer>
 

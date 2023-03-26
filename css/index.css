@@ -9,10 +9,12 @@
  */
 
 .top-section {
-  padding: var(--body-margins) 0;
+  padding: var(--column-gap) 0;
   height: 100vh;
   align-items: end;
   font-size: clamp(16px, 0.751rem + 1.17vw, 24px);
+  margin-bottom: 20vh;
+  grid-column: 1 / -1;
 }
 
 .top-section__position {
@@ -58,12 +60,12 @@
  * /////////////////////////////////////////////////
  */
 
-.projects {
-  padding-top: 20vh;
-}
-
 .project {
   margin-bottom: 25vh;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: var(--column-gap);
 }
 
 .project:last-of-type {
@@ -76,6 +78,7 @@
 }
 
 .project__block {
+  display: block;
   grid-column: 1 / -1;
 }
 
@@ -95,65 +98,53 @@
     display: block;
   }
 
+  .project__block {
+    grid-column: 2 / span 4;
+  }
+
   .project__block__name {
     display: none;
   }
 
-  .project[data-project="sopra-banking"] > .project__block {
-    grid-column: 4 / span 4;
-  }
-  .project[data-project="sopra-banking"] > .project__index {
-    grid-column: 3;
+  .sopra-banking {
+    grid-column: 3 / span 5;
   }
 
-  .project[data-project="last-quest"] > .project__block {
-    grid-column: 2 / span 4;
-  }
-  .project[data-project="last-quest"] > .project__index {
-    grid-column: 1;
+  .last-quest {
+    grid-column: 1 / span 5;
   }
 
-  .project[data-project="solers-io"] > .project__block {
-    grid-column: 5 / span 4;
-  }
-  .project[data-project="solers-io"] > .project__index {
-    grid-column: 4;
+  .solers-io {
+    grid-column: 4 / span 5;
   }
 
-  .project[data-project="atelier-tote-bag"] > .project__block {
-    grid-column: 3 / span 4;
-  }
-  .project[data-project="atelier-tote-bag"] > .project__index {
-    grid-column: 2;
+  .atelier-tote-bag {
+    grid-column: 2 / span 5;
   }
 }
 
 @media screen and (min-width: 1366px) {
-  .project[data-project="sopra-banking"] > .project__block {
-    grid-column: 5 / span 5;
-  }
-  .project[data-project="sopra-banking"] > .project__index {
-    grid-column: 4;
+  .project {
+    grid-template-columns: repeat(6, 1fr);
   }
 
-  .project[data-project="last-quest"] > .project__block {
-    grid-column: 3 / span 5;
-  }
-  .project[data-project="last-quest"] > .project__index {
-    grid-column: 2;
+  .project__block {
+    grid-column: 2 / span 5;
   }
 
-  .project[data-project="solers-io"] > .project__block {
-    grid-column: 6 / span 5;
-  }
-  .project[data-project="solers-io"] > .project__index {
-    grid-column: 5;
+  .sopra-banking {
+    grid-column: 4 / span 6;
   }
 
-  .project[data-project="atelier-tote-bag"] > .project__block {
-    grid-column: 4 / span 5;
+  .last-quest {
+    grid-column: 2 / span 6;
   }
-  .project[data-project="atelier-tote-bag"] > .project__index {
-    grid-column: 3;
+
+  .solers-io {
+    grid-column: 5 / span 6;
+  }
+
+  .atelier-tote-bag {
+    grid-column: 3 / span 6;
   }
 }

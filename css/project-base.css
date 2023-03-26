@@ -14,7 +14,7 @@ p {
  */
 
 .header {
-  margin-top: calc(var(--body-margins) * 2 + var(--nav-height));
+  margin-top: calc(var(--column-gap) * 2 + var(--nav-height));
   margin-bottom: 128px;
 }
 
