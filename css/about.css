@@ -8,6 +8,11 @@ body {
   border-right: 1px solid rgba(85, 85, 85, 0.6);
 }
 
+p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
 /* 
  * CONTENT
  * /////////////////////////////////////////////////
@@ -15,40 +20,111 @@ body {
 
 .header__image {
   width: 100%;
-  height: 50vh;
-  height: 50svh;
+  height: 65vh;
   object-fit: cover;
-  margin: 8.3rem 0 6.4rem;
+  margin-top: calc(var(--body-margins) * 2 + var(--nav-height));
+  grid-column: 1 / -1;
 }
 
 .title {
-  font-size: 4.8rem;
+  font-size: clamp(48px, 2.627rem + 1.754vw, 60px);
+  margin-top: 0.7em;
+}
+
+.title > span,
+.text-1 > span,
+.text-2 > span {
+  grid-column: 1 / -1;
 }
 
 .awards__title {
-  font-size: 4.2rem;
+  text-align: right;
+  font-size: 40px;
+  grid-column: 1 / -1;
 }
 
 .awards__line {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  padding-bottom: 1.6rem;
+  padding-bottom: 16px;
   border-bottom: 1px solid;
-  margin-bottom: 3.2rem;
+  margin-bottom: 32px;
+  grid-column: 1 / -1;
+}
+
+.awards__line:last-of-type {
+  border-bottom: none;
 }
 
 .awards__line__topic {
-  max-width: 50%;
+  max-width: 75%;
 }
 
-/* 
- * FOOTER
- * /////////////////////////////////////////////////
- */
+@media screen and (min-width: 768px) {
+  .header__image {
+    grid-column: 4 / span 3;
+    height: auto;
+    aspect-ratio: 3 / 4;
+  }
 
-footer {
-  background: rgba(102, 102, 102, 0.5);
-  border: 1px solid #aaa;
-  margin-top: 25.6rem;
+  .title > span {
+    grid-column: 2 / span 5;
+  }
+
+  .text-1 > span {
+    grid-column: 3 / span 3;
+  }
+
+  .text-2 > span {
+    grid-column: 4 / span 3;
+  }
+
+  .awards__line {
+    grid-column: 3 / -1;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header__image {
+    grid-column: 5 / span 3;
+  }
+
+  .title > span {
+    grid-column: 2 / span 6;
+  }
+
+  .text-1 > span {
+    grid-column: 4 / span 3;
+  }
+
+  .text-2 > span {
+    grid-column: 5 / span 3;
+  }
+
+  .awards__title {
+    grid-column: 2 / -2;
+  }
+
+  .awards__line {
+    grid-column: 4 / -2;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .header__image {
+    grid-column: 7 / span 3;
+  }
+
+  .title > span {
+    grid-column: 2 / span 5;
+    text-align: left;
+  }
+
+  .text-2 > span {
+    grid-column: 6 / span 3;
+  }
+
+  .awards__line {
+    grid-column: 6 / -2;
+  }
 }

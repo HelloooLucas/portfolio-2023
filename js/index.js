@@ -22,6 +22,6 @@ function calculate({
 }
 
 // calculate({
-//   minFontSize: 24,
-//   maxFontSize: 48,
+//   minFontSize: 48,
+//   maxFontSize: 60,
 // });

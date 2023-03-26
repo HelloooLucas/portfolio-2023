@@ -10,8 +10,7 @@
 
 .top-section {
   padding: var(--body-margins) 0;
-  height: 100vh; /* In case browser doesn't support svh, falls back to vh */
-  height: 100svh;
+  height: 100vh;
   align-items: end;
   font-size: clamp(16px, 0.751rem + 1.17vw, 24px);
 }
@@ -44,6 +43,16 @@
   }
 }
 
+@media screen and (min-width: 1366px) {
+  .top-section__position {
+    grid-column: 7 / span 2;
+  }
+
+  .top-section__portfolio {
+    grid-column: 8 / span 2;
+  }
+}
+
 /* 
  * PROJECTS SECTION
  * /////////////////////////////////////////////////
@@ -55,6 +64,10 @@
 
 .project {
   margin-bottom: 25vh;
+}
+
+.project:last-of-type {
+  margin-bottom: 0;
 }
 
 .project__index {
@@ -115,15 +128,32 @@
   }
 }
 
-/* 
- * FOOTER
- * /////////////////////////////////////////////////
- */
+@media screen and (min-width: 1366px) {
+  .project[data-project="sopra-banking"] > .project__block {
+    grid-column: 5 / span 5;
+  }
+  .project[data-project="sopra-banking"] > .project__index {
+    grid-column: 4;
+  }
 
-.home-footer {
-  background: rgba(238, 238, 238, 0.3);
-  padding: 60px 10px 40px;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: 20px;
+  .project[data-project="last-quest"] > .project__block {
+    grid-column: 3 / span 5;
+  }
+  .project[data-project="last-quest"] > .project__index {
+    grid-column: 2;
+  }
+
+  .project[data-project="solers-io"] > .project__block {
+    grid-column: 6 / span 5;
+  }
+  .project[data-project="solers-io"] > .project__index {
+    grid-column: 5;
+  }
+
+  .project[data-project="atelier-tote-bag"] > .project__block {
+    grid-column: 4 / span 5;
+  }
+  .project[data-project="atelier-tote-bag"] > .project__index {
+    grid-column: 3;
+  }
 }
