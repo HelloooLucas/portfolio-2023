@@ -43,10 +43,6 @@ a {
   color: inherit;
 }
 
-.mb-sm {
-  margin-bottom: 64px;
-}
-
 .mb-md {
   margin-bottom: 96px;
 }
@@ -117,7 +113,7 @@ nav {
 footer {
   border: 1px solid #ccc;
   border-radius: 20px 20px 0 0;
-  margin: 25vh -10px 0;
+  margin: 384px -10px 0;
   grid-column: 1 / -1;
 }
 
@@ -146,14 +142,14 @@ footer {
 
 @media screen and (min-width: 768px) {
   footer {
-    margin: 25vh -15px 0;
+    margin: 384px -15px 0;
   }
 }
 
 @media screen and (min-width: 1024px) {
   footer {
     grid-column: 2 / -2;
-    margin: 25vh 0 10vh;
+    margin: 384px 0 10vh;
     border-radius: 20px;
     align-items: end;
   }
