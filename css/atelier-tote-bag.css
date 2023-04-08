@@ -1,0 +1,27 @@
+.header__image {
+  padding: 0;
+  object-fit: cover;
+  border: 1px solid #ccc;
+}
+
+.title {
+  font-size: clamp(40px, -0.296rem + 13.158vw, 130px);
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    grid-column: 2 / span 5;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .title {
+    grid-column: 2 / span 6;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .title {
+    grid-column: 2 / span 7;
+  }
+}

@@ -85,7 +85,20 @@
 .project__block__image {
   width: 100%;
   aspect-ratio: 5 / 3;
+  object-fit: contain;
+  background: black;
+  padding: 0 20px;
+}
+
+.solers-cover {
+  background: white;
+  border: 1px solid #ccc;
+}
+
+.atelier-cover {
+  padding: 0;
   object-fit: cover;
+  border: 1px solid #ccc;
 }
 
 .project__block__name {

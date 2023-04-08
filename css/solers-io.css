@@ -1,0 +1,16 @@
+.header__image {
+  background: white;
+  border: 1px solid #ccc;
+}
+
+@media screen and (min-width: 768px) {
+  .text-4 {
+    grid-column: 3 / span 3;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .text-4 {
+    grid-column: 5 / span 3;
+  }
+}
