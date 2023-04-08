@@ -57,7 +57,7 @@ a {
  */
 
 .background-columns {
-  z-index: -1;
+  z-index: -100;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -113,7 +113,8 @@ nav {
 footer {
   border: 1px solid #ccc;
   border-radius: 20px 20px 0 0;
-  margin: 384px -10px 0;
+  margin: 256px -10px 0;
+  overflow: hidden;
   grid-column: 1 / -1;
 }
 
