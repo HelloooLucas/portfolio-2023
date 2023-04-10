@@ -1,9 +1,16 @@
+interface CalculateParams {
+  minWidth?: number;
+  maxWidth?: number;
+  minFontSize: number;
+  maxFontSize: number;
+}
+
 function calculate({
   minWidth = 340,
   maxWidth = 1024,
   minFontSize,
   maxFontSize,
-}) {
+}: CalculateParams) {
   const minWidthInRem = minWidth / 16;
   const maxWidthInRem = maxWidth / 16;
 
@@ -21,7 +28,10 @@ function calculate({
   console.log({ preferredValue });
 }
 
-// calculate({
-//   minFontSize: 40,
-//   maxFontSize: 130,
-// });
+calculate({
+  minFontSize: 40,
+  maxFontSize: 130,
+});
+
+// Remove when I actually import something in here
+export {};
