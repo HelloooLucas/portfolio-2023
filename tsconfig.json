@@ -15,5 +15,5 @@
     "noImplicitReturns": true,
     "skipLibCheck": true
   },
-  "include": ["app"]
+  "include": ["app", ".eslintrc.cjs"]
 }
