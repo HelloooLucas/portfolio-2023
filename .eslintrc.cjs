@@ -20,5 +20,7 @@ module.exports = {
     project: "./tsconfig.json",
   },
   plugins: ["@typescript-eslint", "prettier"],
-  rules: {},
+  rules: {
+    "@typescript-eslint/lines-between-class-members": 0,
+  },
 };

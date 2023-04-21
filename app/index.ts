@@ -1,37 +1,41 @@
-interface CalculateParams {
-  minWidth?: number;
-  maxWidth?: number;
-  minFontSize: number;
-  maxFontSize: number;
+import Home from "./pages/home";
+import About from "./pages/about";
+import Project from "./pages/project";
+import { Template } from "./classes/page";
+
+class App {
+  // Adding the ! tells TS that this variable will get a value at runtime, so it doesn't force me to initialize it right away
+  pages!: {
+    home: Home;
+    about: About;
+    project: Project;
+  };
+  page!: Home | About | Project;
+  content!: HTMLDivElement;
+  template!: Template;
+
+  init() {
+    this.createContent();
+    this.createPages();
+  }
+
+  createContent() {
+    this.content = document.querySelector(".content") as HTMLDivElement;
+    this.template = this.content.dataset.template as Template;
+  }
+
+  createPages() {
+    this.pages = {
+      home: new Home(),
+      about: new About(),
+      project: new Project(),
+    };
+
+    this.page = this.pages[this.template];
+
+    this.page.create();
+  }
 }
 
-function calculate({
-  minWidth = 340,
-  maxWidth = 1024,
-  minFontSize,
-  maxFontSize,
-}: CalculateParams) {
-  const minWidthInRem = minWidth / 16;
-  const maxWidthInRem = maxWidth / 16;
-
-  const minFontSizeInRem = minFontSize / 16;
-  const maxFontSizeInRem = maxFontSize / 16;
-
-  const slope =
-    (maxFontSizeInRem - minFontSizeInRem) / (maxWidthInRem - minWidthInRem);
-  const yAxisIntersection = -minWidthInRem * slope + minFontSizeInRem;
-
-  const preferredValue = `${yAxisIntersection.toFixed(3)}rem + ${(
-    slope * 100
-  ).toFixed(3)}vw`;
-
-  console.log({ preferredValue });
-}
-
-calculate({
-  minFontSize: 40,
-  maxFontSize: 130,
-});
-
-// Remove when I actually import something in here
-export {};
+const app = new App();
+app.init();
