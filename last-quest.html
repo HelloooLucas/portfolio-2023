@@ -21,135 +21,143 @@
     <title>Lucas Montenoise | Last Quest</title>
   </head>
 
-  <body class="grid">
-    <nav>
-      <a class="name" href="/">
-        <h1>
-          Lucas <br />
-          Montenoise
-        </h1>
-      </a>
-      <a class="about" href="/about.html">About</a>
-    </nav>
+  <body>
+    <div class="content" data-template="project">
+      <div class="project-wrapper grid">
+        <nav>
+          <a class="name" href="/">
+            <h1>
+              Lucas <br />
+              Montenoise
+            </h1>
+          </a>
+          <a class="about" href="/about.html">About</a>
+        </nav>
 
-    <section class="header">
-      <img
-        src="images/last-quest/cover.png"
-        class="header__image"
-        alt="SBS cover"
-      />
+        <section class="header">
+          <img
+            src="images/last-quest/cover.png"
+            class="header__image"
+            alt="SBS cover"
+          />
 
-      <div class="header__info grid">
-        <div class="header__info__line grid client-cell">
-          <span class="header__info__line_label">Client</span>
-          <p class="header__info__line_client">Prieur & Malgras</p>
-        </div>
+          <div class="header__info grid">
+            <div class="header__info__line grid client-cell">
+              <span class="header__info__line_label">Client</span>
+              <p class="header__info__line_client">Prieur & Malgras</p>
+            </div>
 
-        <div class="header__info__line grid tech-cell">
-          <span class="header__info__line_label">Tech</span>
-          <div class="header__info__line_tech">
-            <img src="images/logos/html.png" alt="HTML5 icon" />
-            <img src="images/logos/css.png" alt="CSS3 icon" />
-            <img src="images/logos/js.png" alt="JS icon" />
+            <div class="header__info__line grid tech-cell">
+              <span class="header__info__line_label">Tech</span>
+              <div class="header__info__line_tech">
+                <img src="images/logos/html.png" alt="HTML5 icon" />
+                <img src="images/logos/css.png" alt="CSS3 icon" />
+                <img src="images/logos/js.png" alt="JS icon" />
+              </div>
+            </div>
+
+            <div class="header__info__line grid date-cell">
+              <span class="header__info__line_label">Date</span>
+              <p class="header__info__line_date">2018</p>
+            </div>
+
+            <div class="header__info__line grid link-cell">
+              <span class="header__info__line_label">Link</span>
+              <p class="header__info__line_link">
+                <a
+                  href="http://wp.prieur-malgras.com/lastquest/FR/index.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="images/external-link.svg"
+                    alt="external link icon"
+                  />
+                </a>
+              </p>
+            </div>
           </div>
-        </div>
+        </section>
 
-        <div class="header__info__line grid date-cell">
-          <span class="header__info__line_label">Date</span>
-          <p class="header__info__line_date">2018</p>
-        </div>
+        <h1 class="title">Last Quest</h1>
+        <p class="text-1">
+          Last Quest is a six episodes long comics project initiated by Camille
+          Prieur and Vincent Malgras, two French writers and comics artists. It
+          was my first freelance project, started even before i finished my
+          coding bootcamp
+        </p>
+        <p class="text-2">
+          The website is fully responsive and consists of a landing page
+          redirecting to six pages, each hosting one episode of the series
+        </p>
 
-        <div class="header__info__line grid link-cell">
-          <span class="header__info__line_label">Link</span>
-          <p class="header__info__line_link">
-            <a
-              href="http://wp.prieur-malgras.com/lastquest/FR/index.html"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src="images/external-link.svg" alt="external link icon" />
-            </a>
-          </p>
+        <!-- TODO: VIDEO DOESN'T LOAD ON SOME MOBILES, PROVIDE FALLBACK -->
+        <video
+          class="media-1"
+          src="images/last-quest/homepage.mov"
+          autoplay
+          loop
+          mute
+        ></video>
+        <img
+          class="media-2"
+          src="images/last-quest/city.gif"
+          alt="city animations gif"
+        />
+        <img
+          class="media-3"
+          src="images/last-quest/baddie.gif"
+          alt="bad guy animations gif"
+        />
+
+        <p class="text-3">
+          Each episode is enriched with animated gif images, sound effects and
+          the possibility to set the page on full screen
+        </p>
+
+        <h2 class="middle-title">
+          Parallax and gif timeline control on scroll
+        </h2>
+        <video
+          class="media-4"
+          src="images/last-quest/frog-parallax.mov"
+          autoplay
+          loop
+          mute
+        ></video>
+        <video
+          class="media-5"
+          src="images/last-quest/city-clouds-animation.mov"
+          autoplay
+          loop
+          mute
+        ></video>
+        <p class="text-4">
+          The scroll-based animations are achieved using the greensock animation
+          platform, a very powerful and efficient tool
+        </p>
+
+        <footer>
+          <a href="/solers-io.html" class="next-project">
+            <span class="next-project__label">Next Project</span>
+            <p class="next-project__title">Solers.io</p>
+          </a>
+        </footer>
+
+        <div class="background-columns grid">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
       </div>
-    </section>
-
-    <h1 class="title">Last Quest</h1>
-    <p class="text-1">
-      Last Quest is a six episodes long comics project initiated by Camille
-      Prieur and Vincent Malgras, two French writers and comics artists. It was
-      my first freelance project, started even before i finished my coding
-      bootcamp
-    </p>
-    <p class="text-2">
-      The website is fully responsive and consists of a landing page redirecting
-      to six pages, each hosting one episode of the series
-    </p>
-
-    <!-- Provide fallbacks for video, if it doesn't load? -->
-    <video
-      class="media-1"
-      src="images/last-quest/homepage.mov"
-      autoplay
-      loop
-      mute
-    ></video>
-    <img
-      class="media-2"
-      src="images/last-quest/city.gif"
-      alt="city animations gif"
-    />
-    <img
-      class="media-3"
-      src="images/last-quest/baddie.gif"
-      alt="bad guy animations gif"
-    />
-
-    <p class="text-3">
-      Each episode is enriched with animated gif images, sound effects and the
-      possibility to set the page on full screen
-    </p>
-
-    <h2 class="middle-title">Parallax and gif timeline control on scroll</h2>
-    <video
-      class="media-4"
-      src="images/last-quest/frog-parallax.mov"
-      autoplay
-      loop
-      mute
-    ></video>
-    <video
-      class="media-5"
-      src="images/last-quest/city-clouds-animation.mov"
-      autoplay
-      loop
-      mute
-    ></video>
-    <p class="text-4">
-      The scroll-based animations are achieved using the greensock animation
-      platform, a very powerful and efficient tool
-    </p>
-
-    <footer>
-      <a href="/solers-io.html" class="next-project">
-        <span class="next-project__label">Next Project</span>
-        <p class="next-project__title">Solers.io</p>
-      </a>
-    </footer>
-
-    <div class="background-columns grid">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
     </div>
-
-    <script src="js/index.js" defer></script>
+    <script src="app/index.ts" type="module"></script>
   </body>
 </html>

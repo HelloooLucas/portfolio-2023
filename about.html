@@ -11,85 +11,93 @@
     <title>Lucas Montenoise | About</title>
   </head>
 
-  <body class="grid">
-    <nav>
-      <a class="name" href="/">
-        <h1>
-          Lucas <br />
-          Montenoise
-        </h1>
-      </a>
-      <a class="about" href="/about.html">about</a>
-    </nav>
+  <body>
+    <div class="content" data-template="about">
+      <div class="about-wrapper grid">
+        <nav>
+          <a class="name" href="/">
+            <h1>
+              Lucas <br />
+              Montenoise
+            </h1>
+          </a>
+          <a class="about" href="/about.html">about</a>
+        </nav>
 
-    <img src="images/about/me.jpg" class="header__image" alt="My portrait" />
+        <img
+          src="images/about/me.jpg"
+          class="header__image"
+          alt="My portrait"
+        />
 
-    <h1 class="title">frontend developer based in paris</h1>
+        <h1 class="title">frontend developer based in paris</h1>
 
-    <p class="text-1">
-      I’m a former blacksmith, former advertising account manager turned
-      developer. I’m curious about virtually anything, love trying new things
-      and hearing about new ideas.<br />
-      I’m an avid climber, outdoor enthusiast and a budding photographer.
-    </p>
+        <p class="text-1">
+          I’m a former blacksmith, former advertising account manager turned
+          developer. I’m curious about virtually anything, love trying new
+          things and hearing about new ideas.<br />
+          I’m an avid climber, outdoor enthusiast and a budding photographer.
+        </p>
 
-    <p class="text-2">
-      I love for clean, beautiful interfaces and subtle interaction design. I
-      have 4+ years of experience as a frontend developer, and can also take
-      care of the backend on smaller projects.<br />
-      Currently working at swapcard, i’m available for occasional freelance work
-      so don’t hesitate to drop me a line :)
-    </p>
+        <p class="text-2">
+          I love for clean, beautiful interfaces and subtle interaction design.
+          I have 4+ years of experience as a frontend developer, and can also
+          take care of the backend on smaller projects.<br />
+          Currently working at swapcard, i’m available for occasional freelance
+          work so don’t hesitate to drop me a line :)
+        </p>
 
-    <div class="awards">
-      <h2 class="awards__title">
-        awards <br />
-        & recognitions
-      </h2>
+        <div class="awards">
+          <h2 class="awards__title">
+            awards <br />
+            & recognitions
+          </h2>
 
-      <div class="awards__line">
-        <p class="awards__line__topic">decent quiche aux poireaux award</p>
-        <p>arthur</p>
-      </div>
-      <div class="awards__line">
-        <p class="awards__line__topic">real cutiepie medal</p>
-        <p>valentine</p>
-      </div>
-      <div class="awards__line">
-        <p class="awards__line__topic">good kid certificate</p>
-        <p>mom</p>
-      </div>
-      <div class="awards__line">
-        <p class="awards__line__topic">hopefully more to come! :)</p>
+          <div class="awards__line">
+            <p class="awards__line__topic">decent quiche aux poireaux award</p>
+            <p>arthur</p>
+          </div>
+          <div class="awards__line">
+            <p class="awards__line__topic">real cutiepie medal</p>
+            <p>valentine</p>
+          </div>
+          <div class="awards__line">
+            <p class="awards__line__topic">good kid certificate</p>
+            <p>mom</p>
+          </div>
+          <div class="awards__line">
+            <p class="awards__line__topic">hopefully more to come! :)</p>
+          </div>
+        </div>
+
+        <footer class="default-footer">
+          <div class="info">
+            <span class="footer__label">email</span>
+            <p class="footer__info">montenoise.lucas@gmail.com</p>
+
+            <span class="footer__label">instagram</span>
+            <p class="footer__info">@hellooolucas</p>
+
+            <span class="footer__label">design & dev</span>
+            <p class="footer__info">lucas montenoise</p>
+          </div>
+        </footer>
+
+        <div class="background-columns grid">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
     </div>
 
-    <footer class="default-footer">
-      <div class="info">
-        <span class="footer__label">email</span>
-        <p class="footer__info">montenoise.lucas@gmail.com</p>
-
-        <span class="footer__label">instagram</span>
-        <p class="footer__info">@hellooolucas</p>
-
-        <span class="footer__label">design & dev</span>
-        <p class="footer__info">lucas montenoise</p>
-      </div>
-    </footer>
-
-    <div class="background-columns grid">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-
-    <script src="js/index.js"></script>
+    <script src="app/index.ts" type="module"></script>
   </body>
 </html>
