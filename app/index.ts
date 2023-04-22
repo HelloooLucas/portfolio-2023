@@ -17,6 +17,7 @@ class App {
   init() {
     this.createContent();
     this.createPages();
+    this.addLinkListeners();
   }
 
   createContent() {
@@ -34,6 +35,32 @@ class App {
     this.page = this.pages[this.template];
 
     this.page.create();
+    this.page.show();
+  }
+
+  async handlePageChange(url: string) {
+    try {
+      const request = await fetch(url);
+      const html = await request.text();
+      const div = document.createElement("div");
+      div.innerHTML = html;
+      const divContent = div.querySelector(".content") as HTMLDivElement;
+      this.content.innerHTML = divContent.innerHTML;
+    } catch (error) {
+      console.log("Fetching page in link listener failed: ", error);
+    }
+  }
+
+  addLinkListeners() {
+    const links = document.querySelectorAll("a");
+
+    links.forEach(link => {
+      link.onclick = event => {
+        event.preventDefault();
+
+        this.handlePageChange(link.href);
+      };
+    });
   }
 }
 

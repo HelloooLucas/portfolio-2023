@@ -22,5 +22,8 @@ module.exports = {
   plugins: ["@typescript-eslint", "prettier"],
   rules: {
     "@typescript-eslint/lines-between-class-members": 0,
+    "no-param-reassign": 0,
+    "arrow-parens": ["error", "as-needed"],
+    "@typescript-eslint/no-floating-promises": 0,
   },
 };

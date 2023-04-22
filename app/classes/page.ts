@@ -1,3 +1,5 @@
+import GSAP from "gsap";
+
 /*
  * INFO
  * Page takes care of querying all elements that different pages will be needing and storing them into memory
@@ -52,5 +54,19 @@ export default class Page {
     console.log("element: ", this.element);
     console.log("elements: ", this.elements);
     console.groupEnd();
+  }
+
+  show() {
+    GSAP.from(this.element, {
+      autoAlpha: 0,
+      duration: 1,
+    });
+  }
+
+  hide() {
+    GSAP.to(this.element, {
+      autoAlpha: 0,
+      duration: 1,
+    });
   }
 }

@@ -28,7 +28,7 @@ export default class Home extends Page {
     super.create();
 
     if (this.elements?.topSectionTexts instanceof NodeList) {
-      this.elements.topSectionTexts.forEach((el) =>
+      this.elements.topSectionTexts.forEach(el =>
         el.addEventListener("click", () => {
           console.log("You clicked me!");
         })
