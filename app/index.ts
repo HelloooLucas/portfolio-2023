@@ -17,7 +17,7 @@ class App {
   init() {
     this.createContent();
     this.createPages();
-    this.addLinkListeners();
+    // this.addLinkListeners();
   }
 
   createContent() {
@@ -35,7 +35,7 @@ class App {
     this.page = this.pages[this.template];
 
     this.page.create();
-    this.page.show();
+    // this.page.show();
   }
 
   async handlePageChange(url: string) {

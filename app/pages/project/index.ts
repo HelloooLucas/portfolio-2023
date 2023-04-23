@@ -12,15 +12,18 @@ export default class Project extends Page {
   constructor() {
     super({
       id: "project",
-      selector: ".project-wrapper",
+      selector: ".project",
       selectorChildren: {
         navigation: "nav",
-        headerImage: ".header__image",
-        headerInfo: ".header__info",
-        title: ".title",
-        texts: ".text-1, .text-2, .text-3, .text-4",
-        media: ".media-1, .media-2, .media-3, .media-4, .media-5, .media-6",
-        middleTitle: ".middle-title",
+        headerImage: ".project__header__image",
+        headerInfo: ".project__header__info",
+        title: ".project__title",
+        texts:
+          ".project__text-1, .project__text-2, .project__text-3, .project__text-4",
+        media:
+          ".project__media-1, .project__media-2, .project__media-3, .project__media-4, .project__media-5, .project__media-6",
+        middleTitle: ".project__middle-title",
+        footer: "footer",
       },
     });
   }

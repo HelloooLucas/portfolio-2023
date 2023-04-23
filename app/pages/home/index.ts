@@ -13,12 +13,12 @@ export default class Home extends Page {
   constructor() {
     super({
       id: "home",
-      selector: ".home-wrapper",
+      selector: ".home",
       selectorChildren: {
         navigation: "nav",
-        topSectionTexts: ".top-section > p",
-        projectBlockImages: ".project__block__image",
-        projectBlockNames: ".project__block__name",
+        topSectionTexts: ".home__top-section > p",
+        projectBlockImages: ".home__project__block__image",
+        projectBlockNames: ".home__project__block__name",
         footer: "footer",
       },
     });

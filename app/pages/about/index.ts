@@ -12,14 +12,14 @@ export default class About extends Page {
   constructor() {
     super({
       id: "about",
-      selector: ".about-wrapper",
+      selector: ".about",
       selectorChildren: {
         navigation: "nav",
-        headerImage: ".header__image",
-        title: ".title",
-        texts: ".text-1, .text-2",
-        awardsTitle: ".awards__title",
-        awardsLines: ".awards__line",
+        headerImage: ".about__header__image",
+        title: ".about__title",
+        texts: ".about__text-1, .about__text-2",
+        awardsTitle: ".about__awards__title",
+        awardsLines: ".about__awards__line",
         footer: "footer",
       },
     });
