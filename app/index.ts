@@ -17,7 +17,7 @@ class App {
   init() {
     this.createContent();
     this.createPages();
-    // this.addLinkListeners();
+    this.addLinkListeners();
   }
 
   createContent() {
@@ -35,17 +35,44 @@ class App {
     this.page = this.pages[this.template];
 
     this.page.create();
-    // this.page.show();
+    this.page.show();
   }
 
   async handlePageChange(url: string) {
+    await this.page.hide();
+
     try {
-      const request = await fetch(url);
-      const html = await request.text();
-      const div = document.createElement("div");
-      div.innerHTML = html;
-      const divContent = div.querySelector(".content") as HTMLDivElement;
-      this.content.innerHTML = divContent.innerHTML;
+      const parser = new DOMParser();
+
+      const nextPage = await fetch(url);
+      const nextPageText = await nextPage.text();
+      const nextPageHtml = parser.parseFromString(nextPageText, "text/html");
+      const nextPageContentDiv = nextPageHtml.querySelector(
+        ".content"
+      ) as HTMLDivElement;
+
+      this.template = nextPageContentDiv.getAttribute(
+        "data-template"
+      ) as Template;
+
+      this.content.innerHTML = nextPageContentDiv.innerHTML;
+      this.content.setAttribute("data-template", this.template);
+
+      this.page = this.pages[this.template];
+
+      // TODO: try to refactor the background thing so you can remove this conditional block
+      const body = document.querySelector("body") as HTMLBodyElement;
+      if (this.template === "about") {
+        body.classList.add("about-body");
+      } else {
+        body.classList.remove("about-body");
+      }
+
+      this.page.create();
+      this.addLinkListeners();
+      window.scrollTo(0, 0);
+
+      this.page.show();
     } catch (error) {
       console.log("Fetching page in link listener failed: ", error);
     }
