@@ -12,10 +12,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="css/fonts.css" />
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/project-base.css" />
+    <link rel="stylesheet" href="css/index.scss" />
 
     <title>Lucas Montenoise | Sopra Banking</title>
   </head>
@@ -24,31 +21,33 @@
     <div class="content" data-template="project">
       <div class="project-wrapper grid">
         <nav>
-          <a class="name" href="/">
+          <a class="nav__name" href="/">
             <h1>
               Lucas <br />
               Montenoise
             </h1>
           </a>
-          <a class="about" href="/about.html">About</a>
+          <a class="nav__about-link" href="/about.html">About</a>
         </nav>
 
-        <section class="header">
+        <section class="project__header">
           <img
+            class="project__header__image"
             src="images/sbs-summit/cover.png"
-            class="header__image"
             alt="SBS logo"
           />
 
-          <div class="header__info grid">
-            <div class="header__info__line grid client-cell">
-              <span class="header__info__line_label">Client</span>
-              <p class="header__info__line_client">Sopra Baking Software</p>
+          <div class="project__header__info grid">
+            <div class="project__header__info__line grid client-cell">
+              <span class="project__header__info__line_label">Client</span>
+              <p class="project__header__info__line_client">
+                Sopra Baking Software
+              </p>
             </div>
 
-            <div class="header__info__line grid tech-cell">
-              <span class="header__info__line_label">Tech</span>
-              <div class="header__info__line_tech">
+            <div class="project__header__info__line grid tech-cell">
+              <span class="project__header__info__line_label">Tech</span>
+              <div class="project__header__info__line_tech">
                 <img src="images/logos/gatsby.svg" alt="GatsbyJs icon" />
                 <img
                   src="images/logos/styled-components.svg"
@@ -57,55 +56,55 @@
               </div>
             </div>
 
-            <div class="header__info__line grid date-cell">
-              <span class="header__info__line_label">Date</span>
-              <p class="header__info__line_date">2022</p>
+            <div class="project__header__info__line grid date-cell">
+              <span class="project__header__info__line_label">Date</span>
+              <p class="project__header__info__line_date">2022</p>
             </div>
           </div>
         </section>
 
-        <h1 class="title">SBS Summit</h1>
-        <p class="text-1">
+        <h1 class="project__title">SBS Summit</h1>
+        <p class="project__text-1">
           The sbs Summit is an event organized to tackle the strategic shift
           that the financial sector is experiencing. it gathers financial
           decision-makers for a week of various talks and workshops
         </p>
-        <p class="text-2">
+        <p class="project__text-2">
           The website was fully responsive and plugged to the swapcard api to
           retrieve data about talks, speakers and sponsors
         </p>
 
         <img
-          class="media-1"
+          class="project__media-1"
           src="images/sbs-summit/home-full-page.jpg"
           alt="home full page"
         />
         <img
-          class="media-2"
+          class="project__media-2"
           src="images/sbs-summit/module-1.jpg"
           alt="module 1"
         />
         <img
-          class="media-3"
+          class="project__media-3"
           src="images/sbs-summit/module-2.jpg"
           alt="module 2"
         />
 
-        <p class="text-3">
+        <p class="project__text-3">
           The homepage counted numerous tailor-made modules like galleries or
           carousels, with expandable cards. all of them were hand-made to suit
           best the client’s expectations
         </p>
 
-        <h2 class="middle-title">
+        <h2 class="project__middle-title">
           Custom-made schedule module + data from api
         </h2>
         <img
-          class="media-4"
+          class="project__media-4"
           src="images/sbs-summit/agenda-full-page.jpg"
           alt="agenda full page"
         />
-        <p class="text-4">
+        <p class="project__text-4">
           The agenda page hosted a schedule module, plugged the the swapcard api
           to retrieve data about talks and speakers. the schedule could be
           filtered by topic, and each talk was exportable to calendars and

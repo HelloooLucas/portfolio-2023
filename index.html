@@ -12,10 +12,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="css/fonts.css" />
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/index.scss" />
 
     <!-- Should I add preloading the other pages here? -->
 
@@ -24,75 +21,75 @@
 
   <body>
     <div class="content" data-template="home">
-      <div class="home-wrapper grid">
+      <div class="home grid">
         <nav>
-          <a class="name" href="/">
+          <a class="nav__name" href="/">
             <h1>
               Lucas <br />
               Montenoise
             </h1>
           </a>
-          <a class="about" href="/about.html">about</a>
+          <a class="nav__about-link" href="/about.html">about</a>
         </nav>
 
-        <section class="top-section grid">
-          <p class="top-section__position">
+        <section class="home__top-section grid">
+          <p class="home__top-section__position">
             frontend<br />
             dev
           </p>
-          <p class="top-section__portfolio">
+          <p class="home__top-section__portfolio">
             portfolio<br />
             2023
           </p>
         </section>
 
-        <article class="project sopra-banking">
-          <span class="project__index">1</span>
-          <a class="project__block" href="/sopra-banking.html">
+        <article class="home__project sopra-banking">
+          <span class="home__project__index">1</span>
+          <a class="home__project__block" href="/sopra-banking.html">
             <img
               src="images/sbs-summit/cover.png"
-              class="project__block__image"
+              class="home__project__block__image"
               alt="SBS logo"
             />
-            <h2 class="project__block__name">sopra banking</h2>
+            <h2 class="home__project__block__name">sopra banking</h2>
           </a>
         </article>
 
-        <article class="project last-quest">
-          <span class="project__index">2</span>
-          <a class="project__block" href="/last-quest.html">
+        <article class="home__project last-quest">
+          <span class="home__project__index">2</span>
+          <a class="home__project__block" href="/last-quest.html">
             <img
               src="images/last-quest/cover.png"
-              class="project__block__image"
+              class="home__project__block__image"
               alt="Last Quest logo"
             />
-            <h2 class="project__block__name">last quest</h2>
+            <h2 class="home__project__block__name">last quest</h2>
           </a>
         </article>
 
         <!-- Make all projects change layout at 768px instead of 1024px -->
         <!-- Even if it's all full width + indexes and no rollover -->
-        <article class="project solers-io">
-          <span class="project__index">3</span>
-          <a class="project__block" href="/solers-io.html">
+        <article class="home__project solers-io">
+          <span class="home__project__index">3</span>
+          <a class="home__project__block" href="/solers-io.html">
             <img
               src="images/solers-io/solers-logo.svg"
-              class="project__block__image solers-cover"
+              class="home__project__block__image solers-cover"
               alt="Solers.io logo"
             />
-            <h2 class="project__block__name">solers io</h2>
+            <h2 class="home__project__block__name">solers io</h2>
           </a>
         </article>
 
-        <article class="project atelier-tote-bag">
-          <span class="project__index">4</span>
-          <a class="project__block" href="/atelier-tote-bag.html">
+        <article class="home__project atelier-tote-bag">
+          <span class="home__project__index">4</span>
+          <a class="home__project__block" href="/atelier-tote-bag.html">
             <img
               src="images/atelier-tote-bag/cover.webp"
-              class="project__block__image atelier-cover"
+              class="home__project__block__image atelier-cover"
               alt="Atelier du tote bag logo"
             />
-            <h2 class="project__block__name">atelier tote bag</h2>
+            <h2 class="home__project__block__name">atelier tote bag</h2>
           </a>
         </article>
 

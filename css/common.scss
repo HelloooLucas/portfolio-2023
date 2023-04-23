@@ -43,6 +43,11 @@ a {
   color: inherit;
 }
 
+p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
 /* 
  * GRID
  * /////////////////////////////////////////////////
@@ -55,6 +60,11 @@ a {
   bottom: 0;
   left: var(--column-gap);
   right: var(--column-gap);
+}
+
+.background-columns > div {
+  border-left: 1px solid rgba(233, 233, 233, 0.8);
+  border-right: 1px solid rgba(233, 233, 233, 0.8);
 }
 
 .grid {
@@ -80,8 +90,8 @@ nav {
   justify-content: space-between;
 }
 
-.about {
-  text-align: right;
+.nav__about-link {
+  height: min-content;
 }
 
 @media screen and (min-width: 768px) {

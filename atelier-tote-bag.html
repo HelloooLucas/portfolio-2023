@@ -12,11 +12,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="css/fonts.css" />
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/project-base.css" />
-    <link rel="stylesheet" href="css/atelier-tote-bag.css" />
+    <link rel="stylesheet" href="css/index.scss" />
 
     <title>Lucas Montenoise | Atelier du tote bag</title>
   </head>
@@ -25,31 +21,33 @@
     <div class="content" data-template="project">
       <div class="project-wrapper grid">
         <nav>
-          <a class="name" href="/">
+          <a class="nav__name" href="/">
             <h1>
               Lucas <br />
               Montenoise
             </h1>
           </a>
-          <a class="about" href="/about.html">About</a>
+          <a class="nav__about-link" href="/about.html">About</a>
         </nav>
 
-        <section class="header">
+        <section class="project__header">
           <img
+            class="project__header__image atelier-tote-bag"
             src="images/atelier-tote-bag/cover.webp"
-            class="header__image"
             alt="SBS cover"
           />
 
-          <div class="header__info grid">
-            <div class="header__info__line grid client-cell">
-              <span class="header__info__line_label">Client</span>
-              <p class="header__info__line_client">Atelier du tote bag</p>
+          <div class="project__header__info grid">
+            <div class="project__header__info__line grid client-cell">
+              <span class="project__header__info__line_label">Client</span>
+              <p class="project__header__info__line_client">
+                Atelier du tote bag
+              </p>
             </div>
 
-            <div class="header__info__line grid tech-cell">
-              <span class="header__info__line_label">Tech</span>
-              <div class="header__info__line_tech">
+            <div class="project__header__info__line grid tech-cell">
+              <span class="project__header__info__line_label">Tech</span>
+              <div class="project__header__info__line_tech">
                 <img src="images/logos/gatsby.svg" alt="GatsbyJs icon" />
                 <img
                   src="images/logos/styled-components.svg"
@@ -58,14 +56,14 @@
               </div>
             </div>
 
-            <div class="header__info__line grid date-cell">
-              <span class="header__info__line_label">Date</span>
-              <p class="header__info__line_date">2021</p>
+            <div class="project__header__info__line grid date-cell">
+              <span class="project__header__info__line_label">Date</span>
+              <p class="project__header__info__line_date">2021</p>
             </div>
 
-            <div class="header__info__line grid link-cell">
-              <span class="header__info__line_label">Link</span>
-              <p class="header__info__line_link">
+            <div class="project__header__info__line grid link-cell">
+              <span class="project__header__info__line_label">Link</span>
+              <p class="project__header__info__line_link">
                 <a
                   href="https://latelierdutotebag.com/"
                   target="_blank"
@@ -81,33 +79,33 @@
           </div>
         </section>
 
-        <h1 class="title">Atelier du tote bag</h1>
-        <p class="text-1">
+        <h1 class="project__title atelier-tote-bag">Atelier du tote bag</h1>
+        <p class="project__text-1">
           L’atelier du tote bag is an e-commerce website specializing in
           printing logo and artworks on tote bags and other merch items.
         </p>
-        <p class="text-2">
+        <p class="project__text-2">
           The website is fully responsive and allows users to browse articles,
           upload their own graphic creations and make orders. the data comes
           from a strapi headless cms
         </p>
 
         <img
-          class="media-1"
+          class="project__media-1"
           src="images/atelier-tote-bag/full-page.png"
           alt="home full page"
         />
 
-        <h2 class="middle-title">
+        <h2 class="project__middle-title">
           browse, choose the details and make your order
         </h2>
         <img
-          class="media-4"
+          class="project__media-4"
           src="images/atelier-tote-bag/products-grid.png"
           alt="products grid interface"
         />
         <img
-          class="media-5"
+          class="project__media-5"
           src="images/atelier-tote-bag/product-details.png"
           alt="product details interface"
         />

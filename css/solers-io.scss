@@ -1,16 +1,16 @@
-.header__image {
+.project__header__image.solers-io {
   background: white;
   border: 1px solid #ccc;
 }
 
 @media screen and (min-width: 768px) {
-  .text-4 {
+  .project__text-4.solers-io {
     grid-column: 3 / span 3;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .text-4 {
+  .project__text-4.solers-io {
     grid-column: 5 / span 3;
   }
 }

@@ -1,16 +1,11 @@
-body {
+.about-body {
   background: #333;
   color: #dfdfdf;
 }
 
-.background-columns > div {
+.about > .background-columns > div {
   border-left: 1px solid rgba(85, 85, 85, 0.6);
   border-right: 1px solid rgba(85, 85, 85, 0.6);
-}
-
-p {
-  font-size: 14px;
-  line-height: 1.5;
 }
 
 /* 
@@ -18,7 +13,7 @@ p {
  * /////////////////////////////////////////////////
  */
 
-.header__image {
+.about__header__image {
   width: 100%;
   height: 65vh;
   object-fit: cover;
@@ -29,36 +24,43 @@ p {
   margin-bottom: 96px;
 }
 
-.title,
-.text-1,
-.text-2 {
+.about__title,
+.about__text-1,
+.about__text-2 {
   grid-column: 1 / -1;
 }
 
-.title {
+.about__title {
   font-size: clamp(48px, 2.627rem + 1.754vw, 60px);
   margin-bottom: 192px;
 }
 
-.text-1 {
+.about__awards,
+.about__text-1,
+.about__text-2 {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.about__text-1 {
   margin-bottom: 192px;
 }
 
-.text-2 {
+.about__text-2 {
   margin-bottom: 384px;
 }
 
-.awards {
+.about__awards {
   grid-column: 1 / -1;
 }
 
-.awards__title {
+.about__awards__title {
   text-align: right;
   font-size: 40px;
   margin-bottom: 64px;
 }
 
-.awards__line {
+.about__awards__line {
   display: flex;
   justify-content: space-between;
   padding-bottom: 16px;
@@ -66,79 +68,79 @@ p {
   margin-bottom: 32px;
 }
 
-.awards__line:last-of-type {
+.about__awards__line:last-of-type {
   border-bottom: none;
 }
 
-.awards__line__topic {
+.about__awards__line__topic {
   max-width: 75%;
 }
 
 @media screen and (min-width: 768px) {
-  .header__image {
+  .about__header__image {
     grid-column: 4 / span 3;
     height: auto;
     aspect-ratio: 3 / 4;
   }
 
-  .title {
+  .about__title {
     grid-column: 2 / span 5;
   }
 
-  .text-1 {
+  .about__text-1 {
     grid-column: 3 / span 3;
   }
 
-  .text-2 {
+  .about__text-2 {
     grid-column: 4 / span 3;
   }
 
-  .awards {
+  .about__awards {
     grid-column: 3 / -1;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .header__image {
+  .about__header__image {
     grid-column: 5 / span 3;
   }
 
-  .title {
+  .about__title {
     grid-column: 2 / span 6;
   }
 
-  .text-1 {
+  .about__text-1 {
     grid-column: 4 / span 3;
   }
 
-  .text-2 {
+  .about__text-2 {
     grid-column: 5 / span 3;
   }
 
-  .awards__title {
+  .about__awards__title {
     grid-column: 2 / -2;
   }
 
-  .awards {
+  .about__awards {
     grid-column: 4 / -2;
   }
 }
 
 @media screen and (min-width: 1366px) {
-  .header__image {
+  .about__header__image {
     grid-column: 7 / span 3;
   }
 
-  .title {
+  .about__title {
     grid-column: 2 / span 5;
     text-align: left;
   }
 
-  .text-2 {
+  .about__text-2 {
     grid-column: 6 / span 3;
   }
 
-  .awards {
+  .about__awards {
     grid-column: 6 / -2;
   }
 }

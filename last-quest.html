@@ -12,11 +12,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="css/fonts.css" />
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/project-base.css" />
-    <link rel="stylesheet" href="css/last-quest.css" />
+    <link rel="stylesheet" href="css/index.scss" />
 
     <title>Lucas Montenoise | Last Quest</title>
   </head>
@@ -25,45 +21,45 @@
     <div class="content" data-template="project">
       <div class="project-wrapper grid">
         <nav>
-          <a class="name" href="/">
+          <a class="nav__name" href="/">
             <h1>
               Lucas <br />
               Montenoise
             </h1>
           </a>
-          <a class="about" href="/about.html">About</a>
+          <a class="nav__about-link" href="/about.html">About</a>
         </nav>
 
-        <section class="header">
+        <section class="project__header">
           <img
+            class="project__header__image"
             src="images/last-quest/cover.png"
-            class="header__image"
             alt="SBS cover"
           />
 
-          <div class="header__info grid">
-            <div class="header__info__line grid client-cell">
-              <span class="header__info__line_label">Client</span>
-              <p class="header__info__line_client">Prieur & Malgras</p>
+          <div class="project__header__info grid">
+            <div class="project__header__info__line grid client-cell">
+              <span class="project__header__info__line_label">Client</span>
+              <p class="project__header__info__line_client">Prieur & Malgras</p>
             </div>
 
-            <div class="header__info__line grid tech-cell">
-              <span class="header__info__line_label">Tech</span>
-              <div class="header__info__line_tech">
+            <div class="project__header__info__line grid tech-cell">
+              <span class="project__header__info__line_label">Tech</span>
+              <div class="project__header__info__line_tech">
                 <img src="images/logos/html.png" alt="HTML5 icon" />
                 <img src="images/logos/css.png" alt="CSS3 icon" />
                 <img src="images/logos/js.png" alt="JS icon" />
               </div>
             </div>
 
-            <div class="header__info__line grid date-cell">
-              <span class="header__info__line_label">Date</span>
-              <p class="header__info__line_date">2018</p>
+            <div class="project__header__info__line grid date-cell">
+              <span class="project__header__info__line_label">Date</span>
+              <p class="project__header__info__line_date">2018</p>
             </div>
 
-            <div class="header__info__line grid link-cell">
-              <span class="header__info__line_label">Link</span>
-              <p class="header__info__line_link">
+            <div class="project__header__info__line grid link-cell">
+              <span class="project__header__info__line_label">Link</span>
+              <p class="project__header__info__line_link">
                 <a
                   href="http://wp.prieur-malgras.com/lastquest/FR/index.html"
                   target="_blank"
@@ -79,60 +75,60 @@
           </div>
         </section>
 
-        <h1 class="title">Last Quest</h1>
-        <p class="text-1">
+        <h1 class="project__title">Last Quest</h1>
+        <p class="project__text-1">
           Last Quest is a six episodes long comics project initiated by Camille
           Prieur and Vincent Malgras, two French writers and comics artists. It
           was my first freelance project, started even before i finished my
           coding bootcamp
         </p>
-        <p class="text-2">
+        <p class="project__text-2">
           The website is fully responsive and consists of a landing page
           redirecting to six pages, each hosting one episode of the series
         </p>
 
         <!-- TODO: VIDEO DOESN'T LOAD ON SOME MOBILES, PROVIDE FALLBACK -->
         <video
-          class="media-1"
+          class="project__media-1"
           src="images/last-quest/homepage.mov"
           autoplay
           loop
           mute
         ></video>
         <img
-          class="media-2"
+          class="project__media-2"
           src="images/last-quest/city.gif"
           alt="city animations gif"
         />
         <img
-          class="media-3"
+          class="project__media-3"
           src="images/last-quest/baddie.gif"
           alt="bad guy animations gif"
         />
 
-        <p class="text-3">
+        <p class="project__text-3">
           Each episode is enriched with animated gif images, sound effects and
           the possibility to set the page on full screen
         </p>
 
-        <h2 class="middle-title">
+        <h2 class="project__middle-title">
           Parallax and gif timeline control on scroll
         </h2>
         <video
-          class="media-4"
+          class="project__media-4"
           src="images/last-quest/frog-parallax.mov"
           autoplay
           loop
           mute
         ></video>
         <video
-          class="media-5"
+          class="project__media-5"
           src="images/last-quest/city-clouds-animation.mov"
           autoplay
           loop
           mute
         ></video>
-        <p class="text-4">
+        <p class="project__text-4 last-quest">
           The scroll-based animations are achieved using the greensock animation
           platform, a very powerful and efficient tool
         </p>

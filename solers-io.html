@@ -12,11 +12,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="css/fonts.css" />
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/project-base.css" />
-    <link rel="stylesheet" href="css/solers-io.css" />
+    <link rel="stylesheet" href="css/index.scss" />
 
     <title>Lucas Montenoise | Solers.io</title>
   </head>
@@ -25,31 +21,31 @@
     <div class="content" data-template="project">
       <div class="project-wrapper grid">
         <nav>
-          <a class="name" href="/">
+          <a class="nav__name" href="/">
             <h1>
               Lucas <br />
               Montenoise
             </h1>
           </a>
-          <a class="about" href="/about.html">About</a>
+          <a class="nav__about-link" href="/about.html">About</a>
         </nav>
 
-        <section class="header">
+        <section class="project__header">
           <img
+            class="project__header__image solers-io"
             src="images/solers-io/solers-logo.svg"
-            class="header__image"
             alt="SBS cover"
           />
 
-          <div class="header__info grid">
-            <div class="header__info__line grid client-cell">
-              <span class="header__info__line_label">Client</span>
-              <p class="header__info__line_client">Solers.io</p>
+          <div class="project__header__info grid">
+            <div class="project__header__info__line grid client-cell">
+              <span class="project__header__info__line_label">Client</span>
+              <p class="project__header__info__line_client">Solers.io</p>
             </div>
 
-            <div class="header__info__line grid tech-cell">
-              <span class="header__info__line_label">Tech</span>
-              <div class="header__info__line_tech">
+            <div class="project__header__info__line grid tech-cell">
+              <span class="project__header__info__line_label">Tech</span>
+              <div class="project__header__info__line_tech">
                 <img src="images/logos/react.png" alt="ReactJs icon" />
                 <img
                   src="images/logos/styled-components.svg"
@@ -58,14 +54,14 @@
               </div>
             </div>
 
-            <div class="header__info__line grid date-cell">
-              <span class="header__info__line_label">Date</span>
-              <p class="header__info__line_date">2022</p>
+            <div class="project__header__info__line grid date-cell">
+              <span class="project__header__info__line_label">Date</span>
+              <p class="project__header__info__line_date">2022</p>
             </div>
 
-            <div class="header__info__line grid link-cell">
-              <span class="header__info__line_label">Link</span>
-              <p class="header__info__line_link">
+            <div class="project__header__info__line grid link-cell">
+              <span class="project__header__info__line_label">Link</span>
+              <p class="project__header__info__line_link">
                 <a
                   href="https://en.solers.io/"
                   target="_blank"
@@ -81,42 +77,44 @@
           </div>
         </section>
 
-        <h1 class="title">Solers.io</h1>
-        <p class="text-1">
+        <h1 class="project__title">Solers.io</h1>
+        <p class="project__text-1">
           Solers.io is a job board for developers, that takes a twist at skills
           assertion. once a developer has declared their skills, they can pass
           online certifications that would act as proof for recruiters and
           remove the need for further technical testing
         </p>
-        <p class="text-2">
+        <p class="project__text-2">
           The website is fully responsive, allows developers to create an
           account, declare skills, pass certifications and apply to job offers.
           I did only the frontend part of the project
         </p>
 
         <img
-          class="media-1"
+          class="project__media-1"
           src="images/solers-io/homepage.png"
           alt="home full page"
         />
 
-        <h2 class="middle-title">certifying your skills once and for all</h2>
+        <h2 class="project__middle-title">
+          certifying your skills once and for all
+        </h2>
         <img
-          class="media-4"
+          class="project__media-4"
           src="images/solers-io/user-profile.png"
           alt="user profile interface"
         />
         <img
-          class="media-5"
+          class="project__media-5"
           src="images/solers-io/tests.png"
           alt="tests interface"
         />
         <img
-          class="media-6"
+          class="project__media-6"
           src="images/solers-io/jobs-list.png"
           alt="jobs list interface"
         />
-        <p class="text-4">
+        <p class="project__text-4 solers-io">
           As soon as you validate a skill, i becomes “validated” for job offers.
           validate all required skills and you’re ready to apply!
         </p>

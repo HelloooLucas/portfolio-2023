@@ -4,42 +4,48 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/fonts.css" />
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/about.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/index.scss" />
+
     <title>Lucas Montenoise | About</title>
   </head>
 
-  <body>
+  <body class="about-body">
     <div class="content" data-template="about">
-      <div class="about-wrapper grid">
+      <div class="about grid">
         <nav>
-          <a class="name" href="/">
+          <a href="/">
             <h1>
               Lucas <br />
               Montenoise
             </h1>
           </a>
-          <a class="about" href="/about.html">about</a>
+          <a class="nav__about-link" href="/about.html">about</a>
         </nav>
 
         <img
+          class="about__header__image"
           src="images/about/me.jpg"
-          class="header__image"
           alt="My portrait"
         />
 
-        <h1 class="title">frontend developer based in paris</h1>
+        <h1 class="about__title">frontend developer based in paris</h1>
 
-        <p class="text-1">
+        <p class="about__text-1">
           I’m a former blacksmith, former advertising account manager turned
           developer. I’m curious about virtually anything, love trying new
           things and hearing about new ideas.<br />
           I’m an avid climber, outdoor enthusiast and a budding photographer.
         </p>
 
-        <p class="text-2">
+        <p class="about__text-2">
           I love for clean, beautiful interfaces and subtle interaction design.
           I have 4+ years of experience as a frontend developer, and can also
           take care of the backend on smaller projects.<br />
@@ -47,26 +53,28 @@
           work so don’t hesitate to drop me a line :)
         </p>
 
-        <div class="awards">
-          <h2 class="awards__title">
+        <div class="about__awards">
+          <h2 class="about__awards__title">
             awards <br />
             & recognitions
           </h2>
 
-          <div class="awards__line">
-            <p class="awards__line__topic">decent quiche aux poireaux award</p>
+          <div class="about__awards__line">
+            <p class="about__awards__line__topic">
+              decent quiche aux poireaux award
+            </p>
             <p>arthur</p>
           </div>
-          <div class="awards__line">
-            <p class="awards__line__topic">real cutiepie medal</p>
+          <div class="about__awards__line">
+            <p class="about__awards__line__topic">real cutiepie medal</p>
             <p>valentine</p>
           </div>
-          <div class="awards__line">
-            <p class="awards__line__topic">good kid certificate</p>
+          <div class="about__awards__line">
+            <p class="about__awards__line__topic">good kid certificate</p>
             <p>mom</p>
           </div>
-          <div class="awards__line">
-            <p class="awards__line__topic">hopefully more to come! :)</p>
+          <div class="about__awards__line">
+            <p class="about__awards__line__topic">hopefully more to come! :)</p>
           </div>
         </div>
 
