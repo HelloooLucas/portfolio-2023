@@ -12,7 +12,6 @@ import Page from "../../classes/page";
 export default class Home extends Page {
   constructor() {
     super({
-      id: "home",
       selector: ".home",
       selectorChildren: {
         navigation: "nav",
@@ -26,13 +25,5 @@ export default class Home extends Page {
 
   create() {
     super.create();
-
-    if (this.elements?.topSectionTexts instanceof NodeList) {
-      this.elements.topSectionTexts.forEach(el =>
-        el.addEventListener("click", () => {
-          console.log("You clicked me!");
-        })
-      );
-    }
   }
 }

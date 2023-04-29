@@ -1,3 +1,7 @@
+.project {
+  opacity: 0;
+}
+
 /* 
  * HEADER SECTION
  * /////////////////////////////////////////////////
@@ -145,7 +149,9 @@
 }
 
 .project__text-1,
-.project__text-2 {
+.project__text-2,
+.project__text-3,
+.project__text-4 {
   grid-column: 1 / -1;
 }
 
@@ -169,10 +175,6 @@ video {
   margin-bottom: 64px;
 }
 
-.project__text-3 {
-  grid-column: 1 / -1;
-}
-
 .project__middle-title {
   font-size: clamp(36px, 1.504rem + 3.509vw, 60px);
   grid-column: 1 / -1;
@@ -194,21 +196,17 @@ video {
   margin-bottom: 64px;
 }
 
-.project__text-4 {
-  grid-column: 1 / -1;
-}
-
 @media screen and (min-width: 768px) {
   .project__title {
     grid-column: 2 / span 4;
   }
 
   .project__text-1 {
-    grid-column: 3 / span 3;
+    grid-column: 3 / -1;
   }
 
   .project__text-2 {
-    grid-column: 4 / span 3;
+    grid-column: 4 / -1;
   }
 
   .project__media-1 {
@@ -224,12 +222,12 @@ video {
   }
 
   .project__text-3 {
-    grid-column: 2 / span 3;
+    grid-column: 1 / span 4;
     text-align: right;
   }
 
   .project__middle-title {
-    grid-column: 2 / span 4;
+    grid-column: 1 / span 5;
     text-align: right;
   }
 
@@ -257,12 +255,12 @@ video {
   }
 
   .project__text-1 {
-    grid-column: 3 / span 3;
+    grid-column: 3 / -1;
     margin-bottom: 96px;
   }
 
   .project__text-2 {
-    grid-column: 4 / span 3;
+    grid-column: 4 / -1;
     margin-bottom: 256px;
   }
 
@@ -282,11 +280,11 @@ video {
   }
 
   .project__text-3 {
-    grid-column: 3 / span 3;
+    grid-column: 1 / span 5;
   }
 
   .project__middle-title {
-    grid-column: 3 / span 4;
+    grid-column: 1 / span 6;
     margin-top: 384px;
     margin-bottom: 96px;
   }
@@ -313,11 +311,11 @@ video {
 
 @media screen and (min-width: 1366px) {
   .project__text-1 {
-    grid-column: 3 / span 3;
+    grid-column: 3 / -1;
   }
 
   .project__text-2 {
-    grid-column: 4 / span 3;
+    grid-column: 4 / -1;
   }
 
   .project__media-1 {
@@ -333,11 +331,11 @@ video {
   }
 
   .project__text-3 {
-    grid-column: 5 / span 3;
+    grid-column: 1 / span 7;
   }
 
   .project__middle-title {
-    grid-column: 4 / span 5;
+    grid-column: 1 / span 8;
   }
 
   .project__media-4 {

@@ -9,7 +9,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         index: "./index.html",
-        "sopra-banking": "./sopra-banking.html",
+        "sopra-banking-software": "./sopra-banking-software.html",
         "last-quest": "./last-quest.html",
         "solers-io": "./solers-io.html",
         "atelier-tote-bag": "./atelier-tote-bag.html",

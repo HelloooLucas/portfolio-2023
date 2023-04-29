@@ -2,6 +2,7 @@ import Home from "./pages/home";
 import About from "./pages/about";
 import Project from "./pages/project";
 import { Template } from "./classes/page";
+import Preloader, { PRELOADING_FINISHED_EVENT } from "./components/preloader";
 
 class App {
   // Adding the ! tells TS that this variable will get a value at runtime, so it doesn't force me to initialize it right away
@@ -13,11 +14,26 @@ class App {
   page!: Home | About | Project;
   content!: HTMLDivElement;
   template!: Template;
+  preloader!: Preloader;
 
   init() {
+    this.createPreloader();
     this.createContent();
     this.createPages();
     this.addLinkListeners();
+  }
+
+  createPreloader() {
+    this.preloader = new Preloader();
+    this.preloader.addEventListener(
+      PRELOADING_FINISHED_EVENT,
+      this.onPreloaded.bind(this)
+    );
+  }
+
+  onPreloaded() {
+    console.log("images preloaded, show content!");
+    this.page.show();
   }
 
   createContent() {
@@ -35,7 +51,6 @@ class App {
     this.page = this.pages[this.template];
 
     this.page.create();
-    this.page.show();
   }
 
   async handlePageChange(url: string) {
@@ -68,11 +83,11 @@ class App {
         body.classList.remove("about-body");
       }
 
-      this.page.create();
-      this.addLinkListeners();
       window.scrollTo(0, 0);
-
+      this.page.create();
       this.page.show();
+
+      this.addLinkListeners();
     } catch (error) {
       console.log("Fetching page in link listener failed: ", error);
     }

@@ -11,7 +11,6 @@ import Page from "../../classes/page";
 export default class Project extends Page {
   constructor() {
     super({
-      id: "project",
       selector: ".project",
       selectorChildren: {
         navigation: "nav",

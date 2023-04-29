@@ -1,10 +1,17 @@
 .about-body {
   transition: 0.3s;
   background: #333;
+}
+
+.about {
+  opacity: 0;
+}
+
+.content[data-template="about"] {
   color: #dfdfdf;
 }
 
-.about > .background-columns > div {
+.background-columns.grey > div {
   border-left: 1px solid rgba(85, 85, 85, 0.6);
   border-right: 1px solid rgba(85, 85, 85, 0.6);
 }
@@ -89,11 +96,11 @@
   }
 
   .about__text-1 {
-    grid-column: 3 / span 3;
+    grid-column: 3 / -1;
   }
 
   .about__text-2 {
-    grid-column: 4 / span 3;
+    grid-column: 4 / -1;
   }
 
   .about__awards {
@@ -111,11 +118,11 @@
   }
 
   .about__text-1 {
-    grid-column: 4 / span 3;
+    grid-column: 4 / -1;
   }
 
   .about__text-2 {
-    grid-column: 5 / span 3;
+    grid-column: 5 / -1;
   }
 
   .about__awards__title {
@@ -138,7 +145,7 @@
   }
 
   .about__text-2 {
-    grid-column: 6 / span 3;
+    grid-column: 6 / -1;
   }
 
   .about__awards {

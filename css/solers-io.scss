@@ -1,3 +1,7 @@
+.project__title.solers-io {
+  font-size: clamp(40px, -0.607rem + 14.62vw, 160px);
+}
+
 .project__header__image.solers-io {
   background: white;
   border: 1px solid #ccc;
@@ -5,12 +9,12 @@
 
 @media screen and (min-width: 768px) {
   .project__text-4.solers-io {
-    grid-column: 3 / span 3;
+    grid-column: 3 / -1;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .project__text-4.solers-io {
-    grid-column: 5 / span 3;
+    grid-column: 5 / -1;
   }
 }

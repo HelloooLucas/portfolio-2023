@@ -5,7 +5,7 @@ interface CalculateParams {
   maxFontSize: number;
 }
 
-function calculate({
+export default function calculate({
   minWidth = 340,
   maxWidth = 1024,
   minFontSize,
@@ -32,6 +32,3 @@ calculate({
   minFontSize: 40,
   maxFontSize: 130,
 });
-
-// Remove when I actually import something in here
-export {};
