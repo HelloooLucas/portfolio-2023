@@ -15,6 +15,7 @@ export default class Home extends Page {
       selector: ".home",
       selectorChildren: {
         navigation: "nav",
+        content: ".content",
         topSectionTexts: ".home__top-section > p",
         projectBlockImages: ".home__project__block__image",
         projectBlockNames: ".home__project__block__name",

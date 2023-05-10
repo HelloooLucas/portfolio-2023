@@ -14,6 +14,7 @@ export default class Project extends Page {
       selector: ".project",
       selectorChildren: {
         navigation: "nav",
+        content: ".content",
         headerImage: ".project__header__image",
         headerInfo: ".project__header__info",
         title: ".project__title",

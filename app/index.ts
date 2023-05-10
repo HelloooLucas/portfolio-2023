@@ -20,7 +20,11 @@ class App {
     this.createPreloader();
     this.createContent();
     this.createPages();
+
+    this.addResizeListener();
     this.addLinkListeners();
+
+    this.update();
   }
 
   createPreloader() {
@@ -32,6 +36,9 @@ class App {
   }
 
   onPreloaded() {
+    // Calling this here to be sure the height is calculated when all images are loaded
+    this.page.onResize();
+
     console.log("images preloaded, show content!");
     this.page.show();
   }
@@ -83,8 +90,9 @@ class App {
         body.classList.remove("about-body");
       }
 
-      window.scrollTo(0, 0);
       this.page.create();
+      // Calling it here too to account for new page's height
+      this.page.onResize();
       this.page.show();
 
       this.addLinkListeners();
@@ -103,6 +111,18 @@ class App {
         this.handlePageChange(link.href);
       };
     });
+  }
+
+  addResizeListener() {
+    // Here I'm binding the method to this.page
+    // If I do only .bind(this), this.page.onResize's 'this' will refer to App and not to the page
+    window.addEventListener("resize", this.page.onResize.bind(this.page));
+  }
+
+  update() {
+    this.page.update();
+
+    window.requestAnimationFrame(this.update.bind(this));
   }
 }
 

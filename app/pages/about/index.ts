@@ -14,6 +14,7 @@ export default class About extends Page {
       selector: ".about",
       selectorChildren: {
         navigation: "nav",
+        content: ".content",
         headerImage: ".about__header__image",
         title: ".about__title",
         texts: ".about__text-1, .about__text-2",
