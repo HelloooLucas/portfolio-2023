@@ -1,4 +1,5 @@
 import gsap from "gsap";
+import NormalizeWheel from "normalize-wheel";
 
 /*
  * INFO
@@ -21,7 +22,7 @@ export default class Page {
     current: number;
     target: number;
     limit: number;
-    last: number;
+    last: number; // TODO: remove this if not used?
   };
   transformPrefix!: string;
 
@@ -33,7 +34,7 @@ export default class Page {
       current: 0,
       target: 0,
       limit: 0,
-      last: 0,
+      last: 0, // TODO: remove here too
     };
   }
 
@@ -97,8 +98,8 @@ export default class Page {
 
   // TODO: not working on Safari right now, fix it
   onMouseWheel(event: WheelEvent) {
-    const { deltaY } = event;
-    this.scroll.target += deltaY;
+    const { pixelY } = NormalizeWheel(event);
+    this.scroll.target += pixelY;
   }
 
   update() {

@@ -42,7 +42,6 @@ class Component extends EventTarget {
     this.selectorChildren = selectorChildren;
 
     this.create();
-    // this.addEventListeners();
   }
 
   create() {
@@ -73,10 +72,6 @@ class Component extends EventTarget {
       {} as Elements
     );
   }
-
-  // addEventListeners() {}
-
-  // removeEventListeners() {}
 }
 
 export default Component;
