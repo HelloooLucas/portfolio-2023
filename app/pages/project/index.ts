@@ -18,6 +18,7 @@ export default class Project extends Page {
         headerImage: ".project__header__image",
         headerInfo: ".project__header__info",
         title: ".project__title",
+        // TODO: try using regex here instead of a list?
         texts:
           ".project__text-1, .project__text-2, .project__text-3, .project__text-4",
         media:

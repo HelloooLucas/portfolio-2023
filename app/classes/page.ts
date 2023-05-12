@@ -9,14 +9,14 @@ export type Template = "home" | "about" | "project";
 
 interface PageProps {
   selector: string;
-  selectorChildren: { [key: string]: string | string[] }; // TODO: Same here, remove the string[] option if not necessary
+  selectorChildren: { [key: string]: string };
 }
 
 export default class Page {
   selector: string;
-  selectorChildren: { [key: string]: string | string[] };
+  selectorChildren: { [key: string]: string };
   element!: HTMLDivElement;
-  elements!: { [key: string]: Element | string[] | NodeList | null }; // TODO: If I don't need the string[] or NodeList types, clean them from here
+  elements!: { [key: string]: Element | NodeList | null };
   scroll!: {
     current: number;
     target: number;
@@ -42,20 +42,14 @@ export default class Page {
     this.elements = {};
 
     Object.entries(this.selectorChildren).forEach(([key, selector]) => {
-      // TODO: add the case for directly passing HTMLElements of NodeLists if I realize it's useful, otherwise just keep providing selector strings
-      // TODO: remove this if I see that I don't use the string[] format for selectors
-      if (Array.isArray(selector)) {
-        this.elements[key] = selector;
-      } else {
-        const nodeList = document.querySelectorAll(selector);
+      const nodeList = document.querySelectorAll(selector);
 
-        if (nodeList.length === 0) {
-          this.elements[key] = null;
-        } else if (nodeList.length === 1) {
-          this.elements[key] = document.querySelector(selector);
-        } else {
-          this.elements[key] = nodeList;
-        }
+      if (nodeList.length === 0) {
+        this.elements[key] = null;
+      } else if (nodeList.length === 1) {
+        this.elements[key] = document.querySelector(selector);
+      } else {
+        this.elements[key] = nodeList;
       }
     });
   }
@@ -125,6 +119,12 @@ export default class Page {
       this.scroll.current = 0;
     }
 
-    this.elements.content.style.transform = `translateY(-${this.scroll.current}px)`;
+    // TODO: remove this check when I refactor Page to extend Component
+    if (this.elements.content instanceof Element) {
+      this.elements.content.setAttribute(
+        "style",
+        `transform: translateY(-${this.scroll.current}px)`
+      );
+    }
   }
 }
