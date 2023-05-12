@@ -21,12 +21,14 @@ export default class Preloader extends Component {
       },
     });
 
+    this.detectDomNodes();
+
     this.titleInnerSpans = splitIntoLines(this.elements.title);
 
-    this.createLoader();
+    this.loadImageAssets();
   }
 
-  createLoader() {
+  loadImageAssets() {
     this.elements.images.forEach(img => {
       img.src = img.getAttribute("data-src") as string;
       img.onload = () => this.imageAssetLoaded();

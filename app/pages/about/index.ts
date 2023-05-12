@@ -5,9 +5,6 @@ import Page from "../../classes/page";
  * Each individual page then implements methods specific to its needs such as animating different elements, depending on what's been queryed
  */
 
-// interface AboutProps {
-// }
-
 export default class About extends Page {
   constructor() {
     super({

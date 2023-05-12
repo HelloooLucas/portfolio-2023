@@ -38,8 +38,6 @@ class App {
   onPreloaded() {
     // Calling this here to be sure the height is calculated when all images are loaded
     this.page.onResize();
-
-    console.log("images preloaded, show content!");
     this.page.show();
   }
 
@@ -57,7 +55,7 @@ class App {
 
     this.page = this.pages[this.template];
 
-    this.page.create();
+    this.page.detectDomNodes();
   }
 
   async handlePageChange(url: string) {
@@ -90,7 +88,7 @@ class App {
         body.classList.remove("about-body");
       }
 
-      this.page.create();
+      this.page.detectDomNodes();
       // Calling it here too to account for new page's height
       this.page.onResize();
       this.page.show();

@@ -1,6 +1,12 @@
+/*
+ * INFO
+ * Component takes care of querying all elements that different pages will need and stores them into memory
+ */
+
 interface Elements {
   // Common to all pages
   navigation: HTMLElement;
+  content: HTMLDivElement;
   title: HTMLTitleElement;
   middleTitle: HTMLTitleElement;
   texts: NodeListOf<HTMLParagraphElement>;
@@ -25,7 +31,7 @@ interface Elements {
   columns?: NodeListOf<HTMLDivElement>;
 }
 
-interface ComponentProps {
+export interface ComponentProps {
   selector: string;
   selectorChildren: { [key: string]: string };
 }
@@ -40,17 +46,16 @@ class Component extends EventTarget {
     super();
     this.selector = selector;
     this.selectorChildren = selectorChildren;
-
-    this.create();
   }
 
-  create() {
+  detectDomNodes() {
     this.element = document.querySelector(this.selector) as HTMLDivElement;
 
     this.elements = Object.entries(this.selectorChildren).reduce(
       (acc, [key, selector]) => {
         switch (key) {
           case "navigation":
+          case "content":
           case "title":
           case "middleTitle":
           case "footer":

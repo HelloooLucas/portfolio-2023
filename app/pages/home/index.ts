@@ -6,9 +6,6 @@ import Page from "../../classes/page";
  * It can do so thanks to what the Page has already queried
  */
 
-// interface HomeProps {
-// }
-
 export default class Home extends Page {
   constructor() {
     super({
@@ -22,9 +19,5 @@ export default class Home extends Page {
         footer: "footer",
       },
     });
-  }
-
-  create() {
-    super.create();
   }
 }
