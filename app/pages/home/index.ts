@@ -11,9 +11,11 @@ export default class Home extends Page {
     super({
       selector: ".home",
       selectorChildren: {
-        navigation: "nav",
+        // navigation: "nav",
         content: ".content",
-        topSectionTexts: ".home__top-section > p",
+        animationsTitles: "none",
+        // topSectionTexts: ".home__top-section > p",
+        animationsTexts: ".home__top-section > p",
         projectBlockImages: ".home__project__block__image",
         projectBlockNames: ".home__project__block__name",
         footer: "footer",

@@ -1,19 +1,9 @@
-.about-body {
-  transition: 0.3s;
-  background: #333;
-}
-
 .about {
   opacity: 0;
 }
 
 .content[data-template="about"] {
   color: #dfdfdf;
-}
-
-.background-columns.grey > div {
-  border-left: 1px solid rgba(85, 85, 85, 0.6);
-  border-right: 1px solid rgba(85, 85, 85, 0.6);
 }
 
 /* 

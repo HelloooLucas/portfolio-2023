@@ -5,18 +5,27 @@
 
 interface Elements {
   // Common to all pages
-  navigation: HTMLElement;
+  // navigation: HTMLElement;
   content: HTMLDivElement;
   title: HTMLTitleElement;
   middleTitle: HTMLTitleElement;
-  texts: NodeListOf<HTMLParagraphElement>;
-  images: NodeListOf<HTMLImageElement>;
+  texts: HTMLParagraphElement[];
+  images: HTMLImageElement[];
   footer: HTMLElement;
+  animationsTitles: HTMLHeadingElement[];
+  animationsTexts: HTMLParagraphElement[];
+
+  // Navigation
+  body: HTMLBodyElement;
+  navName: HTMLAnchorElement;
+  navHome: HTMLAnchorElement;
+  navAbout: HTMLAnchorElement;
+  backgroundColumns: HTMLDivElement;
 
   // Home
-  topSectionTexts?: NodeListOf<HTMLParagraphElement>;
-  projectBlockImages?: NodeListOf<HTMLImageElement>;
-  projectBlockNames?: NodeListOf<HTMLTitleElement>;
+  topSectionTexts?: HTMLParagraphElement[];
+  projectBlockImages?: HTMLImageElement[];
+  projectBlockNames?: HTMLTitleElement[];
 
   // Project
   headerImage?: HTMLImageElement;
@@ -24,11 +33,11 @@ interface Elements {
 
   // About
   awardsTitle?: HTMLTitleElement;
-  awardsLines?: NodeListOf<HTMLDivElement>;
+  awardsLines?: HTMLDivElement[];
 
   // Preloader
   counter?: HTMLSpanElement;
-  columns?: NodeListOf<HTMLDivElement>;
+  columns?: HTMLDivElement[];
 }
 
 export interface ComponentProps {
@@ -39,7 +48,7 @@ export interface ComponentProps {
 class Component extends EventTarget {
   selector: string;
   selectorChildren: { [key: string]: string };
-  element!: HTMLDivElement;
+  element!: HTMLElement;
   elements!: Elements;
 
   constructor({ selector, selectorChildren }: ComponentProps) {
@@ -49,14 +58,17 @@ class Component extends EventTarget {
   }
 
   detectDomNodes() {
-    this.element = document.querySelector(this.selector) as HTMLDivElement;
+    this.element = document.querySelector(this.selector) as HTMLElement;
 
     this.elements = Object.entries(this.selectorChildren).reduce(
       (acc, [key, selector]) => {
         switch (key) {
-          case "navigation":
+          case "body":
+          case "navName":
+          case "navHome":
+          case "navAbout":
           case "content":
-          case "title":
+          case "title": // TODO: Since animationsTitles is already passed, do we still need to mention title and middleTitle?
           case "middleTitle":
           case "footer":
           case "headerImage":
@@ -70,7 +82,7 @@ class Component extends EventTarget {
           default:
             return {
               ...acc,
-              [key]: document.querySelectorAll(selector) as NodeList,
+              [key]: [...document.querySelectorAll(selector)],
             };
         }
       },

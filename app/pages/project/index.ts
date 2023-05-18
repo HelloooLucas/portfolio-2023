@@ -13,13 +13,16 @@ export default class Project extends Page {
     super({
       selector: ".project",
       selectorChildren: {
-        navigation: "nav",
+        // navigation: "nav",
         content: ".content",
         headerImage: ".project__header__image",
         headerInfo: ".project__header__info",
-        title: ".project__title",
+        // title: ".project__title",
+        animationsTitles: ".project__title, .project__middle-title",
         // TODO: try using regex here instead of a list?
-        texts:
+        // texts:
+        //   ".project__text-1, .project__text-2, .project__text-3, .project__text-4",
+        animationsTexts:
           ".project__text-1, .project__text-2, .project__text-3, .project__text-4",
         media:
           ".project__media-1, .project__media-2, .project__media-3, .project__media-4, .project__media-5, .project__media-6",

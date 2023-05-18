@@ -3,6 +3,7 @@ import About from "./pages/about";
 import Project from "./pages/project";
 import { Template } from "./classes/page";
 import Preloader, { PRELOADING_FINISHED_EVENT } from "./components/preloader";
+import Navigation from "./components/navigation";
 
 class App {
   // Adding the ! tells TS that this variable will get a value at runtime, so it doesn't force me to initialize it right away
@@ -15,10 +16,12 @@ class App {
   content!: HTMLDivElement;
   template!: Template;
   preloader!: Preloader;
+  navigation!: Navigation;
 
   init() {
     this.createPreloader();
     this.createContent();
+    this.createNavigation();
     this.createPages();
 
     this.addResizeListener();
@@ -41,6 +44,10 @@ class App {
     this.page.show();
   }
 
+  createNavigation() {
+    this.navigation = new Navigation({ template: this.template });
+  }
+
   createContent() {
     this.content = document.querySelector(".content") as HTMLDivElement;
     this.template = this.content.dataset.template as Template;
@@ -55,7 +62,7 @@ class App {
 
     this.page = this.pages[this.template];
 
-    this.page.detectDomNodes();
+    this.page.init();
   }
 
   async handlePageChange(url: string) {
@@ -75,22 +82,17 @@ class App {
         "data-template"
       ) as Template;
 
+      this.navigation.onChange(this.template);
+
       this.content.innerHTML = nextPageContentDiv.innerHTML;
       this.content.setAttribute("data-template", this.template);
 
       this.page = this.pages[this.template];
 
-      // TODO: try to refactor the background thing so you can remove this conditional block
-      const body = document.querySelector("body") as HTMLBodyElement;
-      if (this.template === "about") {
-        body.classList.add("about-body");
-      } else {
-        body.classList.remove("about-body");
-      }
-
-      this.page.detectDomNodes();
+      this.page.init();
       // Calling it here too to account for new page's height
       this.page.onResize();
+      this.page.scrollTop();
       this.page.show();
 
       this.addLinkListeners();
@@ -105,7 +107,6 @@ class App {
     links.forEach(link => {
       link.onclick = event => {
         event.preventDefault();
-
         this.handlePageChange(link.href);
       };
     });

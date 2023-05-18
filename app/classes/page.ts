@@ -1,7 +1,9 @@
 import gsap from "gsap";
 import NormalizeWheel from "normalize-wheel";
 
+import Title from "../animations/title";
 import Component, { ComponentProps } from "./component";
+import Paragraph from "../animations/paragraph";
 
 /*
  * INFO
@@ -13,6 +15,10 @@ export type Template = "home" | "about" | "project";
 type PageProps = ComponentProps;
 
 export default class Page extends Component {
+  animations!: {
+    titles: Title[];
+    paragraphs: Paragraph[];
+  };
   scroll!: {
     current: number;
     target: number;
@@ -26,6 +32,23 @@ export default class Page extends Component {
       current: 0,
       target: 0,
       limit: 0,
+    };
+  }
+
+  init() {
+    this.detectDomNodes();
+    this.createAnimations();
+  }
+
+  createAnimations() {
+    // TODO: do I need to store this?
+    this.animations = {
+      titles: this.elements.animationsTitles.map(
+        element => new Title({ element })
+      ),
+      paragraphs: this.elements.animationsTexts.map(
+        element => new Paragraph({ element })
+      ),
     };
   }
 
@@ -94,5 +117,9 @@ export default class Page extends Component {
       "style",
       `transform: translateY(-${this.scroll.current}px)`
     );
+  }
+
+  scrollTop() {
+    this.scroll.current = 0;
   }
 }

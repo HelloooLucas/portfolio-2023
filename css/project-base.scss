@@ -145,7 +145,7 @@
   /* https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/ */
   font-size: clamp(48px, -0.48rem + 16.374vw, 160px);
   margin-bottom: 64px;
-  grid-column: 2 / span 3;
+  grid-column: 2 / -1;
 }
 
 .project__text-1,
@@ -198,7 +198,7 @@ video {
 
 @media screen and (min-width: 768px) {
   .project__title {
-    grid-column: 2 / span 4;
+    grid-column: 2 / -1;
   }
 
   .project__text-1 {
@@ -250,7 +250,7 @@ video {
 
 @media screen and (min-width: 1024px) {
   .project__title {
-    grid-column: 2 / span 5;
+    grid-column: 2 / -1;
     margin-bottom: 96px;
   }
 
