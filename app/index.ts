@@ -24,7 +24,7 @@ class App {
     this.createNavigation();
     this.createPages();
 
-    this.addResizeListener();
+    this.page.addResizeListener();
     this.addLinkListeners();
 
     this.update();
@@ -89,11 +89,7 @@ class App {
 
       this.page = this.pages[this.template];
 
-      this.page.init();
-      // Calling it here too to account for new page's height
-      this.page.onResize();
-      this.page.scrollTop();
-      this.page.show();
+      this.page.handleChange();
 
       this.addLinkListeners();
     } catch (error) {
@@ -110,12 +106,6 @@ class App {
         this.handlePageChange(link.href);
       };
     });
-  }
-
-  addResizeListener() {
-    // Here I'm binding the method to this.page
-    // If I do only .bind(this), this.page.onResize's 'this' will refer to App and not to the page
-    window.addEventListener("resize", this.page.onResize.bind(this.page));
   }
 
   update() {

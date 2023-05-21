@@ -24,6 +24,7 @@ export default class Project extends Page {
         //   ".project__text-1, .project__text-2, .project__text-3, .project__text-4",
         animationsTexts:
           ".project__text-1, .project__text-2, .project__text-3, .project__text-4",
+        preloadImages: "[data-src]",
         media:
           ".project__media-1, .project__media-2, .project__media-3, .project__media-4, .project__media-5, .project__media-6",
         middleTitle: ".project__middle-title",

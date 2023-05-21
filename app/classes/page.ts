@@ -4,6 +4,7 @@ import NormalizeWheel from "normalize-wheel";
 import Title from "../animations/title";
 import Component, { ComponentProps } from "./component";
 import Paragraph from "../animations/paragraph";
+import BackgroundLoad from "./background-load";
 
 /*
  * INFO
@@ -15,6 +16,7 @@ export type Template = "home" | "about" | "project";
 type PageProps = ComponentProps;
 
 export default class Page extends Component {
+  handleWheelBound: (event: WheelEvent) => void;
   animations!: {
     titles: Title[];
     paragraphs: Paragraph[];
@@ -28,6 +30,7 @@ export default class Page extends Component {
   constructor(props: PageProps) {
     super(props);
 
+    this.handleWheelBound = this.handleWheel.bind(this);
     this.scroll = {
       current: 0,
       target: 0,
@@ -40,6 +43,15 @@ export default class Page extends Component {
     this.createAnimations();
   }
 
+  async handleChange() {
+    this.detectDomNodes();
+    await this.backgroundLoad();
+    this.createAnimations();
+    this.onResize();
+    this.scrollTop();
+    this.show();
+  }
+
   createAnimations() {
     // TODO: do I need to store this?
     this.animations = {
@@ -50,6 +62,11 @@ export default class Page extends Component {
         element => new Paragraph({ element })
       ),
     };
+  }
+
+  async backgroundLoad() {
+    const loader = new BackgroundLoad({ images: this.elements.preloadImages });
+    await loader.loadImageAssets();
   }
 
   show() {
@@ -66,7 +83,7 @@ export default class Page extends Component {
   }
 
   hide() {
-    this.removeWheelListener();
+    this.destroy();
 
     return new Promise<void>(resolve => {
       gsap.to(this.element, {
@@ -77,16 +94,21 @@ export default class Page extends Component {
     });
   }
 
+  addResizeListener() {
+    window.addEventListener("resize", this.onResize.bind(this));
+  }
+
+  // TODO: rename to handleResize here, and for all other "on" functions?
   onResize() {
     this.scroll.limit = this.elements.content.clientHeight - window.innerHeight;
   }
 
   addWheelListener() {
-    window.addEventListener("wheel", this.handleWheel.bind(this));
+    window.addEventListener("wheel", this.handleWheelBound);
   }
 
   removeWheelListener() {
-    window.removeEventListener("wheel", this.handleWheel.bind(this));
+    window.removeEventListener("wheel", this.handleWheelBound);
   }
 
   // TODO: not working on Safari right now, fix it
@@ -121,5 +143,11 @@ export default class Page extends Component {
 
   scrollTop() {
     this.scroll.current = 0;
+    this.scroll.target = 0;
+  }
+
+  destroy() {
+    this.removeWheelListener();
+    // TODO: add a remove resize listener and make sure it's properly removed with logs ==> use arrow function
   }
 }

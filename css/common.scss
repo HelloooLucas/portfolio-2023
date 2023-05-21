@@ -131,6 +131,9 @@ nav {
 }
 
 .nav__links {
+  // TODO: remove this when I implement my own link animations
+  @extend %link--hidden;
+
   width: 100px;
   height: 24px;
   position: relative;

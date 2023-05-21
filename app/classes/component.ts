@@ -14,6 +14,7 @@ interface Elements {
   footer: HTMLElement;
   animationsTitles: HTMLHeadingElement[];
   animationsTexts: HTMLParagraphElement[];
+  preloadImages: HTMLImageElement[];
 
   // Navigation
   body: HTMLBodyElement;
@@ -23,6 +24,7 @@ interface Elements {
   backgroundColumns: HTMLDivElement;
 
   // Home
+  projectBlocks: HTMLAnchorElement[];
   topSectionTexts?: HTMLParagraphElement[];
   projectBlockImages?: HTMLImageElement[];
   projectBlockNames?: HTMLTitleElement[];
@@ -36,8 +38,8 @@ interface Elements {
   awardsLines?: HTMLDivElement[];
 
   // Preloader
-  counter?: HTMLSpanElement;
-  columns?: HTMLDivElement[];
+  counter: HTMLSpanElement;
+  columns: HTMLDivElement[];
 }
 
 export interface ComponentProps {
@@ -62,6 +64,8 @@ class Component extends EventTarget {
 
     this.elements = Object.entries(this.selectorChildren).reduce(
       (acc, [key, selector]) => {
+        // Refactor this so I don't have to maintain a list
+        // Maybe pass a "single" or "multiple" type with the selector so I can decide how to query the nodes
         switch (key) {
           case "body":
           case "navName":

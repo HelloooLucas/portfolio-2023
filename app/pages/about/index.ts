@@ -12,6 +12,7 @@ export default class About extends Page {
       selectorChildren: {
         // navigation: "nav",
         content: ".content",
+        preloadImages: "[data-src]",
         headerImage: ".about__header__image",
         // TODO: remove this?
         // title: ".about__title",

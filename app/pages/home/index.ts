@@ -1,4 +1,5 @@
 import Page from "../../classes/page";
+import HomeProjectBlock from "../../classes/home-project-block";
 
 /*
  * INFO
@@ -7,6 +8,8 @@ import Page from "../../classes/page";
  */
 
 export default class Home extends Page {
+  projects!: HomeProjectBlock[];
+
   constructor() {
     super({
       selector: ".home",
@@ -16,10 +19,26 @@ export default class Home extends Page {
         animationsTitles: "none",
         // topSectionTexts: ".home__top-section > p",
         animationsTexts: ".home__top-section > p",
+        preloadImages: "[data-src]",
+        projectBlocks: ".home__project__block",
         projectBlockImages: ".home__project__block__image",
         projectBlockNames: ".home__project__block__name",
         footer: "footer",
       },
     });
+  }
+
+  createAnimations() {
+    super.createAnimations();
+
+    this.projects = this.elements.projectBlocks.map(
+      block => new HomeProjectBlock({ block })
+    );
+  }
+
+  destroy() {
+    super.destroy();
+
+    this.projects.forEach(project => project.removeEventListeners());
   }
 }

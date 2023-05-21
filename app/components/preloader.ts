@@ -40,9 +40,7 @@ export default class Preloader extends Component {
 
     const percentage = (this.loadedLength / this.elements.images.length) * 100;
 
-    if (this.elements.counter) {
-      this.elements.counter.innerHTML = `${Math.round(percentage)}%`;
-    }
+    this.elements.counter.innerHTML = `${Math.round(percentage)}%`;
 
     if (this.loadedLength === this.elements.images.length) {
       await this.hidePreloader();
@@ -63,29 +61,25 @@ export default class Preloader extends Component {
         0
       );
 
-      if (this.elements.counter) {
-        tl.to(
-          this.elements.counter,
-          {
-            y: "100%",
-          },
-          0.3
-        );
-      }
+      tl.to(
+        this.elements.counter,
+        {
+          y: "100%",
+        },
+        0.3
+      );
 
-      if (this.elements.columns) {
-        tl.to(
-          this.elements.columns,
-          {
-            duration: 1,
-            scaleY: 0,
-            transformOrigin: "100% 100%",
-            stagger: 0.05,
-            onComplete: resolve,
-          },
-          0.5
-        );
-      }
+      tl.to(
+        this.elements.columns,
+        {
+          duration: 1,
+          scaleY: 0,
+          transformOrigin: "100% 100%",
+          stagger: 0.05,
+          onComplete: resolve,
+        },
+        0.5
+      );
     });
   }
 
