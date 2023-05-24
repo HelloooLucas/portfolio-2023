@@ -14,6 +14,7 @@ class App {
   };
   page!: Home | About | Project;
   content!: HTMLDivElement;
+  pageTitle!: HTMLTitleElement;
   template!: Template;
   preloader!: Preloader;
   navigation!: Navigation;
@@ -26,6 +27,7 @@ class App {
 
     this.page.addResizeListener();
     this.addLinkListeners();
+    this.addPopStateListener();
 
     this.update();
   }
@@ -49,6 +51,7 @@ class App {
   }
 
   createContent() {
+    this.pageTitle = document.querySelector("head > title") as HTMLTitleElement;
     this.content = document.querySelector(".content") as HTMLDivElement;
     this.template = this.content.dataset.template as Template;
   }
@@ -65,7 +68,13 @@ class App {
     this.page.init();
   }
 
-  async handlePageChange(url: string) {
+  async handlePageChange({
+    url,
+    forwards = true,
+  }: {
+    url: string;
+    forwards?: boolean;
+  }) {
     await this.page.hide();
 
     try {
@@ -74,6 +83,11 @@ class App {
       const nextPage = await fetch(url);
       const nextPageText = await nextPage.text();
       const nextPageHtml = parser.parseFromString(nextPageText, "text/html");
+
+      const nextPageTitle = nextPageHtml.querySelector(
+        "head > title"
+      ) as HTMLTitleElement;
+
       const nextPageContentDiv = nextPageHtml.querySelector(
         ".content"
       ) as HTMLDivElement;
@@ -82,28 +96,42 @@ class App {
         "data-template"
       ) as Template;
 
+      if (forwards) {
+        window.history.pushState({}, "", url);
+      }
       this.navigation.onChange(this.template);
+      this.pageTitle.innerHTML = nextPageTitle.innerHTML;
 
       this.content.innerHTML = nextPageContentDiv.innerHTML;
       this.content.setAttribute("data-template", this.template);
 
       this.page = this.pages[this.template];
-
       this.page.handleChange();
 
       this.addLinkListeners();
+      this.addPopStateListener();
     } catch (error) {
       console.log("Fetching page in link listener failed: ", error);
     }
   }
 
+  onPopState() {
+    this.handlePageChange({ url: window.location.pathname, forwards: false });
+  }
+
+  // TODO: add a removePopStateListener?
+  addPopStateListener() {
+    window.addEventListener("popstate", this.onPopState.bind(this));
+  }
+
+  // TODO: add a removeLinkListeners?
   addLinkListeners() {
     const links = document.querySelectorAll("a");
 
     links.forEach(link => {
       link.onclick = event => {
         event.preventDefault();
-        this.handlePageChange(link.href);
+        this.handlePageChange({ url: link.href });
       };
     });
   }
