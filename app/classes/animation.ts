@@ -39,5 +39,5 @@ export default class Animation {
  * ANIMATION CREATION PATTERN
  * Page class passes selectors for nodes to animate to Component class
  * Component class detects the animation nodes and stores them into "this.elements.animationsXxxx" keys
- * Then it loops over those and creates separate instances of Titles, Paragraphs, Images for each node of each type to animate
+ * Then Page and Home/About/Project loop over those and creates separate instances of Titles, Paragraphs, Images for each node of each type to animate
  */

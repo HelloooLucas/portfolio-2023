@@ -70,10 +70,13 @@ export default class Page extends Component {
   }
 
   show() {
+    // Probably make this empty and overload it in Home/About/etc?
+    // So it has access to actual page elements, because I don't want a general fade-in
     return new Promise<void>(resolve => {
       gsap.to(this.element, {
-        autoAlpha: 1,
-        duration: 0.5,
+        // autoAlpha: 1,
+        // duration: 0.5,
+        duration: 0,
         onComplete: () => {
           this.addWheelListener();
           resolve();

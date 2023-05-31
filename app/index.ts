@@ -44,6 +44,7 @@ class App {
     // Calling this here to be sure the height is calculated when all images are loaded
     this.page.onResize();
     this.page.show();
+    this.navigation.show();
   }
 
   createNavigation() {
@@ -99,7 +100,7 @@ class App {
       if (forwards) {
         window.history.pushState({}, "", url);
       }
-      this.navigation.onChange(this.template);
+      this.navigation.onPageChange(this.template);
       this.pageTitle.innerHTML = nextPageTitle.innerHTML;
 
       this.content.innerHTML = nextPageContentDiv.innerHTML;
