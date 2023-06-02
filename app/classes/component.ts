@@ -5,15 +5,14 @@
 
 interface Elements {
   // Common to all pages
-  // navigation: HTMLElement;
   content: HTMLDivElement;
   title: HTMLTitleElement;
   middleTitle: HTMLTitleElement;
   texts: HTMLParagraphElement[];
   images: HTMLImageElement[];
   footer: HTMLElement;
-  animationsTitles: HTMLHeadingElement[];
-  animationsTexts: HTMLParagraphElement[];
+  animationsTitles?: HTMLHeadingElement[];
+  animationsTexts?: HTMLParagraphElement[];
   preloadImages: HTMLImageElement[];
 
   // Navigation
@@ -25,10 +24,9 @@ interface Elements {
   backgroundColumns: HTMLDivElement;
 
   // Home
-  projectBlocks: HTMLAnchorElement[];
-  topSectionTexts?: HTMLParagraphElement[];
-  projectBlockImages?: HTMLImageElement[];
-  projectBlockNames?: HTMLTitleElement[];
+  projects: HTMLElement[];
+  topSectionPosition: HTMLParagraphElement;
+  topSectionPortfolio: HTMLParagraphElement;
 
   // Project
   headerImage?: HTMLImageElement;
@@ -73,6 +71,8 @@ class Component extends EventTarget {
           case "navHome":
           case "navAbout":
           case "content":
+          case "topSectionPosition":
+          case "topSectionPortfolio":
           case "title": // TODO: Since animationsTitles is already passed, do we still need to mention title and middleTitle?
           case "middleTitle":
           case "footer":

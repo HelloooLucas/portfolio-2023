@@ -1,4 +1,4 @@
-import Page from "../../classes/page";
+import Page from "../classes/page";
 
 /*
  * INFO
@@ -10,7 +10,6 @@ export default class About extends Page {
     super({
       selector: ".about",
       selectorChildren: {
-        // navigation: "nav",
         content: ".content",
         preloadImages: "[data-src]",
         headerImage: ".about__header__image",

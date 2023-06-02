@@ -43,8 +43,8 @@ class App {
   onPreloaded() {
     // Calling this here to be sure the height is calculated when all images are loaded
     this.page.onResize();
-    this.page.show();
     this.navigation.show();
+    this.page.show();
   }
 
   createNavigation() {

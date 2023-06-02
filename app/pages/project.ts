@@ -1,4 +1,4 @@
-import Page from "../../classes/page";
+import Page from "../classes/page";
 
 /*
  * INFO
@@ -13,7 +13,6 @@ export default class Project extends Page {
     super({
       selector: ".project",
       selectorChildren: {
-        // navigation: "nav",
         content: ".content",
         headerImage: ".project__header__image",
         headerInfo: ".project__header__info",

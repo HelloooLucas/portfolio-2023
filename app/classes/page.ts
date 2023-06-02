@@ -18,8 +18,8 @@ type PageProps = ComponentProps;
 export default class Page extends Component {
   handleWheelBound: (event: WheelEvent) => void;
   animations!: {
-    titles: Title[];
-    paragraphs: Paragraph[];
+    titles?: Title[];
+    paragraphs?: Paragraph[];
   };
   scroll!: {
     current: number;
@@ -55,10 +55,10 @@ export default class Page extends Component {
   createAnimations() {
     // TODO: do I need to store this?
     this.animations = {
-      titles: this.elements.animationsTitles.map(
+      titles: this.elements.animationsTitles?.map(
         element => new Title({ element })
       ),
-      paragraphs: this.elements.animationsTexts.map(
+      paragraphs: this.elements.animationsTexts?.map(
         element => new Paragraph({ element })
       ),
     };
@@ -70,19 +70,8 @@ export default class Page extends Component {
   }
 
   show() {
-    // Probably make this empty and overload it in Home/About/etc?
-    // So it has access to actual page elements, because I don't want a general fade-in
-    return new Promise<void>(resolve => {
-      gsap.to(this.element, {
-        // autoAlpha: 1,
-        // duration: 0.5,
-        duration: 0,
-        onComplete: () => {
-          this.addWheelListener();
-          resolve();
-        },
-      });
-    });
+    // This is called by instances of Page (Home, About, etc.) when their showing animations are completed
+    this.addWheelListener();
   }
 
   hide() {

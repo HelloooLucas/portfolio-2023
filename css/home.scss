@@ -81,9 +81,30 @@
   grid-column: 1 / -1;
 }
 
-.home__project__block__image {
-  width: 100%;
+.home__project__block__image-wrapper {
   aspect-ratio: 5 / 3;
+}
+
+.sopra-banking-software .home__project__block__image-wrapper {
+  background: #800073;
+}
+
+.last-quest .home__project__block__image-wrapper {
+  background: #ca7d02;
+}
+
+.solers-io .home__project__block__image-wrapper {
+  background: #53389d;
+}
+
+.atelier-tote-bag .home__project__block__image-wrapper {
+  background: #c9bba6;
+}
+
+.home__project__block__image {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   background: black;
   padding: 0 20px;
