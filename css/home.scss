@@ -1,3 +1,9 @@
+// TODO: remove?
+// $sopra-banking-software-image-background: #800073;
+// $last-quest-image-background: #ca7d02;
+// $solers-io-image-background: #53389d;
+// $atelier-tote-bag-image-background: #c9bba6;
+
 /* 
 * TOP SECTION
 * /////////////////////////////////////////////////
@@ -85,21 +91,22 @@
   aspect-ratio: 5 / 3;
 }
 
-.sopra-banking-software .home__project__block__image-wrapper {
-  background: #800073;
-}
+// TODO: remove?
+// .sopra-banking-software .home__project__block__image-wrapper {
+//   background: $sopra-banking-software-image-background;
+// }
 
-.last-quest .home__project__block__image-wrapper {
-  background: #ca7d02;
-}
+// .last-quest .home__project__block__image-wrapper {
+//   background: $last-quest-image-background;
+// }
 
-.solers-io .home__project__block__image-wrapper {
-  background: #53389d;
-}
+// .solers-io .home__project__block__image-wrapper {
+//   background: $solers-io-image-background;
+// }
 
-.atelier-tote-bag .home__project__block__image-wrapper {
-  background: #c9bba6;
-}
+// .atelier-tote-bag .home__project__block__image-wrapper {
+//   background: $atelier-tote-bag-image-background;
+// }
 
 .home__project__block__image {
   display: block;
@@ -139,19 +146,19 @@
     display: none;
   }
 
-  .sopra-banking-software {
+  .home__project[data-project="sopra-banking-software"] {
     grid-column: 3 / span 5;
   }
 
-  .last-quest {
+  .home__project[data-project="last-quest"] {
     grid-column: 1 / span 5;
   }
 
-  .solers-io {
+  .home__project[data-project="solers-io"] {
     grid-column: 4 / span 5;
   }
 
-  .atelier-tote-bag {
+  .home__project[data-project="atelier-tote-bag"] {
     grid-column: 2 / span 5;
   }
 }
@@ -165,19 +172,19 @@
     grid-column: 2 / span 5;
   }
 
-  .sopra-banking-software {
+  .home__project[data-project="sopra-banking-software"] {
     grid-column: 4 / span 6;
   }
 
-  .last-quest {
+  .home__project[data-project="last-quest"] {
     grid-column: 2 / span 6;
   }
 
-  .solers-io {
+  .home__project[data-project="solers-io"] {
     grid-column: 5 / span 6;
   }
 
-  .atelier-tote-bag {
+  .home__project[data-project="atelier-tote-bag"] {
     grid-column: 3 / span 6;
   }
 }

@@ -2,6 +2,7 @@ import Home from "./pages/home";
 import About from "./pages/about";
 import Project from "./pages/project";
 import { Template } from "./classes/page";
+import { ProjectName } from "./utils/colors";
 import Preloader, { PRELOADING_FINISHED_EVENT } from "./components/preloader";
 import Navigation from "./components/navigation";
 
@@ -16,6 +17,7 @@ class App {
   content!: HTMLDivElement;
   pageTitle!: HTMLTitleElement;
   template!: Template;
+  project?: ProjectName;
   preloader!: Preloader;
   navigation!: Navigation;
 
@@ -55,6 +57,9 @@ class App {
     this.pageTitle = document.querySelector("head > title") as HTMLTitleElement;
     this.content = document.querySelector(".content") as HTMLDivElement;
     this.template = this.content.dataset.template as Template;
+    if (this.template === "project") {
+      this.project = this.content.dataset.project as ProjectName;
+    }
   }
 
   createPages() {
@@ -65,6 +70,12 @@ class App {
     };
 
     this.page = this.pages[this.template];
+    // TODO: this way of detecting the page and applying colors is overkill and not elegant
+    // Find something else
+    // Maybe directly in css with data-project?
+    if (this.page instanceof Project && this.project) {
+      this.page.setProjectName(this.project);
+    }
 
     this.page.init();
   }

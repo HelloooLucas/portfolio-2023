@@ -29,7 +29,8 @@ interface Elements {
   topSectionPortfolio: HTMLParagraphElement;
 
   // Project
-  headerInfo?: HTMLDivElement;
+  headerInfo: HTMLDivElement;
+  media: HTMLImageElement[];
 
   // About
   mainTitle: HTMLHeadingElement;

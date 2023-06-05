@@ -24,7 +24,7 @@ export default class Title extends Animation {
     this.setAnimations();
   }
 
-  play() {
+  show() {
     this.timeline.play();
   }
 

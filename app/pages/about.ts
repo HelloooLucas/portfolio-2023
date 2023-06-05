@@ -37,8 +37,8 @@ export default class About extends Page {
   }
 
   show() {
-    this.coverImage.play();
-    this.mainTitle.play();
+    this.coverImage.show();
+    this.mainTitle.show();
   }
 
   createAnimations() {

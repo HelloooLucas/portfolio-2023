@@ -1,12 +1,14 @@
 import { gsap } from "gsap";
 import splitIntoLines from "../utils/text";
 import Animation from "../classes/animation";
+import getProjectColor, { ProjectName } from "../utils/colors";
 
 interface ComponentProps {
   block: HTMLElement;
 }
 
 export default class HomeProject extends Animation {
+  project!: ProjectName;
   projectIndex!: HTMLSpanElement[];
   projectBlock!: HTMLAnchorElement;
   projectImageWrapper!: HTMLDivElement;
@@ -58,6 +60,8 @@ export default class HomeProject extends Animation {
   // Because then all block, images and titles would be grouped together
   // And I need them to be packed in block + index + image + title
   detectDomNodes() {
+    this.project = this.element.getAttribute("data-project") as ProjectName;
+
     this.projectIndex = splitIntoLines(
       this.element.querySelector(".home__project__index") as HTMLSpanElement
     );
@@ -74,6 +78,10 @@ export default class HomeProject extends Animation {
       this.element.querySelector(
         ".home__project__block__name"
       ) as HTMLHeadingElement
+    );
+
+    this.projectImageWrapper.style.backgroundColor = getProjectColor(
+      this.project
     );
   }
 
