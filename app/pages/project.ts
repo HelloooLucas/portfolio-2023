@@ -14,7 +14,7 @@ export default class Project extends Page {
       selector: ".project",
       selectorChildren: {
         content: ".content",
-        headerImage: ".project__header__image",
+        headerImage: ".project__header__image", // TODO: change the DOM + target the wrapper instead
         headerInfo: ".project__header__info",
         // title: ".project__title",
         animationsTitles: ".project__title, .project__middle-title",

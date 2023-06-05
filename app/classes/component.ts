@@ -6,8 +6,8 @@
 interface Elements {
   // Common to all pages
   content: HTMLDivElement;
-  title: HTMLTitleElement;
-  middleTitle: HTMLTitleElement;
+  title: HTMLHeadingElement;
+  middleTitle: HTMLHeadingElement;
   texts: HTMLParagraphElement[];
   images: HTMLImageElement[];
   footer: HTMLElement;
@@ -29,12 +29,15 @@ interface Elements {
   topSectionPortfolio: HTMLParagraphElement;
 
   // Project
-  headerImage?: HTMLImageElement;
   headerInfo?: HTMLDivElement;
 
   // About
-  awardsTitle?: HTMLTitleElement;
-  awardsLines?: HTMLDivElement[];
+  mainTitle: HTMLHeadingElement;
+  awardsTitle: HTMLHeadingElement;
+  awardsLines: HTMLDivElement[];
+
+  // Project & About
+  coverImageWrapper: HTMLDivElement;
 
   // Preloader
   counter: HTMLSpanElement;
@@ -76,7 +79,8 @@ class Component extends EventTarget {
           case "title": // TODO: Since animationsTitles is already passed, do we still need to mention title and middleTitle?
           case "middleTitle":
           case "footer":
-          case "headerImage":
+          case "coverImageWrapper":
+          case "mainTitle":
           case "headerInfo":
           case "awardsTitle":
           case "counter":

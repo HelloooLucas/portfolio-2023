@@ -5,38 +5,45 @@ import splitIntoLines from "../utils/text";
 
 interface TitleProps {
   element: HTMLHeadingElement;
+  timeline?: ReturnType<typeof gsap.timeline>;
+  manualTrigger?: boolean;
+  onComplete?: () => void;
 }
 
 export default class Title extends Animation {
   titleLines!: HTMLSpanElement[];
+  timeline: ReturnType<typeof gsap.timeline>;
 
-  constructor({ element }: TitleProps) {
+  constructor({ element, timeline, manualTrigger, onComplete }: TitleProps) {
     super({ element });
 
     this.titleLines = splitIntoLines(this.element);
+    this.timeline =
+      timeline ?? gsap.timeline({ paused: manualTrigger, onComplete });
+
+    this.setAnimations();
   }
 
-  // TODO: animateIn seems to be fired way before page's show method is finished animating,
-  // so we don't see the title animation
-  // I need to find a way to trigger it only when the page showing is done
-  // => Create shared constants to determine general delays and durations?
-  animateIn() {
-    gsap.fromTo(
-      this.titleLines,
-      {
-        y: "100%",
-      },
-      {
-        y: "0%",
-        delay: 0.5,
-        duration: 0.5,
-        stagger: 0.2,
-      }
-    );
+  play() {
+    this.timeline.play();
   }
-  animateOut() {
-    gsap.set(this.element, {
-      // autoAlpha: 0,
+
+  animateIn() {
+    this.timeline.to(this.titleLines, {
+      y: "0%",
+      delay: 0.5,
+      duration: 0.5,
+      stagger: 0.2,
     });
+  }
+
+  animateOut() {
+    gsap.set(this.titleLines, {
+      y: "100%",
+    });
+  }
+
+  setAnimations() {
+    this.animateOut();
   }
 }

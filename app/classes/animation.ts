@@ -1,13 +1,15 @@
-interface AnimationProps {
+export interface AnimationProps {
   element: HTMLElement;
 }
 
 export default class Animation {
+  contentElement: HTMLDivElement;
   element: HTMLElement;
   observer!: IntersectionObserver;
 
   constructor({ element }: AnimationProps) {
     this.element = element;
+    this.contentElement = document.querySelector(".content") as HTMLDivElement;
 
     this.createObserver();
   }
@@ -16,10 +18,16 @@ export default class Animation {
     this.observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // console.log("animating in");
+          // If element enters from top, don't animate in
+          const { top } = entry.boundingClientRect;
+          if (top < 0) return;
+
           this.animateIn();
         } else {
-          // console.log("animating out");
+          // If element exits from top, don't animate out
+          const { bottom } = entry.boundingClientRect;
+          if (bottom < 0) return;
+
           this.animateOut();
         }
       });

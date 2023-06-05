@@ -29,14 +29,15 @@ export default class Paragraph extends Animation {
       {
         y: "0%",
         delay: 0.5,
-        duration: 0.3,
-        stagger: 0.04,
+        duration: 0.5,
+        stagger: 0.05,
       }
     );
   }
+
   animateOut() {
     gsap.set(this.element, {
-      // autoAlpha: 0,
+      y: "100%",
     });
   }
 }
