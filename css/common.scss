@@ -53,6 +53,12 @@ a {
   color: inherit;
 }
 
+img,
+video {
+  //TODO: remove video when I replace them with gifs
+  display: block;
+}
+
 p {
   font-size: clamp(10px, 0.426rem + 0.935vw, 14px);
   line-height: 1.5;

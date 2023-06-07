@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 import splitIntoLines from "../utils/text";
 import Animation from "../classes/animation";
-import getProjectColor, { ProjectName } from "../utils/colors";
+import getImageBackgroundColor, { ProjectName } from "../utils/colors";
 
 interface ComponentProps {
   block: HTMLElement;
@@ -56,9 +56,6 @@ export default class HomeProject extends Animation {
     });
   }
 
-  // I can't queyr all those from the Home constructor directly,
-  // Because then all block, images and titles would be grouped together
-  // And I need them to be packed in block + index + image + title
   detectDomNodes() {
     this.project = this.element.getAttribute("data-project") as ProjectName;
 
@@ -80,7 +77,7 @@ export default class HomeProject extends Animation {
       ) as HTMLHeadingElement
     );
 
-    this.projectImageWrapper.style.backgroundColor = getProjectColor(
+    this.projectImageWrapper.style.backgroundColor = getImageBackgroundColor(
       this.project
     );
   }

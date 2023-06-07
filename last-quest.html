@@ -99,23 +99,27 @@
         </p>
 
         <!-- TODO: VIDEO DOESN'T LOAD ON SOME MOBILES, PROVIDE FALLBACK -->
-        <video
-          class="project__media-1"
-          src="images/last-quest/homepage.mov"
-          autoplay
-          loop
-          mute
-        ></video>
-        <img
-          class="project__media-2"
-          data-src="/images/last-quest/city.gif"
-          alt="city animations gif"
-        />
-        <img
-          class="project__media-3"
-          data-src="/images/last-quest/baddie.gif"
-          alt="bad guy animations gif"
-        />
+        <div class="project__image__wrapper image-1">
+          <!-- TODO: replace videos with gifs -->
+          <video
+            src="images/last-quest/homepage.mov"
+            autoplay
+            loop
+            mute
+          ></video>
+        </div>
+        <div class="project__image__wrapper image-2">
+          <img
+            data-src="/images/last-quest/city.gif"
+            alt="city animations gif"
+          />
+        </div>
+        <div class="project__image__wrapper image-3">
+          <img
+            data-src="/images/last-quest/baddie.gif"
+            alt="bad guy animations gif"
+          />
+        </div>
 
         <p class="project__text-3">
           Each episode is enriched with<br />
@@ -129,20 +133,22 @@
           gif timeline control<br />
           on scroll
         </h2>
-        <video
-          class="project__media-4"
-          src="images/last-quest/frog-parallax.mov"
-          autoplay
-          loop
-          mute
-        ></video>
-        <video
-          class="project__media-5"
-          src="images/last-quest/city-clouds-animation.mov"
-          autoplay
-          loop
-          mute
-        ></video>
+        <div class="project__image__wrapper image-4">
+          <video
+            src="images/last-quest/frog-parallax.mov"
+            autoplay
+            loop
+            mute
+          ></video>
+        </div>
+        <div class="project__image__wrapper image-5">
+          <video
+            src="images/last-quest/city-clouds-animation.mov"
+            autoplay
+            loop
+            mute
+          ></video>
+        </div>
         <p class="project__text-4 last-quest">
           The scroll-based animations are achieved<br />
           using the greensock animation platform,<br />

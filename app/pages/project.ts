@@ -2,7 +2,6 @@ import { gsap } from "gsap";
 import Page from "../classes/page";
 import Image from "../animations/image";
 import Title from "../animations/title";
-import getProjectColor, { ProjectName } from "../utils/colors";
 
 /*
  * INFO
@@ -10,7 +9,6 @@ import getProjectColor, { ProjectName } from "../utils/colors";
  */
 
 export default class Project extends Page {
-  projectName!: ProjectName;
   coverImage!: Image;
   mainTitle!: Title;
   media!: Image[];
@@ -20,7 +18,7 @@ export default class Project extends Page {
       selector: ".project",
       selectorChildren: {
         content: ".content",
-        coverImageWrapper: ".project__header__image-wrapper", // TODO: change the DOM + target the wrapper instead
+        coverImageWrapper: ".project__header__image-wrapper",
         headerInfo: ".project__header__info",
         // title: ".project__title",
         mainTitle: ".project__title, .project__middle-title",
@@ -31,8 +29,7 @@ export default class Project extends Page {
         animationsTexts:
           ".project__text-1, .project__text-2, .project__text-3, .project__text-4",
         preloadImages: "[data-src]",
-        media:
-          ".project__media-1, .project__media-2, .project__media-3, .project__media-4, .project__media-5, .project__media-6",
+        media: ".project__image__wrapper",
         middleTitle: ".project__middle-title",
         footer: "footer",
       },
@@ -54,7 +51,6 @@ export default class Project extends Page {
     this.coverImage = new Image({
       element: this.elements.coverImageWrapper,
       manualTrigger: true,
-      bgColor: getProjectColor(this.projectName),
     });
 
     this.mainTitle = new Title({
@@ -67,13 +63,6 @@ export default class Project extends Page {
       autoAlpha: 0,
     });
 
-    this.media = this.elements.media.map(
-      element =>
-        new Image({ element, bgColor: getProjectColor(this.projectName) })
-    );
-  }
-
-  setProjectName(projectName: ProjectName) {
-    this.projectName = projectName;
+    this.media = this.elements.media.map(element => new Image({ element }));
   }
 }

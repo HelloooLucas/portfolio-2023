@@ -1,9 +1,3 @@
-// TODO: remove?
-// $sopra-banking-software-image-background: #800073;
-// $last-quest-image-background: #ca7d02;
-// $solers-io-image-background: #53389d;
-// $atelier-tote-bag-image-background: #c9bba6;
-
 /* 
 * TOP SECTION
 * /////////////////////////////////////////////////
@@ -91,25 +85,7 @@
   aspect-ratio: 5 / 3;
 }
 
-// TODO: remove?
-// .sopra-banking-software .home__project__block__image-wrapper {
-//   background: $sopra-banking-software-image-background;
-// }
-
-// .last-quest .home__project__block__image-wrapper {
-//   background: $last-quest-image-background;
-// }
-
-// .solers-io .home__project__block__image-wrapper {
-//   background: $solers-io-image-background;
-// }
-
-// .atelier-tote-bag .home__project__block__image-wrapper {
-//   background: $atelier-tote-bag-image-background;
-// }
-
 .home__project__block__image {
-  display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;

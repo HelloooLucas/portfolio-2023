@@ -1,11 +1,10 @@
-// TODO: maybe place this directly inside Image, since it's used only there for now?
 export type ProjectName =
   | "sopra-banking-software"
   | "last-quest"
   | "solers-io"
   | "atelier-tote-bag";
 
-export default function getProjectColor(project: ProjectName) {
+export default function getImageBackgroundColor(project: ProjectName) {
   switch (project) {
     case "sopra-banking-software":
       return "#800073";
