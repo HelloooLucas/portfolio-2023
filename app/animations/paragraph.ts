@@ -14,32 +14,25 @@ export default class Paragraph extends Animation {
     super({ element });
 
     this.paragraphLines = splitIntoLines(this.element);
+    this.setAnimations();
   }
 
-  // TODO: animateIn seems to be fired way before page's show method is finished animating,
-  // so we don't see the title animation
-  // I need to find a way to trigger it only when the page showing is done
-  // => Create shared constants to determine general delays and durations?
   animateIn() {
-    gsap.fromTo(
-      this.paragraphLines,
-      {
-        y: "100%",
-      },
-      {
-        y: "0%",
-        delay: 0.5,
-        duration: 0.5,
-        stagger: 0.05,
-      }
-    );
+    gsap.to(this.paragraphLines, {
+      y: "0%",
+      delay: 0.5,
+      duration: 0.5,
+      stagger: 0.05,
+    });
   }
 
   animateOut() {
-    gsap.set(this.element, {
+    gsap.set(this.paragraphLines, {
       y: "100%",
     });
   }
-}
 
-// TODO: right now, elements already on the page when it loads don't animate in, fix it
+  setAnimations() {
+    this.animateOut();
+  }
+}
