@@ -6,13 +6,7 @@
 interface Elements {
   // Common to all pages
   content: HTMLDivElement;
-  title: HTMLHeadingElement;
-  middleTitle: HTMLHeadingElement;
-  texts: HTMLParagraphElement[];
-  images: HTMLImageElement[];
   footer: HTMLElement;
-  animationsTitles?: HTMLHeadingElement[];
-  animationsTexts?: HTMLParagraphElement[];
   preloadImages: HTMLImageElement[];
 
   // Navigation
@@ -21,7 +15,7 @@ interface Elements {
   navLinks: HTMLDivElement;
   navHome: HTMLAnchorElement;
   navAbout: HTMLAnchorElement;
-  backgroundColumns: HTMLDivElement;
+  backgroundColumns: HTMLDivElement[];
 
   // Home
   projects: HTMLElement[];
@@ -31,14 +25,16 @@ interface Elements {
   // Project
   headerInfo: HTMLDivElement;
   media: HTMLImageElement[];
+  middleTitle: HTMLHeadingElement;
 
   // About
-  mainTitle: HTMLHeadingElement;
   awardsTitle: HTMLHeadingElement;
   awardsLines: HTMLDivElement[];
 
   // Project & About
   coverImageWrapper: HTMLDivElement;
+  title: HTMLHeadingElement;
+  paragraphs?: HTMLParagraphElement[];
 
   // Preloader
   counter: HTMLSpanElement;
@@ -47,12 +43,12 @@ interface Elements {
 
 export interface ComponentProps {
   selector: string;
-  selectorChildren: { [key: string]: string };
+  selectorChildren: { [key: string]: string | string[] };
 }
 
 class Component extends EventTarget {
   selector: string;
-  selectorChildren: { [key: string]: string };
+  selectorChildren: { [key: string]: string | string[] };
   element!: HTMLElement;
   elements!: Elements;
 
@@ -67,34 +63,17 @@ class Component extends EventTarget {
 
     this.elements = Object.entries(this.selectorChildren).reduce(
       (acc, [key, selector]) => {
-        // Refactor this so I don't have to maintain a list
-        // Maybe pass a "single" or "multiple" type with the selector so I can decide how to query the nodes
-        switch (key) {
-          case "body":
-          case "navName":
-          case "navHome":
-          case "navAbout":
-          case "content":
-          case "topSectionPosition":
-          case "topSectionPortfolio":
-          case "title": // TODO: Since animationsTitles is already passed, do we still need to mention title and middleTitle?
-          case "middleTitle":
-          case "footer":
-          case "coverImageWrapper":
-          case "mainTitle":
-          case "headerInfo":
-          case "awardsTitle":
-          case "counter":
-            return {
-              ...acc,
-              [key]: document.querySelector(selector) as HTMLElement,
-            };
-          default:
-            return {
-              ...acc,
-              [key]: [...document.querySelectorAll(selector)],
-            };
+        if (Array.isArray(selector)) {
+          return {
+            ...acc,
+            [key]: [...document.querySelectorAll(selector.join())],
+          };
         }
+
+        return {
+          ...acc,
+          [key]: document.querySelector(selector) as HTMLElement,
+        };
       },
       {} as Elements
     );

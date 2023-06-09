@@ -16,8 +16,9 @@ export default class Preloader extends Component {
       selectorChildren: {
         title: ".preloader__title",
         counter: ".preloader__counter > span",
-        columns: ".preloader__columns > div",
-        images: "img",
+        columns: [".preloader__columns > div"],
+        // TODO: try to see if I can use BackgroundPreload here instead of duplicating the logic
+        preloadImages: ["[data-src]"],
       },
     });
 
@@ -29,7 +30,7 @@ export default class Preloader extends Component {
   }
 
   loadImageAssets() {
-    this.elements.images.forEach(img => {
+    this.elements.preloadImages.forEach(img => {
       img.src = img.getAttribute("data-src") as string;
       img.onload = () => this.imageAssetLoaded();
     });
@@ -38,11 +39,12 @@ export default class Preloader extends Component {
   async imageAssetLoaded() {
     this.loadedLength += 1;
 
-    const percentage = (this.loadedLength / this.elements.images.length) * 100;
+    const percentage =
+      (this.loadedLength / this.elements.preloadImages.length) * 100;
 
     this.elements.counter.innerHTML = `${Math.round(percentage)}%`;
 
-    if (this.loadedLength === this.elements.images.length) {
+    if (this.loadedLength === this.elements.preloadImages.length) {
       await this.hidePreloader();
       this.destroyPreloader();
     }

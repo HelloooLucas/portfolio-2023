@@ -10,6 +10,7 @@ interface TitleProps {
   onComplete?: () => void;
 }
 
+// TODO: is title redundant with Paragraph?
 export default class Title extends Animation {
   titleLines!: HTMLSpanElement[];
   timeline: ReturnType<typeof gsap.timeline>;

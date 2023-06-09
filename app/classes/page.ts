@@ -55,10 +55,7 @@ export default class Page extends Component {
   createAnimations() {
     // TODO: do I need to store this?
     this.animations = {
-      titles: this.elements.animationsTitles?.map(
-        element => new Title({ element })
-      ),
-      paragraphs: this.elements.animationsTexts?.map(
+      paragraphs: this.elements.paragraphs?.map(
         element => new Paragraph({ element })
       ),
     };

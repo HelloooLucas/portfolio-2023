@@ -21,8 +21,8 @@ export default class Home extends Page {
         content: ".content",
         topSectionPosition: ".home__top-section__position",
         topSectionPortfolio: ".home__top-section__portfolio",
-        preloadImages: "[data-src]",
-        projects: ".home__project",
+        preloadImages: ["[data-src]"],
+        projects: [".home__project"],
         footer: "footer",
       },
     });
@@ -58,7 +58,7 @@ export default class Home extends Page {
     });
 
     this.projects = this.elements.projects.map(
-      block => new HomeProject({ block })
+      project => new HomeProject({ project })
     );
   }
 

@@ -4,7 +4,7 @@ import Animation from "../classes/animation";
 import getImageBackgroundColor, { ProjectName } from "../utils/colors";
 
 interface ComponentProps {
-  block: HTMLElement;
+  project: HTMLElement;
 }
 
 export default class HomeProject extends Animation {
@@ -17,8 +17,8 @@ export default class HomeProject extends Animation {
   onMouseEnterBound: () => void;
   onMouseLeaveBound: () => void;
 
-  constructor({ block }: ComponentProps) {
-    super({ element: block });
+  constructor({ project }: ComponentProps) {
+    super({ element: project });
     this.onMouseEnterBound = this.onMouseEnter.bind(this);
     this.onMouseLeaveBound = this.onMouseLeave.bind(this);
 

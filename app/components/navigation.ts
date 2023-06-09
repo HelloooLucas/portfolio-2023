@@ -26,7 +26,7 @@ export default class Navigation extends Component {
         navLinks: ".nav__links",
         navHome: ".nav__links__home",
         navAbout: ".nav__links__about",
-        backgroundColumns: ".background-columns > div",
+        backgroundColumns: [".background-columns > div"],
       },
     });
     this.detectDomNodes();
@@ -51,6 +51,7 @@ export default class Navigation extends Component {
     );
   }
 
+  // TODO: check what's happening with setAnimations/createAnimations
   createAnimations() {
     this.titleLines = splitIntoLines(this.elements.navName);
     gsap.set([this.titleLines, this.elements.navLinks], {

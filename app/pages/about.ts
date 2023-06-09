@@ -11,7 +11,7 @@ import Footer from "../animations/footer";
  */
 
 export default class About extends Page {
-  mainTitle!: Title;
+  title!: Title;
   awardsTitle!: Title;
   awardsLines!: AwardLine[];
   coverImage!: Image;
@@ -22,15 +22,12 @@ export default class About extends Page {
       selector: ".about",
       selectorChildren: {
         content: ".content",
-        preloadImages: "[data-src]",
+        preloadImages: ["[data-src]"],
         coverImageWrapper: ".about__header__image-wrapper",
-        // TODO: remove this?
-        // title: ".about__title",
-        mainTitle: ".about__title",
-        // texts: ".about__text-1, .about__text-2",
-        animationsTexts: ".about__text-1, .about__text-2",
+        title: ".about__title",
+        paragraphs: [".about__text-1", ".about__text-2"],
         awardsTitle: ".about__awards__title",
-        awardsLines: ".about__awards__line",
+        awardsLines: [".about__awards__line"],
         footer: "footer",
       },
     });
@@ -38,7 +35,7 @@ export default class About extends Page {
 
   show() {
     this.coverImage.show();
-    this.mainTitle.show();
+    this.title.show();
   }
 
   createAnimations() {
@@ -49,8 +46,8 @@ export default class About extends Page {
       manualTrigger: true,
     });
 
-    this.mainTitle = new Title({
-      element: this.elements.mainTitle,
+    this.title = new Title({
+      element: this.elements.title,
       manualTrigger: true,
       onComplete: () => super.show(),
     });
