@@ -75,34 +75,63 @@ export default class Navigation extends Component {
     }
   }
 
-  // Maybe I can first blend type/columns colors with new background, and then only change their color?
-  // Something to smooth the transition
   setColors(template: Template) {
-    const duration = 0.2;
-    const tl = gsap.timeline({ duration });
+    const tl = gsap.timeline();
 
     if (template === "about") {
-      tl.to(this.elements.body, {
-        backgroundColor: ABOUT_BACKGROUND,
-      }).to(this.elements.backgroundColumns, {
-        borderColor: ABOUT_COLUMNS,
-      });
-
-      gsap.to(this.element, {
-        color: ABOUT_TEXTS,
-        duration,
-      });
+      tl.to(this.elements.backgroundColumns, {
+        autoAlpha: 0,
+        duration: 0.2,
+      })
+        .set(this.elements.backgroundColumns, {
+          borderColor: ABOUT_COLUMNS,
+        })
+        .to(this.elements.body, {
+          backgroundColor: ABOUT_BACKGROUND,
+          duration: 0.6,
+        })
+        .addLabel("background-halfway-changed", 0.8)
+        .to(
+          this.elements.backgroundColumns,
+          {
+            autoAlpha: 1,
+          },
+          "background-halfway-changed"
+        )
+        .to(
+          this.element,
+          {
+            color: ABOUT_TEXTS,
+          },
+          "background-halfway-changed"
+        );
     } else {
-      tl.to(this.elements.body, {
-        backgroundColor: DEFAULT_BACKGROUND,
-      }).to(this.elements.backgroundColumns, {
-        borderColor: DEFAULT_COLUMNS,
-      });
-
-      gsap.to(this.element, {
-        color: DEFAULT_TEXTS,
-        duration,
-      });
+      tl.to(this.elements.backgroundColumns, {
+        autoAlpha: 0,
+        duration: 0.2,
+      })
+        .set(this.elements.backgroundColumns, {
+          borderColor: DEFAULT_COLUMNS,
+        })
+        .to(this.elements.body, {
+          backgroundColor: DEFAULT_BACKGROUND,
+          duration: 0.6,
+        })
+        .addLabel("background-halfway-changed", 0.8)
+        .to(
+          this.elements.backgroundColumns,
+          {
+            autoAlpha: 1,
+          },
+          "background-halfway-changed"
+        )
+        .to(
+          this.element,
+          {
+            color: DEFAULT_TEXTS,
+          },
+          "background-halfway-changed"
+        );
     }
   }
 }

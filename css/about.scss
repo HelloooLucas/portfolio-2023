@@ -12,8 +12,8 @@ $about-color: #dfdfdf;
 .about__header__image-wrapper {
   height: 65vh;
   margin-top: calc(var(--column-gap) * 2 + var(--nav-height));
-  padding-left: 1px;
-  padding-right: 1px;
+  margin-left: 1px;
+  margin-right: 1px;
   grid-column: 1 / -1;
   margin-bottom: 96px;
 }
