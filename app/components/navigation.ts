@@ -105,7 +105,7 @@ export default class Navigation extends Component {
           },
           "background-halfway-changed"
         );
-    } else {
+    } else if (template === "home") {
       tl.to(this.elements.backgroundColumns, {
         autoAlpha: 0,
         duration: 0.2,
