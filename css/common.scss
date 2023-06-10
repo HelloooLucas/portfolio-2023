@@ -136,11 +136,6 @@ nav {
   z-index: 1;
 }
 
-.nav__links-wrapper {
-  height: min-content;
-  overflow: hidden;
-}
-
 .nav__links {
   // TODO: remove this when I implement my own link animations
   // @extend %link--hidden;
@@ -155,7 +150,11 @@ nav {
 .nav__links__home {
   position: absolute;
   right: 0;
-  transform: translateY(100%);
+  pointer-events: none;
+}
+
+.nav__links a {
+  pointer-events: all;
 }
 
 @media screen and (min-width: 768px) {

@@ -49,7 +49,7 @@ export default class About extends Page {
     this.title = new Title({
       element: this.elements.title,
       manualTrigger: true,
-      onComplete: () => super.show(),
+      onComplete: () => super.show(), // TODO: replace by super.addWheelListener() if I see this is the only thing super.show() ends up doing
     });
 
     const awardsTimeline = gsap.timeline();

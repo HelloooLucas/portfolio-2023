@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 import { Template } from "../classes/page";
-import splitIntoLines from "../utils/text";
 import Component from "../classes/component";
+import Title from "../animations/title";
 
 const ABOUT_TEXTS = "#dfdfdf";
 const ABOUT_COLUMNS = "rgba(85, 85, 85, 0.6)";
@@ -15,7 +15,10 @@ interface NavigationProps {
 }
 
 export default class Navigation extends Component {
-  titleLines!: HTMLSpanElement[];
+  template: Template;
+  title!: Title;
+  navAbout!: Title;
+  navHome!: Title;
 
   constructor({ template }: NavigationProps) {
     super({
@@ -29,33 +32,31 @@ export default class Navigation extends Component {
         backgroundColumns: [".background-columns > div"],
       },
     });
+
+    this.template = template;
+
     this.detectDomNodes();
     this.createAnimations();
     this.setColors(template);
-    this.setLinks(template);
   }
 
   show() {
-    const tl = gsap.timeline();
-    tl.to(this.titleLines, {
-      y: "0%",
-      duration: 0.4,
-      stagger: 0.2,
-    }).to(
-      this.elements.navLinks,
-      {
-        y: "0%",
-        duration: 0.4,
-      },
-      0
-    );
+    this.title.show();
+    this.setLinks(this.template);
   }
 
-  // TODO: check what's happening with setAnimations/createAnimations
   createAnimations() {
-    this.titleLines = splitIntoLines(this.elements.navName);
-    gsap.set([this.titleLines, this.elements.navLinks], {
-      y: "100%",
+    this.title = new Title({
+      element: this.elements.navName,
+      manualTrigger: true,
+    });
+    this.navHome = new Title({
+      element: this.elements.navHome,
+      manualTrigger: true,
+    });
+    this.navAbout = new Title({
+      element: this.elements.navAbout,
+      manualTrigger: true,
     });
   }
 
@@ -64,31 +65,13 @@ export default class Navigation extends Component {
     this.setLinks(template);
   }
 
-  setLinks(template: Template) {
-    const tl = gsap.timeline();
-
+  async setLinks(template: Template) {
     if (template === "about") {
-      tl.to(this.elements.navAbout, {
-        y: "100%",
-        duration: 1,
-        ease: "expo.in",
-      });
-      tl.to(this.elements.navHome, {
-        y: "0%",
-        duration: 1,
-        ease: "expo.out",
-      });
+      await this.navAbout.hide();
+      this.navHome.show();
     } else {
-      tl.to(this.elements.navHome, {
-        y: "100%",
-        duration: 1,
-        ease: "expo.in",
-      });
-      tl.to(this.elements.navAbout, {
-        y: "0%",
-        duration: 1,
-        ease: "expo.out",
-      });
+      await this.navHome.hide();
+      this.navAbout.show();
     }
   }
 
