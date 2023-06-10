@@ -47,7 +47,10 @@ class App {
   }
 
   createNavigation() {
-    this.navigation = new Navigation({ template: this.template });
+    this.navigation = new Navigation({
+      template: this.template,
+      currentUrl: window.location.pathname,
+    });
   }
 
   createContent() {
@@ -96,10 +99,11 @@ class App {
         "data-template"
       ) as Template;
 
+      this.navigation.onPageChange(this.template); // onPageChange needs to be before updateUrl so the color changing works properly
       if (forwards) {
-        window.history.pushState({}, "", url);
+        this.navigation.updateUrl(url);
       }
-      this.navigation.onPageChange(this.template);
+
       this.pageTitle.innerHTML = nextPageTitle.innerHTML;
 
       this.content.innerHTML = nextPageContentDiv.innerHTML;

@@ -11,16 +11,18 @@ const DEFAULT_COLUMNS = "rgba(233, 233, 233, 0.8)";
 const DEFAULT_BACKGROUND = "#fff";
 
 interface NavigationProps {
+  currentUrl: string;
   template: Template;
 }
 
 export default class Navigation extends Component {
+  currentUrl: string;
   template: Template;
   title!: Title;
   navAbout!: Title;
   navHome!: Title;
 
-  constructor({ template }: NavigationProps) {
+  constructor({ currentUrl, template }: NavigationProps) {
     super({
       selector: "nav",
       selectorChildren: {
@@ -33,6 +35,7 @@ export default class Navigation extends Component {
       },
     });
 
+    this.currentUrl = currentUrl;
     this.template = template;
 
     this.detectDomNodes();
@@ -60,6 +63,12 @@ export default class Navigation extends Component {
     });
   }
 
+  updateUrl(url: string) {
+    this.currentUrl = url;
+
+    window.history.pushState({}, "", url);
+  }
+
   onPageChange(template: Template) {
     this.setColors(template);
     this.setLinks(template);
@@ -77,6 +86,10 @@ export default class Navigation extends Component {
 
   setColors(template: Template) {
     const tl = gsap.timeline();
+
+    const arrivingOnHomePage = this.currentUrl === "/" && template === "home";
+    const goingFromAboutToHome =
+      this.currentUrl.includes("about") && template === "home";
 
     if (template === "about") {
       tl.to(this.elements.backgroundColumns, {
@@ -105,7 +118,7 @@ export default class Navigation extends Component {
           },
           "background-halfway-changed"
         );
-    } else if (template === "home") {
+    } else if (arrivingOnHomePage || goingFromAboutToHome) {
       tl.to(this.elements.backgroundColumns, {
         autoAlpha: 0,
         duration: 0.2,
