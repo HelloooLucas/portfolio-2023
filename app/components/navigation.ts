@@ -10,6 +10,13 @@ const DEFAULT_TEXTS = "#334";
 const DEFAULT_COLUMNS = "rgba(233, 233, 233, 0.8)";
 const DEFAULT_BACKGROUND = "#fff";
 
+const projectUrlsList = [
+  "/sopra-banking-software.html",
+  "/last-quest.html",
+  "/solers-io.html",
+  "/atelier-tote-bag.html",
+];
+
 interface NavigationProps {
   currentUrl: string;
   template: Template;
@@ -84,10 +91,13 @@ export default class Navigation extends Component {
     }
   }
 
+  // TODO: refactor this because detecting when to change color is super messy
   setColors(template: Template) {
     const tl = gsap.timeline();
 
     const arrivingOnHomePage = this.currentUrl === "/" && template === "home";
+    const arrivingOnProjectPage =
+      projectUrlsList.includes(this.currentUrl) && template === "project";
     const goingFromAboutToHome =
       this.currentUrl.includes("about") && template === "home";
 
@@ -118,7 +128,11 @@ export default class Navigation extends Component {
           },
           "background-halfway-changed"
         );
-    } else if (arrivingOnHomePage || goingFromAboutToHome) {
+    } else if (
+      arrivingOnHomePage ||
+      arrivingOnProjectPage ||
+      goingFromAboutToHome
+    ) {
       tl.to(this.elements.backgroundColumns, {
         autoAlpha: 0,
         duration: 0.2,
