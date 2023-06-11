@@ -28,13 +28,14 @@ interface Elements {
   middleTitle: HTMLHeadingElement;
 
   // About
+  awardsBlock: HTMLDivElement;
   awardsTitle: HTMLHeadingElement;
   awardsLines: HTMLDivElement[];
 
   // Project & About
   coverImageWrapper: HTMLDivElement;
   title: HTMLHeadingElement;
-  paragraphs?: HTMLParagraphElement[];
+  paragraphs: HTMLParagraphElement[];
 
   // Preloader
   counter: HTMLSpanElement;

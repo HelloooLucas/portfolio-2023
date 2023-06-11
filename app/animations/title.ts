@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 
-import Animation from "../classes/animation";
 import splitIntoLines from "../utils/text";
+import Animation from "../classes/animation";
 
 interface TitleProps {
   element: HTMLElement;
@@ -31,6 +31,7 @@ export default class Title extends Animation {
 
   hide() {
     return this.timeline.reverse();
+    // this.timeline.pause();
   }
 
   animateIn() {

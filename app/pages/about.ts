@@ -1,9 +1,9 @@
-import { gsap } from "gsap";
 import Page from "../classes/page";
 import Title from "../animations/title";
 import Image from "../animations/image";
-import AwardLine from "../animations/award-line";
 import Footer from "../animations/footer";
+import Paragraph from "../animations/paragraph";
+import AboutAwards from "../animations/about-awards";
 
 /*
  * INFO
@@ -11,10 +11,10 @@ import Footer from "../animations/footer";
  */
 
 export default class About extends Page {
-  title!: Title;
-  awardsTitle!: Title;
-  awardsLines!: AwardLine[];
   coverImage!: Image;
+  title!: Title;
+  paragraphs!: Paragraph[];
+  awardsBlock!: AboutAwards;
   footer!: Footer;
 
   constructor() {
@@ -26,16 +26,29 @@ export default class About extends Page {
         coverImageWrapper: ".about__header__image-wrapper",
         title: ".about__title",
         paragraphs: [".about__text-1", ".about__text-2"],
-        awardsTitle: ".about__awards__title",
-        awardsLines: [".about__awards__line"],
+        awardsBlock: ".about__awards",
         footer: "footer",
       },
     });
   }
 
-  show() {
+  async show() {
     this.coverImage.show();
-    this.title.show();
+    await this.title.show();
+
+    super.show();
+  }
+
+  hide() {
+    super.hide();
+
+    return Promise.all([
+      this.coverImage.hide(),
+      this.title.hide(),
+      ...this.paragraphs.map(paragraph => paragraph.hide()),
+      this.awardsBlock.hide(),
+      this.footer.hide(),
+    ]);
   }
 
   createAnimations() {
@@ -49,18 +62,13 @@ export default class About extends Page {
     this.title = new Title({
       element: this.elements.title,
       manualTrigger: true,
-      onComplete: () => super.show(), // TODO: replace by super.addWheelListener() if I see this is the only thing super.show() ends up doing
     });
 
-    const awardsTimeline = gsap.timeline();
-
-    this.awardsTitle = new Title({
-      element: this.elements.awardsTitle,
-      timeline: awardsTimeline,
-    });
-    this.awardsLines = this.elements.awardsLines.map(
-      element => new AwardLine({ element, timeline: awardsTimeline })
+    this.paragraphs = this.elements.paragraphs?.map(
+      element => new Paragraph({ element })
     );
+
+    this.awardsBlock = new AboutAwards({ element: this.elements.awardsBlock });
 
     this.footer = new Footer({ element: this.elements.footer });
   }

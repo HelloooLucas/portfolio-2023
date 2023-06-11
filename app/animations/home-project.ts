@@ -7,6 +7,7 @@ interface ComponentProps {
   project: HTMLElement;
 }
 
+// TODO: refactor this to use Title and Image classes
 export default class HomeProject extends Animation {
   timeline: ReturnType<typeof gsap.timeline>;
   project!: ProjectName;
@@ -32,36 +33,17 @@ export default class HomeProject extends Animation {
     this.setAnimations();
   }
 
-  hide() {
-    return this.timeline.reverse();
+  async hide() {
+    await this.timeline.reverse();
+    this.timeline.pause();
   }
 
   animateIn() {
-    this.timeline
-      .to(this.projectIndex, {
-        y: 0,
-        duration: 0.4,
-        delay: 0.5,
-      })
-      .to(
-        [this.projectImageWrapper, this.projectImage],
-        {
-          clipPath: "inset(0% 0 0)",
-          duration: 0.8,
-          ease: "expo.out",
-          stagger: 0.1,
-        },
-        0.7
-      )
-      // TODO: this feels a bit hacky
-      // Check if I can isolate animateIn to describe the animating
-      // And isolate the .restart() in a show method, and feed that to the intersection observer
-      // But that would mean changing how all the other animation classes work
-      .restart();
+    this.timeline.play();
   }
 
   resetAnimations() {
-    this.hide();
+    this.timeline.progress(0).pause();
   }
 
   detectDomNodes() {
@@ -91,12 +73,31 @@ export default class HomeProject extends Animation {
   }
 
   setAnimations() {
-    gsap.set(this.projectIndex, {
-      y: "100%",
-    });
-    gsap.set([this.projectImageWrapper, this.projectImage], {
-      clipPath: "inset(100% 0 0)",
-    });
+    this.timeline
+      .fromTo(
+        this.projectIndex,
+        {
+          y: "100%",
+        },
+        {
+          y: 0,
+          duration: 0.4,
+          delay: 0.5,
+        }
+      )
+      .fromTo(
+        [this.projectImageWrapper, this.projectImage],
+        {
+          clipPath: "inset(100% 0 0)",
+        },
+        {
+          clipPath: "inset(0% 0 0)",
+          duration: 0.8,
+          ease: "expo.out",
+          stagger: 0.1,
+        },
+        0.7
+      );
   }
 
   // For those two methods I could use arrow functions

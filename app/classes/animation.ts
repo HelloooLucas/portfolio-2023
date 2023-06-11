@@ -3,13 +3,11 @@ export interface AnimationProps {
 }
 
 export default class Animation {
-  contentElement: HTMLDivElement;
   element: HTMLElement;
   observer!: IntersectionObserver;
 
   constructor({ element }: AnimationProps) {
     this.element = element;
-    this.contentElement = document.querySelector(".content") as HTMLDivElement;
 
     this.createObserver();
   }

@@ -1,9 +1,7 @@
 import gsap from "gsap";
 import NormalizeWheel from "normalize-wheel";
 
-import Title from "../animations/title";
 import Component, { ComponentProps } from "./component";
-import Paragraph from "../animations/paragraph";
 import BackgroundLoad from "./background-load";
 
 /*
@@ -17,10 +15,6 @@ type PageProps = ComponentProps;
 
 export default class Page extends Component {
   handleWheelBound: (event: WheelEvent) => void;
-  animations!: {
-    titles?: Title[];
-    paragraphs?: Paragraph[];
-  };
   scroll!: {
     current: number;
     target: number;
@@ -52,14 +46,7 @@ export default class Page extends Component {
     this.show();
   }
 
-  createAnimations() {
-    // TODO: do I need to store this?
-    this.animations = {
-      paragraphs: this.elements.paragraphs?.map(
-        element => new Paragraph({ element })
-      ),
-    };
-  }
+  createAnimations() {}
 
   async backgroundLoad() {
     const loader = new BackgroundLoad({ images: this.elements.preloadImages });

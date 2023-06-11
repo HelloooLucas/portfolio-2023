@@ -2,6 +2,7 @@ import { gsap } from "gsap";
 import Page from "../classes/page";
 import Image from "../animations/image";
 import Title from "../animations/title";
+import Paragraph from "../animations/paragraph";
 
 /*
  * INFO
@@ -11,6 +12,7 @@ import Title from "../animations/title";
 export default class Project extends Page {
   coverImage!: Image;
   title!: Title;
+  paragraphs!: Paragraph[];
   media!: Image[];
 
   constructor() {
@@ -61,6 +63,10 @@ export default class Project extends Page {
       element: this.elements.title,
       manualTrigger: true,
     });
+
+    this.paragraphs = this.elements.paragraphs.map(
+      element => new Paragraph({ element })
+    );
 
     gsap.set(this.elements.headerInfo, {
       autoAlpha: 0,

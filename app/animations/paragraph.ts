@@ -8,31 +8,43 @@ interface ParagraphProps {
 }
 
 export default class Paragraph extends Animation {
+  timeline: ReturnType<typeof gsap.timeline>;
   paragraphLines!: HTMLSpanElement[];
 
   constructor({ element }: ParagraphProps) {
     super({ element });
 
+    this.timeline = gsap.timeline({ paused: true });
+
     this.paragraphLines = splitIntoLines(this.element);
     this.setAnimations();
   }
 
+  async hide() {
+    await this.timeline.reverse();
+    this.timeline.pause();
+  }
+
   animateIn() {
-    gsap.to(this.paragraphLines, {
-      y: "0%",
-      delay: 0.5,
-      duration: 0.5,
-      stagger: 0.05,
-    });
+    this.timeline.play();
   }
 
   resetAnimations() {
-    gsap.set(this.paragraphLines, {
-      y: "100%",
-    });
+    this.timeline.progress(0).pause();
   }
 
   setAnimations() {
-    this.resetAnimations();
+    this.timeline.fromTo(
+      this.paragraphLines,
+      {
+        y: "100%",
+      },
+      {
+        y: "0%",
+        delay: 0.5,
+        duration: 0.5,
+        stagger: 0.05,
+      }
+    );
   }
 }
