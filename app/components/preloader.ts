@@ -50,39 +50,38 @@ export default class Preloader extends Component {
     }
   }
 
-  async hidePreloader() {
-    return new Promise(resolve => {
-      const tl = gsap.timeline({ delay: 1, ease: "expo.in" });
+  hidePreloader() {
+    const tl = gsap.timeline({ delay: 1, ease: "expo.in" });
 
-      tl.to(
-        this.titleInnerSpans.reverse(),
-        {
-          y: "100%",
-          stagger: 0.05,
-        },
-        0
-      );
+    tl.to(
+      this.titleInnerSpans.reverse(),
+      {
+        y: "100%",
+        stagger: 0.05,
+      },
+      0
+    );
 
-      tl.to(
-        this.elements.counter,
-        {
-          y: "100%",
-        },
-        0.3
-      );
+    tl.to(
+      this.elements.counter,
+      {
+        y: "100%",
+      },
+      0.3
+    );
 
-      tl.to(
-        this.elements.columns,
-        {
-          duration: 1,
-          scaleY: 0,
-          transformOrigin: "100% 100%",
-          stagger: 0.05,
-          onComplete: resolve,
-        },
-        0.5
-      );
-    });
+    tl.to(
+      this.elements.columns,
+      {
+        duration: 1,
+        scaleY: 0,
+        transformOrigin: "100% 100%",
+        stagger: 0.05,
+      },
+      0.5
+    );
+
+    return tl;
   }
 
   destroyPreloader() {

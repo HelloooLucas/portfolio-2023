@@ -69,9 +69,9 @@ export default class Navigation extends Component {
     window.history.pushState({}, "", url);
   }
 
-  onPageChange(template: Template) {
-    this.setColors(template);
+  async onPageChange(template: Template) {
     this.setLinks(template);
+    await this.setColors(template);
   }
 
   async setLinks(template: Template) {
@@ -146,5 +146,7 @@ export default class Navigation extends Component {
           "background-halfway-changed"
         );
     }
+
+    return tl;
   }
 }

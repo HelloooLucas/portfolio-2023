@@ -8,52 +8,60 @@ interface ComponentProps {
 }
 
 export default class HomeProject extends Animation {
+  timeline: ReturnType<typeof gsap.timeline>;
   project!: ProjectName;
   projectIndex!: HTMLSpanElement[];
   projectBlock!: HTMLAnchorElement;
   projectImageWrapper!: HTMLDivElement;
   projectImage!: HTMLImageElement;
   projectName!: HTMLSpanElement[];
-  onMouseEnterBound: () => void;
-  onMouseLeaveBound: () => void;
+  // onMouseEnterBound: () => void;
+  // onMouseLeaveBound: () => void;
 
   constructor({ project }: ComponentProps) {
     super({ element: project });
-    this.onMouseEnterBound = this.onMouseEnter.bind(this);
-    this.onMouseLeaveBound = this.onMouseLeave.bind(this);
+
+    this.timeline = gsap.timeline();
+
+    // this.onMouseEnterBound = this.onMouseEnter.bind(this);
+    // this.onMouseLeaveBound = this.onMouseLeave.bind(this);
 
     this.detectDomNodes();
 
-    this.addEventListeners();
-    this.createAnimations();
+    // this.addEventListeners();
+    this.setAnimations();
+  }
+
+  hide() {
+    return this.timeline.reverse();
   }
 
   animateIn() {
-    const tl = gsap.timeline();
-
-    tl.to(this.projectIndex, {
-      y: 0,
-      duration: 0.4,
-      delay: 0.5,
-    }).to(
-      [this.projectImageWrapper, this.projectImage],
-      {
-        clipPath: "inset(0% 0 0)",
-        duration: 0.8,
-        ease: "expo.out",
-        stagger: 0.1,
-      },
-      0.7
-    );
+    this.timeline
+      .to(this.projectIndex, {
+        y: 0,
+        duration: 0.4,
+        delay: 0.5,
+      })
+      .to(
+        [this.projectImageWrapper, this.projectImage],
+        {
+          clipPath: "inset(0% 0 0)",
+          duration: 0.8,
+          ease: "expo.out",
+          stagger: 0.1,
+        },
+        0.7
+      )
+      // TODO: this feels a bit hacky
+      // Check if I can isolate animateIn to describe the animating
+      // And isolate the .restart() in a show method, and feed that to the intersection observer
+      // But that would mean changing how all the other animation classes work
+      .restart();
   }
 
-  animateOut() {
-    gsap.set(this.projectIndex, {
-      y: "100%",
-    });
-    gsap.set([this.projectImageWrapper, this.projectImage], {
-      clipPath: "inset(100% 0 0)",
-    });
+  resetAnimations() {
+    this.hide();
   }
 
   detectDomNodes() {
@@ -82,7 +90,7 @@ export default class HomeProject extends Animation {
     );
   }
 
-  createAnimations() {
+  setAnimations() {
     gsap.set(this.projectIndex, {
       y: "100%",
     });
@@ -103,21 +111,21 @@ export default class HomeProject extends Animation {
   // And since the functions passed to add and removeListeners were different, listeners were not correctly matched and not removed
   // This is why I created onMouseEnterBound and onMouseEnterLeave, so the callbacks passed to add and remove event listeners are pointing to the same function isntance
   // I chose not to use arrow functions for a matter of consistency in the code
-  onMouseEnter() {
-    console.log("enter");
-  }
+  // onMouseEnter() {
+  //   console.log("enter");
+  // }
 
-  onMouseLeave() {
-    console.log("leave");
-  }
+  // onMouseLeave() {
+  //   console.log("leave");
+  // }
 
-  addEventListeners() {
-    this.projectBlock.addEventListener("mouseenter", this.onMouseEnterBound);
-    this.projectBlock.addEventListener("mouseleave", this.onMouseLeaveBound);
-  }
+  // addEventListeners() {
+  //   this.projectBlock.addEventListener("mouseenter", this.onMouseEnterBound);
+  //   this.projectBlock.addEventListener("mouseleave", this.onMouseLeaveBound);
+  // }
 
-  removeEventListeners() {
-    this.projectBlock.removeEventListener("mouseenter", this.onMouseEnterBound);
-    this.projectBlock.removeEventListener("mouseleave", this.onMouseLeaveBound);
-  }
+  // removeEventListeners() {
+  //   this.projectBlock.removeEventListener("mouseenter", this.onMouseEnterBound);
+  //   this.projectBlock.removeEventListener("mouseleave", this.onMouseLeaveBound);
+  // }
 }

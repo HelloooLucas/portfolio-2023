@@ -26,13 +26,13 @@ export default class Paragraph extends Animation {
     });
   }
 
-  animateOut() {
+  resetAnimations() {
     gsap.set(this.paragraphLines, {
       y: "100%",
     });
   }
 
   setAnimations() {
-    this.animateOut();
+    this.resetAnimations();
   }
 }

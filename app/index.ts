@@ -99,7 +99,8 @@ class App {
         "data-template"
       ) as Template;
 
-      this.navigation.onPageChange(this.template); // onPageChange needs to be before updateUrl so the color changing works properly
+      // onPageChange needs to be before updateUrl so the color changing works properly
+      await this.navigation.onPageChange(this.template);
       if (forwards) {
         this.navigation.updateUrl(url);
       }

@@ -7,7 +7,6 @@ interface TitleProps {
   element: HTMLElement;
   timeline?: ReturnType<typeof gsap.timeline>;
   manualTrigger?: boolean;
-  onComplete?: () => void;
 }
 
 // TODO: is title redundant with Paragraph?
@@ -16,12 +15,11 @@ export default class Title extends Animation {
   titleLines!: HTMLSpanElement[];
   timeline: ReturnType<typeof gsap.timeline>;
 
-  constructor({ element, timeline, manualTrigger, onComplete }: TitleProps) {
+  constructor({ element, timeline, manualTrigger }: TitleProps) {
     super({ element });
 
     this.titleLines = splitIntoLines(this.element);
-    this.timeline =
-      timeline ?? gsap.timeline({ paused: manualTrigger, onComplete });
+    this.timeline = timeline ?? gsap.timeline({ paused: manualTrigger });
     this.delay = manualTrigger ? 0 : 0.5;
 
     this.setAnimations();
@@ -44,7 +42,7 @@ export default class Title extends Animation {
     });
   }
 
-  animateOut() {
+  resetAnimations() {
     this.setAnimations();
   }
 

@@ -23,7 +23,7 @@ export default class Footer extends Animation {
     });
   }
 
-  animateOut() {
+  resetAnimations() {
     gsap.set(this.element, {
       y: "20%",
       autoAlpha: 0,
@@ -31,6 +31,6 @@ export default class Footer extends Animation {
   }
 
   setAnimations() {
-    this.animateOut();
+    this.resetAnimations();
   }
 }

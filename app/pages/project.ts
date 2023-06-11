@@ -36,13 +36,17 @@ export default class Project extends Page {
     });
   }
 
-  show() {
-    this.coverImage.show();
-    gsap.to(this.elements.headerInfo, {
-      autoAlpha: 1,
-      duration: 0.4,
-    });
-    this.title.show();
+  async show() {
+    await Promise.all([
+      this.coverImage.show(),
+      gsap.to(this.elements.headerInfo, {
+        autoAlpha: 1,
+        duration: 0.4,
+      }),
+      this.title.show(),
+    ]);
+
+    super.show();
   }
 
   createAnimations() {
@@ -56,7 +60,6 @@ export default class Project extends Page {
     this.title = new Title({
       element: this.elements.title,
       manualTrigger: true,
-      onComplete: () => super.show(),
     });
 
     gsap.set(this.elements.headerInfo, {

@@ -28,7 +28,11 @@ export default class Image extends Animation {
   }
 
   show() {
-    this.timeline.play();
+    return this.timeline.play();
+  }
+
+  hide() {
+    return this.timeline.reverse();
   }
 
   animateIn() {
@@ -40,7 +44,7 @@ export default class Image extends Animation {
     });
   }
 
-  animateOut() {
+  resetAnimations() {
     gsap.set([this.element, this.image], {
       clipPath: "inset(100% 0 0)",
     });
@@ -50,6 +54,6 @@ export default class Image extends Animation {
     this.element.style.backgroundColor = getImageBackgroundColor(
       this.projectName
     );
-    this.animateOut();
+    this.resetAnimations();
   }
 }

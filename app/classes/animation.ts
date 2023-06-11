@@ -28,7 +28,7 @@ export default class Animation {
           const { bottom } = entry.boundingClientRect;
           if (bottom < 0) return;
 
-          this.animateOut();
+          this.resetAnimations();
         }
       });
     });
@@ -40,7 +40,7 @@ export default class Animation {
   // Not fan of just declaring it there, I'd like it to be intentional
   animateIn() {}
 
-  animateOut() {}
+  resetAnimations() {}
 }
 
 /**

@@ -73,14 +73,6 @@ export default class Page extends Component {
 
   hide() {
     this.destroy();
-
-    return new Promise<void>(resolve => {
-      gsap.to(this.element, {
-        autoAlpha: 0,
-        duration: 1,
-        onComplete: resolve,
-      });
-    });
   }
 
   addResizeListener() {

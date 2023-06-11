@@ -41,7 +41,7 @@ export default class AwardLine extends Animation {
         "-=0.5"
       );
   }
-  animateOut() {
+  resetAnimations() {
     gsap.set(this.lineTexts, {
       y: "100%",
     });
@@ -57,6 +57,6 @@ export default class AwardLine extends Animation {
   }
 
   setAnimations() {
-    this.animateOut();
+    this.resetAnimations();
   }
 }

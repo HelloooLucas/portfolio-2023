@@ -1,7 +1,6 @@
-import { gsap } from "gsap";
 import Page from "../classes/page";
 import HomeProject from "../animations/home-project";
-import splitIntoLines from "../utils/text";
+import Title from "../animations/title";
 
 /*
  * INFO
@@ -10,8 +9,8 @@ import splitIntoLines from "../utils/text";
  */
 
 export default class Home extends Page {
-  topSectionPosition!: HTMLSpanElement[];
-  topSectionPortfolio!: HTMLSpanElement[];
+  topSectionPosition!: Title;
+  topSectionPortfolio!: Title;
   projects!: HomeProject[];
 
   constructor() {
@@ -28,33 +27,33 @@ export default class Home extends Page {
     });
   }
 
-  show() {
-    const tl = gsap.timeline();
+  async show() {
+    await Promise.all([
+      this.topSectionPosition.show(),
+      this.topSectionPortfolio.show(),
+    ]);
 
-    tl.to(this.topSectionPosition, {
-      y: 0,
-      duration: 0.4,
-      stagger: 0.2,
-    })
-      .to(
-        this.topSectionPortfolio,
-        {
-          y: 0,
-          duration: 0.4,
-          stagger: 0.2,
-        },
-        0
-      )
-      .eventCallback("onComplete", super.show.bind(this));
+    super.show();
+  }
+
+  async hide() {
+    super.hide();
+
+    await Promise.all([
+      this.topSectionPosition.hide(),
+      this.topSectionPortfolio.hide(),
+      ...this.projects.map(project => project.hide()),
+    ]);
   }
 
   createAnimations() {
-    this.topSectionPosition = splitIntoLines(this.elements.topSectionPosition);
-    this.topSectionPortfolio = splitIntoLines(
-      this.elements.topSectionPortfolio
-    );
-    gsap.set([this.topSectionPosition, this.topSectionPortfolio], {
-      y: "100%",
+    this.topSectionPosition = new Title({
+      element: this.elements.topSectionPosition,
+      manualTrigger: true,
+    });
+    this.topSectionPortfolio = new Title({
+      element: this.elements.topSectionPortfolio,
+      manualTrigger: true,
     });
 
     this.projects = this.elements.projects.map(
@@ -65,6 +64,6 @@ export default class Home extends Page {
   destroy() {
     super.destroy();
 
-    this.projects.forEach(project => project.removeEventListeners());
+    // this.projects.forEach(project => project.removeEventListeners());
   }
 }
