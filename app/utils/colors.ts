@@ -1,10 +1,6 @@
-export type ProjectName =
-  | "sopra-banking-software"
-  | "last-quest"
-  | "solers-io"
-  | "atelier-tote-bag";
+import { ProjectName } from "../types";
 
-export default function getImageBackgroundColor(project: ProjectName) {
+export default function getProjectColor(project: ProjectName) {
   switch (project) {
     case "sopra-banking-software":
       return "#800073";

@@ -1,7 +1,8 @@
 import { gsap } from "gsap";
 
+import { ProjectName } from "../types";
 import Observer from "../classes/observer";
-import getImageBackgroundColor, { ProjectName } from "../utils/colors";
+import getProjectColor from "../utils/colors";
 
 interface ImageProps {
   element: HTMLDivElement;
@@ -45,9 +46,7 @@ export default class Image extends Observer {
   }
 
   setAnimations() {
-    this.element.style.backgroundColor = getImageBackgroundColor(
-      this.projectName
-    );
+    this.element.style.backgroundColor = getProjectColor(this.projectName);
 
     this.timeline.from([this.element, this.image], {
       clipPath: "inset(100% 0 0)",

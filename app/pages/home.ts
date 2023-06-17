@@ -1,7 +1,8 @@
 import Page from "../classes/page";
 import Text from "../animations/text";
 import Footer from "../animations/footer";
-import HomeProject from "../animations/home-project";
+import HomeProjectBlockAnimation from "../animations/home-project-block-animation";
+import HomeProjectHoverAnimations from "../animations/home-project-hover-animations";
 
 /*
  * INFO
@@ -12,7 +13,8 @@ import HomeProject from "../animations/home-project";
 export default class Home extends Page {
   topSectionPosition!: Text;
   topSectionPortfolio!: Text;
-  projects!: HomeProject[];
+  projectBlockAnimations!: HomeProjectBlockAnimation[];
+  projectHoverAnimations!: HomeProjectHoverAnimations;
   footer!: Footer;
 
   constructor() {
@@ -44,7 +46,8 @@ export default class Home extends Page {
     await Promise.all([
       this.topSectionPosition.hide(),
       this.topSectionPortfolio.hide(),
-      ...this.projects.map(project => project.hide()),
+      ...this.projectBlockAnimations.map(project => project.hide()),
+      this.projectHoverAnimations.hide(),
       this.footer.hide(),
     ]);
   }
@@ -59,9 +62,13 @@ export default class Home extends Page {
       manualTrigger: true,
     });
 
-    this.projects = this.elements.projects.map(
-      project => new HomeProject({ project })
+    this.projectBlockAnimations = this.elements.projects.map(
+      project => new HomeProjectBlockAnimation({ project })
     );
+
+    this.projectHoverAnimations = new HomeProjectHoverAnimations({
+      projects: this.elements.projects,
+    });
 
     this.footer = new Footer({ element: this.elements.footer });
 
@@ -71,6 +78,6 @@ export default class Home extends Page {
   destroy() {
     super.destroy();
 
-    // this.projects.forEach(project => project.removeEventListeners());
+    this.projectHoverAnimations.destroy();
   }
 }
