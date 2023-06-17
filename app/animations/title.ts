@@ -14,12 +14,15 @@ export default class Title extends Animation {
   delay: number;
   titleLines!: HTMLSpanElement[];
   timeline: ReturnType<typeof gsap.timeline>;
+  manualTrigger: boolean;
 
   constructor({ element, timeline, manualTrigger }: TitleProps) {
     super({ element });
 
+    this.manualTrigger = !!manualTrigger;
+
     this.titleLines = splitIntoLines(this.element);
-    this.timeline = timeline ?? gsap.timeline({ paused: manualTrigger });
+    this.timeline = timeline ?? gsap.timeline({ paused: true });
     this.delay = manualTrigger ? 0 : 0.5;
 
     this.setAnimations();
@@ -31,25 +34,20 @@ export default class Title extends Animation {
 
   hide() {
     return this.timeline.reverse();
-    // this.timeline.pause();
   }
 
   animateIn() {
-    this.timeline.to(this.titleLines, {
-      y: "0%",
-      delay: this.delay,
-      duration: 0.5,
-      stagger: 0.2,
-    });
-  }
+    if (this.manualTrigger) return;
 
-  resetAnimations() {
-    this.setAnimations();
+    this.timeline.play();
   }
 
   setAnimations() {
-    gsap.set(this.titleLines, {
+    this.timeline.from(this.titleLines, {
       y: "100%",
+      delay: this.delay,
+      duration: 0.5,
+      stagger: 0.2,
     });
   }
 }

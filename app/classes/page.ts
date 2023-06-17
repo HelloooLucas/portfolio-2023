@@ -46,7 +46,11 @@ export default class Page extends Component {
     this.show();
   }
 
-  createAnimations() {}
+  createAnimations() {
+    gsap.set(this.element, {
+      autoAlpha: 1,
+    });
+  }
 
   async backgroundLoad() {
     const loader = new BackgroundLoad({ images: this.elements.preloadImages });

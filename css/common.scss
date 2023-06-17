@@ -78,6 +78,10 @@ p {
   padding: 0 var(--column-gap);
 }
 
+.content > div {
+  visibility: hidden;
+}
+
 /* 
  * ANIMATIONS WRAPPERS
  * /////////////////////////////////////////////////

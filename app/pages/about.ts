@@ -71,5 +71,7 @@ export default class About extends Page {
     this.awardsBlock = new AboutAwards({ element: this.elements.awardsBlock });
 
     this.footer = new Footer({ element: this.elements.footer });
+
+    super.createAnimations();
   }
 }

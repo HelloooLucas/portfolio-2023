@@ -59,6 +59,8 @@ export default class Home extends Page {
     this.projects = this.elements.projects.map(
       project => new HomeProject({ project })
     );
+
+    super.createAnimations();
   }
 
   destroy() {

@@ -73,5 +73,7 @@ export default class Project extends Page {
     });
 
     this.media = this.elements.media.map(element => new Image({ element }));
+
+    super.createAnimations();
   }
 }
