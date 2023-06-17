@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
-import Title from "./title";
+
+import Text from "./text";
 import AwardLine from "./award-line";
 import Animation from "../classes/animation";
 
@@ -9,7 +10,7 @@ interface AboutAwardsProps {
 
 export default class AboutAwards extends Animation {
   timeline: ReturnType<typeof gsap.timeline>;
-  awardsTitle!: Title;
+  awardsTitle!: Text;
   awardsLines!: AwardLine[];
 
   constructor({ element }: AboutAwardsProps) {
@@ -28,7 +29,7 @@ export default class AboutAwards extends Animation {
   }
 
   setAnimations() {
-    this.awardsTitle = new Title({
+    this.awardsTitle = new Text({
       element: this.element.querySelector(
         ".about__awards__title"
       ) as HTMLHeadingElement,

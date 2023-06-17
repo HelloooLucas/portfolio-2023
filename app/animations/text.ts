@@ -9,8 +9,7 @@ interface TitleProps {
   manualTrigger?: boolean;
 }
 
-// TODO: is title redundant with Paragraph?
-export default class Title extends Animation {
+export default class Text extends Animation {
   delay: number;
   titleLines!: HTMLSpanElement[];
   timeline: ReturnType<typeof gsap.timeline>;
@@ -47,7 +46,7 @@ export default class Title extends Animation {
       y: "100%",
       delay: this.delay,
       duration: 0.5,
-      stagger: 0.2,
+      stagger: this.titleLines.length > 2 ? 0.05 : 0.2,
     });
   }
 }

@@ -1,7 +1,8 @@
 import { gsap } from "gsap";
+
+import Text from "../animations/text";
 import { Template } from "../classes/page";
 import Component from "../classes/component";
-import Title from "../animations/title";
 
 const ABOUT_TEXTS = "#dfdfdf";
 const ABOUT_COLUMNS = "rgba(85, 85, 85, 0.6)";
@@ -25,9 +26,9 @@ interface NavigationProps {
 export default class Navigation extends Component {
   currentUrl: string;
   template: Template;
-  title!: Title;
-  navAbout!: Title;
-  navHome!: Title;
+  title!: Text;
+  navAbout!: Text;
+  navHome!: Text;
 
   constructor({ currentUrl, template }: NavigationProps) {
     super({
@@ -56,15 +57,15 @@ export default class Navigation extends Component {
   }
 
   createAnimations() {
-    this.title = new Title({
+    this.title = new Text({
       element: this.elements.navName,
       manualTrigger: true,
     });
-    this.navHome = new Title({
+    this.navHome = new Text({
       element: this.elements.navHome,
       manualTrigger: true,
     });
-    this.navAbout = new Title({
+    this.navAbout = new Text({
       element: this.elements.navAbout,
       manualTrigger: true,
     });

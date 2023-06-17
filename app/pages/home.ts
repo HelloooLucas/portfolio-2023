@@ -1,6 +1,6 @@
 import Page from "../classes/page";
+import Text from "../animations/text";
 import HomeProject from "../animations/home-project";
-import Title from "../animations/title";
 
 /*
  * INFO
@@ -9,8 +9,8 @@ import Title from "../animations/title";
  */
 
 export default class Home extends Page {
-  topSectionPosition!: Title;
-  topSectionPortfolio!: Title;
+  topSectionPosition!: Text;
+  topSectionPortfolio!: Text;
   projects!: HomeProject[];
 
   constructor() {
@@ -47,11 +47,11 @@ export default class Home extends Page {
   }
 
   createAnimations() {
-    this.topSectionPosition = new Title({
+    this.topSectionPosition = new Text({
       element: this.elements.topSectionPosition,
       manualTrigger: true,
     });
-    this.topSectionPortfolio = new Title({
+    this.topSectionPortfolio = new Text({
       element: this.elements.topSectionPortfolio,
       manualTrigger: true,
     });

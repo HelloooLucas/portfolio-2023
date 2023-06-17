@@ -1,8 +1,7 @@
 import Page from "../classes/page";
-import Title from "../animations/title";
+import Text from "../animations/text";
 import Image from "../animations/image";
 import Footer from "../animations/footer";
-import Paragraph from "../animations/paragraph";
 import AboutAwards from "../animations/about-awards";
 
 /*
@@ -12,8 +11,8 @@ import AboutAwards from "../animations/about-awards";
 
 export default class About extends Page {
   coverImage!: Image;
-  title!: Title;
-  paragraphs!: Paragraph[];
+  title!: Text;
+  paragraphs!: Text[];
   awardsBlock!: AboutAwards;
   footer!: Footer;
 
@@ -59,13 +58,13 @@ export default class About extends Page {
       manualTrigger: true,
     });
 
-    this.title = new Title({
+    this.title = new Text({
       element: this.elements.title,
       manualTrigger: true,
     });
 
     this.paragraphs = this.elements.paragraphs?.map(
-      element => new Paragraph({ element })
+      element => new Text({ element })
     );
 
     this.awardsBlock = new AboutAwards({ element: this.elements.awardsBlock });

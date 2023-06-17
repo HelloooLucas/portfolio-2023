@@ -1,4 +1,5 @@
 import { gsap } from "gsap";
+
 import splitIntoLines from "../utils/text";
 import Animation from "../classes/animation";
 import getImageBackgroundColor, { ProjectName } from "../utils/colors";
@@ -7,7 +8,7 @@ interface ComponentProps {
   project: HTMLElement;
 }
 
-// TODO: refactor this to use Title and Image classes
+// TODO: refactor this to use Text and Image classes
 export default class HomeProject extends Animation {
   timeline: ReturnType<typeof gsap.timeline>;
   project!: ProjectName;
@@ -73,6 +74,7 @@ export default class HomeProject extends Animation {
   }
 
   setAnimations() {
+    // TODO: replace fromTo by from, like in about page?
     this.timeline
       .fromTo(
         this.projectIndex,
