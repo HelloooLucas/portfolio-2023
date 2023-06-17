@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 
-import Animation from "../classes/animation";
+import Observer from "../classes/observer";
 import splitIntoLines from "../utils/text";
 
 interface AwardLineProps {
@@ -8,7 +8,7 @@ interface AwardLineProps {
   timeline: ReturnType<typeof gsap.timeline>;
 }
 
-export default class AwardLine extends Animation {
+export default class AwardLine extends Observer {
   lineTexts!: HTMLSpanElement[][];
   lineAfterClass!: string;
   timeline: ReturnType<typeof gsap.timeline>;

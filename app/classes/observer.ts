@@ -1,12 +1,12 @@
-export interface AnimationProps {
+interface ObserverProps {
   element: HTMLElement;
 }
 
-export default class Animation {
+export default class Observer {
   element: HTMLElement;
   observer!: IntersectionObserver;
 
-  constructor({ element }: AnimationProps) {
+  constructor({ element }: ObserverProps) {
     this.element = element;
 
     this.createObserver();
@@ -18,7 +18,7 @@ export default class Animation {
         if (entry.isIntersecting) {
           this.animateIn();
         } else {
-          const { top, bottom, height } = entry.boundingClientRect;
+          const { top, bottom } = entry.boundingClientRect;
 
           // If element exits from top, don't reset animations
           if (bottom < 0) return;

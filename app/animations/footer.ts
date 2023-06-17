@@ -1,9 +1,11 @@
 import { gsap } from "gsap";
-import Animation, { AnimationProps } from "../classes/animation";
+import Observer from "../classes/observer";
 
-type FooterProps = AnimationProps;
+type FooterProps = {
+  element: HTMLDivElement;
+};
 
-export default class Footer extends Animation {
+export default class Footer extends Observer {
   timeline: ReturnType<typeof gsap.timeline>;
 
   constructor({ element }: FooterProps) {

@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 
-import Animation from "../classes/animation";
+import Observer from "../classes/observer";
 import getImageBackgroundColor, { ProjectName } from "../utils/colors";
 
 interface ImageProps {
@@ -9,7 +9,7 @@ interface ImageProps {
   manualTrigger?: boolean;
 }
 
-export default class Image extends Animation {
+export default class Image extends Observer {
   image: HTMLImageElement;
   projectName: ProjectName;
   timeline: ReturnType<typeof gsap.timeline>;

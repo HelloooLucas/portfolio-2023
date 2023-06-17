@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 
+import Observer from "../classes/observer";
 import splitIntoLines from "../utils/text";
-import Animation from "../classes/animation";
 import getImageBackgroundColor, { ProjectName } from "../utils/colors";
 
 interface ComponentProps {
@@ -9,7 +9,7 @@ interface ComponentProps {
 }
 
 // TODO: refactor this to use Text and Image classes
-export default class HomeProject extends Animation {
+export default class HomeProject extends Observer {
   timeline: ReturnType<typeof gsap.timeline>;
   project!: ProjectName;
   projectIndex!: HTMLSpanElement[];

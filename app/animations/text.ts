@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 
+import Observer from "../classes/observer";
 import splitIntoLines from "../utils/text";
-import Animation from "../classes/animation";
 
 interface TitleProps {
   element: HTMLElement;
@@ -9,7 +9,7 @@ interface TitleProps {
   manualTrigger?: boolean;
 }
 
-export default class Text extends Animation {
+export default class Text extends Observer {
   titleLines!: HTMLSpanElement[];
   timeline: ReturnType<typeof gsap.timeline>;
   manualTrigger: boolean;

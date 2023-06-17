@@ -2,13 +2,13 @@ import { gsap } from "gsap";
 
 import Text from "./text";
 import AwardLine from "./award-line";
-import Animation from "../classes/animation";
+import Observer from "../classes/observer";
 
 interface AboutAwardsProps {
   element: HTMLDivElement;
 }
 
-export default class AboutAwards extends Animation {
+export default class AboutAwards extends Observer {
   timeline: ReturnType<typeof gsap.timeline>;
   awardsTitle!: Text;
   awardsLines!: AwardLine[];
