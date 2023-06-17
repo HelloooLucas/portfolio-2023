@@ -2,7 +2,7 @@ import { gsap } from "gsap";
 import Observer from "../classes/observer";
 
 type FooterProps = {
-  element: HTMLDivElement;
+  element: HTMLElement;
 };
 
 export default class Footer extends Observer {
