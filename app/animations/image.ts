@@ -51,9 +51,14 @@ export default class Image extends Animation {
 
     this.timeline.from([this.element, this.image], {
       clipPath: "inset(100% 0 0)",
+      delay: this.manualTrigger ? 0 : 0.5,
       duration: 1.2,
       ease: "expo.out",
       stagger: 0.1,
     });
+  }
+
+  resetAnimations() {
+    this.timeline.progress(0).pause();
   }
 }

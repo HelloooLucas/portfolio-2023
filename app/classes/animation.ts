@@ -16,15 +16,15 @@ export default class Animation {
     this.observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // If element enters from top, don't animate in
-          const { top } = entry.boundingClientRect;
-          if (top < 0) return;
-
           this.animateIn();
         } else {
-          // If element exits from top, don't animate out
-          const { bottom } = entry.boundingClientRect;
+          const { top, bottom, height } = entry.boundingClientRect;
+
+          // If element exits from top, don't reset animations
           if (bottom < 0) return;
+
+          // If element not fully on screen, don't reset before it animates in
+          if (top < window.innerHeight && bottom > window.innerHeight) return;
 
           this.resetAnimations();
         }

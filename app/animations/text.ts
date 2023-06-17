@@ -10,7 +10,6 @@ interface TitleProps {
 }
 
 export default class Text extends Animation {
-  delay: number;
   titleLines!: HTMLSpanElement[];
   timeline: ReturnType<typeof gsap.timeline>;
   manualTrigger: boolean;
@@ -22,7 +21,6 @@ export default class Text extends Animation {
 
     this.titleLines = splitIntoLines(this.element);
     this.timeline = timeline ?? gsap.timeline({ paused: true });
-    this.delay = manualTrigger ? 0 : 0.5;
 
     this.setAnimations();
   }
@@ -44,9 +42,13 @@ export default class Text extends Animation {
   setAnimations() {
     this.timeline.from(this.titleLines, {
       y: "100%",
-      delay: this.delay,
+      delay: this.manualTrigger ? 0 : 0.5,
       duration: 0.5,
-      stagger: this.titleLines.length > 2 ? 0.05 : 0.2,
+      stagger: this.titleLines.length > 3 ? 0.05 : 0.2,
     });
+  }
+
+  resetAnimations() {
+    this.timeline.progress(0).pause();
   }
 }

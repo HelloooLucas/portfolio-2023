@@ -1,5 +1,6 @@
 import Page from "../classes/page";
 import Text from "../animations/text";
+import Footer from "../animations/footer";
 import HomeProject from "../animations/home-project";
 
 /*
@@ -12,6 +13,7 @@ export default class Home extends Page {
   topSectionPosition!: Text;
   topSectionPortfolio!: Text;
   projects!: HomeProject[];
+  footer!: Footer;
 
   constructor() {
     super({
@@ -43,6 +45,7 @@ export default class Home extends Page {
       this.topSectionPosition.hide(),
       this.topSectionPortfolio.hide(),
       ...this.projects.map(project => project.hide()),
+      this.footer.hide(),
     ]);
   }
 
@@ -59,6 +62,8 @@ export default class Home extends Page {
     this.projects = this.elements.projects.map(
       project => new HomeProject({ project })
     );
+
+    this.footer = new Footer({ element: this.elements.footer });
 
     super.createAnimations();
   }

@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import Page from "../classes/page";
 import Text from "../animations/text";
 import Image from "../animations/image";
+import Footer from "../animations/footer";
 
 /*
  * INFO
@@ -14,6 +15,8 @@ export default class Project extends Page {
   title!: Text;
   paragraphs!: Text[];
   media!: Image[];
+  middleTitle!: Text;
+  footer!: Footer;
 
   constructor() {
     super({
@@ -39,16 +42,31 @@ export default class Project extends Page {
   }
 
   async show() {
-    await Promise.all([
-      this.coverImage.show(),
-      gsap.to(this.elements.headerInfo, {
-        autoAlpha: 1,
-        duration: 0.4,
-      }),
-      this.title.show(),
-    ]);
+    this.coverImage.show();
+    gsap.to(this.elements.headerInfo, {
+      autoAlpha: 1,
+      duration: 0.4,
+    });
+    await this.title.show();
 
     super.show();
+  }
+
+  hide() {
+    super.hide();
+
+    return Promise.all([
+      this.coverImage.hide(),
+      gsap.to(this.elements.headerInfo, {
+        autoAlpha: 0,
+        duration: 0.4,
+      }),
+      this.title.hide(),
+      ...this.paragraphs.map(paragraph => paragraph.hide()),
+      ...this.media.map(media => media.hide()),
+      this.middleTitle.hide(),
+      this.footer.hide(),
+    ]);
   }
 
   createAnimations() {
@@ -72,7 +90,11 @@ export default class Project extends Page {
       autoAlpha: 0,
     });
 
+    // TODO: Improve appearing animation for tall images
     this.media = this.elements.media.map(element => new Image({ element }));
+
+    this.middleTitle = new Text({ element: this.elements.middleTitle });
+    this.footer = new Footer({ element: this.elements.footer });
 
     super.createAnimations();
   }
