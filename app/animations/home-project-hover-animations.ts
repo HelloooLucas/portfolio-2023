@@ -19,7 +19,6 @@ export default class HomeProjectHoverAnimation {
   mainContainer!: HTMLDivElement;
   projectNameContainersMap: { [key: string]: HTMLDivElement };
   hoveredProjectLetters!: Element[] | null;
-  timeline!: ReturnType<typeof gsap.timeline> | null;
   handleMouseEnterBound: (e: MouseEvent) => void;
   handleMouseLeaveBound: (e: MouseEvent) => void;
 
@@ -37,8 +36,6 @@ export default class HomeProjectHoverAnimation {
   }
 
   handleMouseEnter(e: MouseEvent) {
-    this.timeline = gsap.timeline();
-
     const target = e.target as HTMLDivElement;
     const projectName = target.dataset.project as ProjectName;
     const project = this.projectNameContainersMap[projectName];
@@ -48,7 +45,7 @@ export default class HomeProjectHoverAnimation {
       ),
     ];
 
-    this.timeline.to(this.hoveredProjectLetters, {
+    gsap.to(this.hoveredProjectLetters, {
       x: 0,
       duration: 0.15,
       stagger: 0.02,
@@ -56,14 +53,21 @@ export default class HomeProjectHoverAnimation {
   }
 
   handleMouseLeave() {
-    this.timeline?.reverse();
-    this.timeline = null;
+    gsap.to(this.hoveredProjectLetters, {
+      x: "-100%",
+      duration: 0.15,
+      stagger: 0.02,
+    });
   }
 
   hide() {
     this.removeEventListeners();
 
-    return this.timeline?.reverse();
+    return gsap.to(this.hoveredProjectLetters, {
+      x: "-100%",
+      duration: 0.15,
+      stagger: 0.02,
+    });
   }
 
   createDomNodes() {

@@ -41,8 +41,6 @@ export default class Home extends Page {
   }
 
   async hide() {
-    super.hide();
-
     await Promise.all([
       this.topSectionPosition.hide(),
       this.topSectionPortfolio.hide(),
@@ -50,6 +48,8 @@ export default class Home extends Page {
       this.projectHoverAnimations.hide(),
       this.footer.hide(),
     ]);
+
+    super.hide();
   }
 
   createAnimations() {
