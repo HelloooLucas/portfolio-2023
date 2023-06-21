@@ -66,6 +66,7 @@ export default class Home extends Page {
       project => new HomeProjectBlockAnimation({ project })
     );
 
+    // TODO: right now responsive is very bad, fix it
     this.projectHoverAnimations = new HomeProjectHoverAnimations({
       projects: this.elements.projects,
     });

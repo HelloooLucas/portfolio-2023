@@ -1,1 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400&display=swap");
+
+@font-face {
+  font-family: "Gambetta-Bold";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Gambetta-Bold"),
+    url("../fonts/Gambetta-Bold.woff2") format("woff2"),
+    url("../fonts/Gambetta-Bold.woff") format("woff");
+}
