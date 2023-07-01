@@ -2,22 +2,26 @@ import { gsap } from "gsap";
 
 import Observer from "../classes/observer";
 import splitIntoLines from "../utils/text";
+import getProjectColor from "../utils/colors";
 
 interface TitleProps {
+  colored?: boolean;
   element: HTMLElement;
   timeline?: ReturnType<typeof gsap.timeline>;
   manualTrigger?: boolean;
 }
 
 export default class Text extends Observer {
+  colored: boolean;
   titleLines!: HTMLSpanElement[];
   timeline: ReturnType<typeof gsap.timeline>;
   manualTrigger: boolean;
 
-  constructor({ element, timeline, manualTrigger }: TitleProps) {
+  constructor({ element, timeline, manualTrigger, colored }: TitleProps) {
     super({ element });
 
     this.manualTrigger = !!manualTrigger;
+    this.colored = !!colored;
 
     this.titleLines = splitIntoLines(this.element);
     this.timeline = timeline ?? gsap.timeline({ paused: true });
@@ -40,6 +44,10 @@ export default class Text extends Observer {
   }
 
   setAnimations() {
+    if (this.colored) {
+      this.element.style.color = getProjectColor();
+    }
+
     this.timeline.from(this.titleLines, {
       y: "100%",
       delay: this.manualTrigger ? 0 : 0.5,

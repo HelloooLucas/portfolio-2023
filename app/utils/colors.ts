@@ -1,6 +1,12 @@
 import { ProjectName } from "../types";
 
-export default function getProjectColor(project: ProjectName) {
+export default function getProjectColor(projectName?: ProjectName) {
+  const projectNameFromUrl = window.location.pathname
+    .replace("/", "")
+    .replace(".html", "") as ProjectName;
+
+  const project = projectName ?? projectNameFromUrl;
+
   switch (project) {
     case "sopra-banking-software":
       return "#800073";

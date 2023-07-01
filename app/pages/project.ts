@@ -80,6 +80,7 @@ export default class Project extends Page {
     this.title = new Text({
       element: this.elements.title,
       manualTrigger: true,
+      colored: true,
     });
 
     this.paragraphs = this.elements.paragraphs.map(
@@ -93,7 +94,10 @@ export default class Project extends Page {
     // TODO: Improve appearing animation for tall images
     this.media = this.elements.media.map(element => new Image({ element }));
 
-    this.middleTitle = new Text({ element: this.elements.middleTitle });
+    this.middleTitle = new Text({
+      element: this.elements.middleTitle,
+      colored: true,
+    });
     this.footer = new Footer({ element: this.elements.footer });
 
     super.createAnimations();
