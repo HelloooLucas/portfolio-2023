@@ -73,10 +73,10 @@ class App {
 
   async handlePageChange({
     url,
-    forwards = true,
+    backwards = false,
   }: {
     url: string;
-    forwards?: boolean;
+    backwards?: boolean;
   }) {
     await this.page.hide();
 
@@ -101,9 +101,7 @@ class App {
 
       // onPageChange needs to be before updateUrl so the color changing works properly
       await this.navigation.onPageChange(this.template);
-      if (forwards) {
-        this.navigation.updateUrl(url);
-      }
+      this.navigation.updateUrl(url, backwards);
 
       this.pageTitle.innerHTML = nextPageTitle.innerHTML;
 
@@ -121,7 +119,7 @@ class App {
   }
 
   onPopState() {
-    this.handlePageChange({ url: window.location.pathname, forwards: false });
+    this.handlePageChange({ url: window.location.pathname, backwards: true });
   }
 
   // TODO: add a removePopStateListener?

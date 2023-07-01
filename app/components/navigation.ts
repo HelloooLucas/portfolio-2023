@@ -71,15 +71,18 @@ export default class Navigation extends Component {
     });
   }
 
-  updateUrl(url: string) {
-    this.currentUrl = url;
-
-    window.history.pushState({}, "", url);
+  updateUrl(url: string, backwards?: boolean) {
+    if (backwards) {
+      this.currentUrl = url;
+    } else {
+      window.history.pushState({}, "", url);
+      this.currentUrl = window.location.pathname;
+    }
   }
 
-  async onPageChange(template: Template) {
-    this.setLinks(template);
-    await this.setColors(template);
+  async onPageChange(destination: Template) {
+    this.setLinks(destination);
+    await this.setColors(destination);
   }
 
   async setLinks(template: Template) {
@@ -93,16 +96,16 @@ export default class Navigation extends Component {
   }
 
   // TODO: refactor this because detecting when to change color is super messy
-  setColors(template: Template) {
+  setColors(destination: Template) {
     const tl = gsap.timeline();
 
-    const arrivingOnHomePage = this.currentUrl === "/" && template === "home";
+    const arrivingOnHomePage =
+      this.currentUrl === "/" && destination === "home";
     const arrivingOnProjectPage =
-      projectUrlsList.includes(this.currentUrl) && template === "project";
-    const goingFromAboutToHome =
-      this.currentUrl.includes("about") && template === "home";
+      projectUrlsList.includes(this.currentUrl) && destination === "project";
+    const leavingAboutPage = this.currentUrl.includes("about");
 
-    if (template === "about") {
+    if (destination === "about") {
       tl.to(this.elements.backgroundColumns, {
         autoAlpha: 0,
         duration: 0.2,
@@ -132,7 +135,7 @@ export default class Navigation extends Component {
     } else if (
       arrivingOnHomePage ||
       arrivingOnProjectPage ||
-      goingFromAboutToHome
+      leavingAboutPage
     ) {
       tl.to(this.elements.backgroundColumns, {
         autoAlpha: 0,
