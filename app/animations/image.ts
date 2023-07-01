@@ -30,6 +30,7 @@ export default class Image extends Observer {
   }
 
   hide() {
+    this.unobserve();
     return this.timeline.reverse();
   }
 

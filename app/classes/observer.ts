@@ -39,6 +39,10 @@ export default class Observer {
   animateIn() {}
 
   resetAnimations() {}
+
+  unobserve() {
+    this.observer.unobserve(this.element);
+  }
 }
 
 /**
