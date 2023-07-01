@@ -18,7 +18,7 @@ export default class HomeProjectHoverAnimation {
   projectBlocks: HTMLElement[];
   mainContainer!: HTMLDivElement;
   projectNameContainersMap: { [key: string]: HTMLDivElement };
-  hoveredProjectLetters!: Element[] | null;
+  hoveredProjectLetters!: Element[];
   handleMouseEnterBound: (e: MouseEvent) => void;
   handleMouseLeaveBound: (e: MouseEvent) => void;
 
@@ -61,10 +61,13 @@ export default class HomeProjectHoverAnimation {
   hide() {
     this.removeEventListeners();
 
-    return gsap.to(this.hoveredProjectLetters, {
-      x: "-100%",
-      duration: 0.3,
-    });
+    if (this.hoveredProjectLetters) {
+      return gsap.to(this.hoveredProjectLetters, {
+        x: "-100%",
+        duration: 0.3,
+      });
+    }
+    return Promise.resolve();
   }
 
   createDomNodes() {
