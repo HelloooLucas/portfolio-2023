@@ -119,7 +119,7 @@
   right: var(--column-gap);
   pointer-events: none;
   font-family: "Gambetta-Bold";
-  font-size: 160px;
+  font-size: clamp(110px, 5.943rem + 4.386vw, 140px);
 }
 
 .project-names__project {

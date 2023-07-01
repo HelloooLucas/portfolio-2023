@@ -29,6 +29,6 @@ export default function calculate({
 }
 
 calculate({
-  minFontSize: 40,
-  maxFontSize: 130,
+  minFontSize: 110,
+  maxFontSize: 140,
 });

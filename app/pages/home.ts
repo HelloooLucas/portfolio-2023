@@ -1,6 +1,7 @@
 import Page from "../classes/page";
 import Text from "../animations/text";
 import Footer from "../animations/footer";
+import WidthObserver from "../classes/width-observer";
 import HomeProjectBlockAnimation from "../animations/home-project-block-animation";
 import HomeProjectHoverAnimations from "../animations/home-project-hover-animations";
 
@@ -11,8 +12,10 @@ import HomeProjectHoverAnimations from "../animations/home-project-hover-animati
  */
 
 export default class Home extends Page {
+  isDesktop: boolean;
   topSectionPosition!: Text;
   topSectionPortfolio!: Text;
+  widthObserver: WidthObserver;
   projectBlockAnimations!: HomeProjectBlockAnimation[];
   projectHoverAnimations!: HomeProjectHoverAnimations;
   footer!: Footer;
@@ -29,6 +32,21 @@ export default class Home extends Page {
         footer: "footer",
       },
     });
+
+    this.widthObserver = new WidthObserver({
+      matches: "(min-width: 1024px)",
+      handleChange: () => {
+        this.isDesktop = this.widthObserver.matches();
+        if (this.isDesktop) {
+          this.projectHoverAnimations = new HomeProjectHoverAnimations({
+            projects: this.elements.projects,
+          });
+        } else {
+          this.projectHoverAnimations.destroy();
+        }
+      },
+    });
+    this.isDesktop = this.widthObserver.matches();
   }
 
   async show() {
@@ -45,7 +63,7 @@ export default class Home extends Page {
       this.topSectionPosition.hide(),
       this.topSectionPortfolio.hide(),
       ...this.projectBlockAnimations.map(project => project.hide()),
-      this.projectHoverAnimations.hide(),
+      this.projectHoverAnimations?.hide(),
       this.footer.hide(),
     ]);
 
@@ -66,10 +84,11 @@ export default class Home extends Page {
       project => new HomeProjectBlockAnimation({ project })
     );
 
-    // TODO: right now responsive is very bad, fix it
-    this.projectHoverAnimations = new HomeProjectHoverAnimations({
-      projects: this.elements.projects,
-    });
+    if (this.isDesktop) {
+      this.projectHoverAnimations = new HomeProjectHoverAnimations({
+        projects: this.elements.projects,
+      });
+    }
 
     this.footer = new Footer({ element: this.elements.footer });
 
@@ -79,6 +98,7 @@ export default class Home extends Page {
   destroy() {
     super.destroy();
 
-    this.projectHoverAnimations.destroy();
+    this.projectHoverAnimations?.destroy();
+    this.widthObserver.removeEventListeners();
   }
 }

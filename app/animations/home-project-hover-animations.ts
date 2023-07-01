@@ -32,7 +32,7 @@ export default class HomeProjectHoverAnimation {
     this.createDomNodes();
     this.detectDomNodes();
 
-    this.setEventListeners();
+    this.addEventListeners();
   }
 
   handleMouseEnter(e: MouseEvent) {
@@ -47,16 +47,14 @@ export default class HomeProjectHoverAnimation {
 
     gsap.to(this.hoveredProjectLetters, {
       x: 0,
-      duration: 0.15,
-      stagger: 0.02,
+      duration: 0.3,
     });
   }
 
   handleMouseLeave() {
     gsap.to(this.hoveredProjectLetters, {
       x: "-100%",
-      duration: 0.15,
-      stagger: 0.02,
+      duration: 0.3,
     });
   }
 
@@ -65,8 +63,7 @@ export default class HomeProjectHoverAnimation {
 
     return gsap.to(this.hoveredProjectLetters, {
       x: "-100%",
-      duration: 0.15,
-      stagger: 0.02,
+      duration: 0.3,
     });
   }
 
@@ -136,7 +133,7 @@ export default class HomeProjectHoverAnimation {
     });
   }
 
-  setEventListeners() {
+  addEventListeners() {
     this.projectBlocks.forEach(project => {
       project.addEventListener("mouseenter", this.handleMouseEnterBound);
       project.addEventListener("mouseleave", this.handleMouseLeaveBound);
@@ -151,6 +148,7 @@ export default class HomeProjectHoverAnimation {
   }
 
   destroy() {
+    this.removeEventListeners();
     document.body.removeChild(this.mainContainer);
   }
 }
