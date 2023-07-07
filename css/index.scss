@@ -1,16 +1,32 @@
-@import "./fonts";
+// DONE
+// Extend/inherit => https://sass-lang.com/guide/#extend-inheritance => for grids? Or also for all HTML elements where I put multiple classes
 
-@import "./reset";
+// ONGOING
+// For responsive, use @import '../../node_modules/include-media/dist/_include-media.scss'; like LH Bizarro
 
-@import "./common";
+// TODO
+// Elements that I target by their nesting in their parent
+// All pseudo elements, hover, etc.
+// Interpolation for prefixes => https://sass-lang.com/documentation/style-rules/declarations/#interpolation
+// Nesting shorthand => https://sass-lang.com/documentation/style-rules/declarations/#nesting
+// Adding suffixes (specially cool for BEM) => https://sass-lang.com/documentation/style-rules/parent-selector/#adding-suffixes => use it everywhere
+// Variables for z-indexes like in LH Bizarro's styles/utils/variables.scss
+// Take example on how he created his link hover animations => styles/shared/links.scss
+// Create a mixin or an scss function to automatically calculate font sizes/ranges given a min and a max?
+
+@import "./base/reset";
+@import "./base/fonts";
+@import "./base/common";
+
+@import "./utils/variables";
+
 @import "./preloader";
 
-@import "./variables";
-@import "./links";
+@import "./base/links";
 
-@import "./home";
-@import "./about";
-@import "./project-base";
-@import "./last-quest";
-@import "./solers-io";
-@import "./atelier-tote-bag";
+@import "./pages/home";
+@import "./pages/about";
+@import "./pages/project-base";
+@import "./pages/last-quest";
+@import "./pages/solers-io";
+@import "./pages/atelier-tote-bag";

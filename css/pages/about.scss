@@ -4,6 +4,10 @@ $about-color: #dfdfdf;
   color: $about-color;
 }
 
+.about {
+  @extend %grid;
+}
+
 /* 
  * CONTENT
  * /////////////////////////////////////////////////

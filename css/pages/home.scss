@@ -1,9 +1,15 @@
+.home {
+  @extend %grid;
+}
+
 /* 
 * TOP SECTION
 * /////////////////////////////////////////////////
 */
 
 .home__top-section {
+  @extend %grid;
+
   height: 100vh;
   align-items: end;
   padding: var(--column-gap) 0;
@@ -129,6 +135,8 @@
 }
 
 .project-names__project__line {
+  @extend %grid;
+
   position: relative;
   height: 50vh;
   place-items: center;

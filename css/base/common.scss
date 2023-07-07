@@ -103,6 +103,8 @@ p {
  */
 
 .background-columns {
+  @extend %grid;
+
   z-index: -100;
   position: fixed;
   top: 0;
@@ -116,7 +118,7 @@ p {
   border-right: 1px solid;
 }
 
-.grid {
+%grid {
   display: grid;
   grid-template-columns: repeat(var(--column-nb), 1fr);
   grid-template-rows: 1fr;

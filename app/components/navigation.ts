@@ -96,6 +96,7 @@ export default class Navigation extends Component {
   }
 
   // TODO: refactor this because detecting when to change color is super messy
+  // TODO: also right now there's a transition from white to white when navigating between projects
   setColors(destination: Template) {
     const tl = gsap.timeline();
 

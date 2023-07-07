@@ -1,3 +1,7 @@
+.project {
+  @extend %grid;
+}
+
 /* 
  * HEADER SECTION
  * /////////////////////////////////////////////////
@@ -22,12 +26,16 @@
 }
 
 .project__header__info {
+  @extend %grid;
+
   border-radius: 0 0 20px 20px;
   background: rgba(238, 238, 238, 0.3);
   border: 1px solid #ccc;
 }
 
 .project__header__info__line {
+  @extend %grid;
+
   grid-column: 1 / -1;
   padding: 16px 0;
   border-bottom: 1px solid #ccc;

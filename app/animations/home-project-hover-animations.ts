@@ -84,8 +84,8 @@ export default class HomeProjectHoverAnimation {
       projectContainer.style.color = getProjectColor(
         projectName as ProjectName
       );
-      topLine.classList.add("project-names__project__line", "grid");
-      bottomLine.classList.add("project-names__project__line", "grid");
+      topLine.classList.add("project-names__project__line");
+      bottomLine.classList.add("project-names__project__line");
 
       // TODO: refactor/simplify this section?
       [...top].forEach((letter, i) => {

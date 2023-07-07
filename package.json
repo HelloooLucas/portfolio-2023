@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "gsap": "^3.11.5",
+    "include-media": "^2.0.0",
     "normalize-wheel": "^1.0.1"
   }
 }
