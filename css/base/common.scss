@@ -2,30 +2,24 @@
   --column-nb: 4;
   --column-gap: 10px;
   --nav-height: 39px;
-}
 
-@media screen and (min-width: 768px) {
-  :root {
+  @include media(">=tablet") {
     --column-nb: 6;
     --column-gap: 15px;
     --nav-height: 58px;
   }
-}
 
-@media screen and (min-width: 1024px) {
-  :root {
+  @include media(">=desktop") {
     --column-nb: 8;
   }
-}
 
-@media screen and (min-width: 1366px) {
-  :root {
+  @include media(">=large-desktop") {
     --column-nb: 10;
   }
 }
 
 html {
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-weight: 200;
   letter-spacing: 0.03em;
   line-height: 1.2;
@@ -62,10 +56,8 @@ video {
 p {
   font-size: clamp(10px, 0.426rem + 0.935vw, 14px);
   line-height: 1.5;
-}
 
-@media screen and (min-width: 768px) {
-  p {
+  @include media(">=tablet") {
     font-size: 14px;
   }
 }
@@ -76,10 +68,10 @@ p {
   left: 0;
   width: 100%;
   padding: 0 var(--column-gap);
-}
 
-.content > div {
-  visibility: hidden;
+  > div {
+    visibility: hidden;
+  }
 }
 
 /* 
@@ -111,11 +103,11 @@ p {
   bottom: 0;
   left: var(--column-gap);
   right: var(--column-gap);
-}
 
-.background-columns > div {
-  border-left: 1px solid;
-  border-right: 1px solid;
+  > div {
+    border-left: 1px solid;
+    border-right: 1px solid;
+  }
 }
 
 %grid {
@@ -141,6 +133,19 @@ nav {
   justify-content: space-between;
   pointer-events: none;
   z-index: 1;
+
+  a {
+    pointer-events: all;
+  }
+
+  @include media(">=tablet") {
+    font-size: 24px;
+  }
+
+  @include media(">=desktop") {
+    left: calc(var(--column-gap) + 100vw / var(--column-nb));
+    right: calc(var(--column-gap) + 100vw / var(--column-nb));
+  }
 }
 
 .nav__links {
@@ -151,29 +156,12 @@ nav {
   height: 24px;
   position: relative;
   overflow: hidden;
-}
 
-.nav__links__about,
-.nav__links__home {
-  position: absolute;
-  right: 0;
-  pointer-events: none;
-}
-
-nav a {
-  pointer-events: all;
-}
-
-@media screen and (min-width: 768px) {
-  nav {
-    font-size: 24px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  nav {
-    left: calc(var(--column-gap) + 100vw / var(--column-nb));
-    right: calc(var(--column-gap) + 100vw / var(--column-nb));
+  &__about,
+  &__home {
+    position: absolute;
+    right: 0;
+    pointer-events: none;
   }
 }
 
@@ -188,6 +176,17 @@ footer {
   margin: 256px -10px 0;
   overflow: hidden;
   grid-column: 1 / -1;
+
+  @include media(">=tablet") {
+    margin: 384px -15px 0;
+  }
+
+  @include media(">=desktop") {
+    grid-column: 2 / -2;
+    margin: 384px 0 10vh;
+    border-radius: 20px;
+    align-items: end;
+  }
 }
 
 .default-footer {
@@ -196,6 +195,14 @@ footer {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-gap: var(--column-gap);
+
+  @include media(">=desktop") {
+    padding: 45px 0;
+  }
+
+  @include media(">=large-desktop") {
+    grid-template-columns: repeat(8, 1fr);
+  }
 }
 
 .footer__label {
@@ -206,42 +213,18 @@ footer {
 
 .footer__info {
   font-size: clamp(14px, 0.751rem + 0.585vw, 18px);
-  margin-bottom: 40px;
-}
 
-.footer__info:last-of-type {
-  margin-bottom: 0;
-}
-
-@media screen and (min-width: 768px) {
-  footer {
-    margin: 384px -15px 0;
+  &:not(:last-of-type) {
+    margin-bottom: 40px;
   }
 }
 
-@media screen and (min-width: 1024px) {
-  footer {
-    grid-column: 2 / -2;
-    margin: 384px 0 10vh;
-    border-radius: 20px;
-    align-items: end;
-  }
-
-  .default-footer {
-    padding: 45px 0;
-  }
-
-  .info {
+.info {
+  @include media(">=desktop") {
     grid-column: 2 / span 2;
   }
-}
 
-@media screen and (min-width: 1366px) {
-  .default-footer {
-    grid-template-columns: repeat(8, 1fr);
-  }
-
-  .info {
+  @include media(">=large-desktop") {
     grid-column: 3 / span 2;
   }
 }

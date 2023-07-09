@@ -16,9 +16,11 @@
 
 @import "./base/reset";
 @import "./base/fonts";
-@import "./base/common";
 
+@import "./utils/responsive";
 @import "./utils/variables";
+
+@import "./base/common";
 
 @import "./preloader";
 

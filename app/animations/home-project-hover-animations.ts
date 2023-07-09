@@ -150,6 +150,8 @@ export default class HomeProjectHoverAnimation {
     });
   }
 
+  // TODO: seems this is makes the page crash when navigating from mobile home to a project page
+  // Because there is nothing to destroy
   destroy() {
     this.removeEventListeners();
     document.body.removeChild(this.mainContainer);

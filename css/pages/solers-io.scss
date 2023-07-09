@@ -7,14 +7,12 @@
   border: 1px solid #ccc;
 }
 
-@media screen and (min-width: 768px) {
-  .project__text-4.solers-io {
+.project__text-4.solers-io {
+  @include media(">=tablet") {
     grid-column: 3 / -1;
   }
-}
 
-@media screen and (min-width: 1024px) {
-  .project__text-4.solers-io {
+  @include media(">=desktop") {
     grid-column: 5 / -1;
   }
 }

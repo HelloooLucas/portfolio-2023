@@ -16,27 +16,20 @@
   margin-bottom: 20vh;
   grid-column: 1 / -1;
   font-size: clamp(16px, 0.751rem + 1.17vw, 24px);
-}
 
-.home__top-section > p {
-  font-size: 24px;
+  > p {
+    font-size: 24px;
+  }
+
+  @include media(">=desktop") {
+    align-items: center;
+  }
 }
 
 .home__top-section__position {
   grid-column: 1 / span 2;
-}
 
-.home__top-section__portfolio {
-  text-align: right;
-  grid-column: -3 / span 2;
-}
-
-@media screen and (min-width: 1024px) {
-  .home__top-section {
-    align-items: center;
-  }
-
-  .home__top-section__position {
+  @include media(">=desktop") {
     grid-column: 5 / span 2;
     /* Specifying grid-rows is necessary otherwise items won't overlap */
     grid-row: 1 / 2;
@@ -44,18 +37,21 @@
     /* grid-area: 1 / 5 / 2 / 7; */
   }
 
-  .home__top-section__portfolio {
-    grid-column: 6 / span 2;
-    grid-row: 1 / 2;
+  @include media(">=large-desktop") {
+    grid-column: 7 / span 2;
   }
 }
 
-@media screen and (min-width: 1366px) {
-  .home__top-section__position {
-    grid-column: 7 / span 2;
+.home__top-section__portfolio {
+  text-align: right;
+  grid-column: -3 / span 2;
+
+  @include media(">=desktop") {
+    grid-column: 6 / span 2;
+    grid-row: 1 / 2;
   }
 
-  .home__top-section__portfolio {
+  @include media(">=large-desktop") {
     grid-column: 8 / span 2;
   }
 }
@@ -66,27 +62,82 @@
  */
 
 .home__project {
-  margin-bottom: 25vh;
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: var(--column-gap);
   pointer-events: none;
+
+  &:not(:last-of-type) {
+    margin-bottom: 25vh;
+  }
+
+  @include media(">=large-desktop") {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }
 
-.home__project:last-of-type {
-  margin-bottom: 0;
+[data-project="sopra-banking-software"] {
+  @include media(">=desktop") {
+    grid-column: 3 / span 5;
+  }
+
+  @include media(">=large-desktop") {
+    grid-column: 4 / span 6;
+  }
+}
+
+[data-project="last-quest"] {
+  @include media(">=desktop") {
+    grid-column: 1 / span 5;
+  }
+
+  @include media(">=large-desktop") {
+    grid-column: 2 / span 6;
+  }
+}
+
+[data-project="solers-io"] {
+  @include media(">=desktop") {
+    grid-column: 4 / span 5;
+  }
+
+  @include media(">=large-desktop") {
+    grid-column: 5 / span 6;
+  }
+}
+
+[data-project="atelier-tote-bag"] {
+  @include media(">=desktop") {
+    grid-column: 2 / span 5;
+  }
+
+  @include media(">=large-desktop") {
+    grid-column: 3 / span 6;
+  }
 }
 
 .home__project__index {
   font-size: 24px;
   display: none;
+
+  @include media(">=desktop") {
+    display: block;
+  }
 }
 
 .home__project__block {
   display: block;
   grid-column: 1 / -1;
   pointer-events: all;
+
+  @include media(">=desktop") {
+    grid-column: 2 / span 4;
+  }
+
+  @include media(">=large-desktop") {
+    grid-column: 2 / span 5;
+  }
 }
 
 .home__project__block__image-wrapper {
@@ -115,6 +166,10 @@
 .home__project__block__name {
   margin-top: 0.7em;
   font-size: clamp(24px, 0.754rem + 3.509vw, 48px);
+
+  @include media(">=desktop") {
+    display: none;
+  }
 }
 
 .project-names {
@@ -124,7 +179,7 @@
   left: var(--column-gap);
   right: var(--column-gap);
   pointer-events: none;
-  font-family: "Gambetta-Bold";
+  font-family: "Gambetta-Bold", serif;
   font-size: clamp(110px, 5.943rem + 4.386vw, 140px);
 }
 
@@ -146,99 +201,43 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-}
 
-.project-names__project__line__letter-container > div {
-  position: relative;
-  text-align: center;
-  transform: translateX(-100%);
-  z-index: 1;
-}
-
-.project-names__project__line__letter-container.letter-1 {
-  grid-area: 1 / 1 / 1 / 1;
-}
-
-.project-names__project__line__letter-container.letter-2 {
-  grid-area: 1 / 2 / 1 / 2;
-}
-
-.project-names__project__line__letter-container.letter-3 {
-  grid-area: 1 / 3 / 1 / 3;
-}
-
-.project-names__project__line__letter-container.letter-4 {
-  grid-area: 1 / 4 / 1 / 4;
-}
-
-.project-names__project__line__letter-container.letter-5 {
-  grid-area: 1 / 5 / 1 / 5;
-}
-
-.project-names__project__line__letter-container.letter-6 {
-  grid-area: 1 / 6 / 1 / 6;
-}
-
-.project-names__project__line__letter-container.letter-7 {
-  grid-area: 1 / 7 / 1 / 7;
-}
-
-.project-names__project__line__letter-container.letter-8 {
-  grid-area: 1 / 8 / 1 / 8;
-}
-
-@media screen and (min-width: 1024px) {
-  .home__project__index {
-    display: block;
+  > div {
+    position: relative;
+    text-align: center;
+    transform: translateX(-100%);
+    z-index: 1;
   }
 
-  .home__project__block {
-    grid-column: 2 / span 4;
+  .letter-1 {
+    grid-area: 1 / 1 / 1 / 1;
   }
 
-  .home__project__block__name {
-    display: none;
+  .letter-2 {
+    grid-area: 1 / 2 / 1 / 2;
   }
 
-  .home__project[data-project="sopra-banking-software"] {
-    grid-column: 3 / span 5;
+  .letter-3 {
+    grid-area: 1 / 3 / 1 / 3;
   }
 
-  .home__project[data-project="last-quest"] {
-    grid-column: 1 / span 5;
+  .letter-4 {
+    grid-area: 1 / 4 / 1 / 4;
   }
 
-  .home__project[data-project="solers-io"] {
-    grid-column: 4 / span 5;
+  .letter-5 {
+    grid-area: 1 / 5 / 1 / 5;
   }
 
-  .home__project[data-project="atelier-tote-bag"] {
-    grid-column: 2 / span 5;
-  }
-}
-
-@media screen and (min-width: 1366px) {
-  .home__project {
-    grid-template-columns: repeat(6, 1fr);
+  .letter-6 {
+    grid-area: 1 / 6 / 1 / 6;
   }
 
-  .home__project__block {
-    grid-column: 2 / span 5;
+  .letter-7 {
+    grid-area: 1 / 7 / 1 / 7;
   }
 
-  .home__project[data-project="sopra-banking-software"] {
-    grid-column: 4 / span 6;
-  }
-
-  .home__project[data-project="last-quest"] {
-    grid-column: 2 / span 6;
-  }
-
-  .home__project[data-project="solers-io"] {
-    grid-column: 5 / span 6;
-  }
-
-  .home__project[data-project="atelier-tote-bag"] {
-    grid-column: 3 / span 6;
+  .letter-8 {
+    grid-area: 1 / 8 / 1 / 8;
   }
 }

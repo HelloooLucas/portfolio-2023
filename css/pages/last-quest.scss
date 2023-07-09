@@ -1,17 +1,13 @@
-@media screen and (min-width: 768px) {
-  .project__text-4.last-quest {
+.project__text-4.last-quest {
+  @include media(">=tablet") {
     grid-column: 3 / span 3;
   }
-}
 
-@media screen and (min-width: 1024px) {
-  .project__text-4.last-quest {
+  @include media(">=desktop") {
     grid-column: 4 / span 3;
   }
-}
 
-@media screen and (min-width: 1366px) {
-  .project__text-4.last-quest {
+  @include media(">=large-desktop") {
     grid-column: 5 / span 3;
   }
 }

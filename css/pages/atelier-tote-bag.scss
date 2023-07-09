@@ -6,22 +6,16 @@
 
 .project__title.atelier-tote-bag {
   font-size: clamp(40px, -0.296rem + 13.158vw, 130px);
-}
 
-@media screen and (min-width: 768px) {
-  .project__title.atelier-tote-bag {
+  @include media(">=tablet") {
     grid-column: 2 / span 5;
   }
-}
 
-@media screen and (min-width: 1024px) {
-  .project__title.atelier-tote-bag {
+  @include media(">=desktop") {
     grid-column: 2 / span 6;
   }
-}
 
-@media screen and (min-width: 1366px) {
-  .project__title.atelier-tote-bag {
+  @include media(">=large-desktop") {
     grid-column: 2 / span 7;
   }
 }
