@@ -156,8 +156,7 @@
  */
 
 .project__title {
-  /* https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/ */
-  font-size: clamp(48px, -0.48rem + 16.374vw, 160px);
+  font-size: calculate-size-between(48, 160);
   margin-bottom: 64px;
   grid-column: 2 / -1;
   font-family: "Gambetta-Bold", serif;
@@ -333,7 +332,7 @@ video {
 }
 
 .project__middle-title {
-  font-size: clamp(36px, 1.504rem + 3.509vw, 60px);
+  font-size: calculate-size-between(36, 60);
   grid-column: 1 / -1;
   margin: 256px 0 64px;
 
@@ -387,11 +386,11 @@ video {
 
   &__label {
     display: block;
-    font-size: clamp(12px, 0.377rem + 1.754vw, 24px);
+    font-size: calculate-size-between(12, 24);
     margin-bottom: 24px;
   }
 
   &__title {
-    font-size: clamp(32px, 1.503rem + 2.339vw, 48px);
+    font-size: calculate-size-between(32, 48);
   }
 }

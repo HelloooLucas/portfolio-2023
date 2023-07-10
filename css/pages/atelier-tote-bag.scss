@@ -5,7 +5,7 @@
 }
 
 .project__title.atelier-tote-bag {
-  font-size: clamp(40px, -0.296rem + 13.158vw, 130px);
+  font-size: calculate-size-between(40, 120);
 
   @include media(">=tablet") {
     grid-column: 2 / span 5;

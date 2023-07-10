@@ -2,8 +2,8 @@ import Home from "./pages/home";
 import About from "./pages/about";
 import Project from "./pages/project";
 import { Template } from "./classes/page";
-import Preloader, { PRELOADING_FINISHED_EVENT } from "./components/preloader";
 import Navigation from "./components/navigation";
+import Preloader, { PRELOADING_FINISHED_EVENT } from "./components/preloader";
 
 class App {
   pages!: {

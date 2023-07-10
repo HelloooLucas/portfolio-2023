@@ -1,5 +1,5 @@
 .project__title.solers-io {
-  font-size: clamp(40px, -0.607rem + 14.62vw, 160px);
+  font-size: calculate-size-between(40, 160);
 }
 
 .project__header__image.solers-io {

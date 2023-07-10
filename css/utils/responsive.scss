@@ -1,3 +1,6 @@
+@use "sass:string";
+@use "sass:math";
+
 $breakpoints: (
   "tablet": 768px,
   "desktop": 1024px,
@@ -5,3 +8,26 @@ $breakpoints: (
 ) !default;
 
 @import "../node_modules/include-media/dist/_include-media.scss";
+
+/* https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/ */
+@function calculate-size-between($minFontSize, $maxFontSize) {
+  $minWidth: 340;
+  $maxWidth: 1024;
+
+  $minWidthInRem: calc($minWidth / 16);
+  $maxWidthInRem: calc($maxWidth / 16);
+
+  $minFontSizeInRem: calc($minFontSize / 16);
+  $maxFontSizeInRem: calc($maxFontSize / 16);
+
+  $slope: calc(
+    ($maxFontSizeInRem - $minFontSizeInRem) / ($maxWidthInRem - $minWidthInRem)
+  );
+  $yAxisIntersection: -$minWidthInRem * $slope + $minFontSizeInRem;
+
+  $preferredValue: "#{$yAxisIntersection}rem + #{($slope * 100)}vw";
+
+  @return unquote(
+    "clamp(#{$minFontSize}px, #{$preferredValue}, #{$maxFontSize}px)"
+  );
+}

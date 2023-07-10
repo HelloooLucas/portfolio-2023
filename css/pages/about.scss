@@ -48,7 +48,7 @@ $about-color: #dfdfdf;
 }
 
 .about__title {
-  font-size: clamp(48px, 2.627rem + 1.754vw, 60px);
+  font-size: calculate-size-between(48, 60);
   margin-bottom: 192px;
 
   @include media(">=tablet") {
@@ -63,13 +63,6 @@ $about-color: #dfdfdf;
     grid-column: 2 / span 5;
     text-align: left;
   }
-}
-
-.about__awards,
-.about__text-1,
-.about__text-2 {
-  font-size: 14px;
-  line-height: 1.5;
 }
 
 .about__text-1 {

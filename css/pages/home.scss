@@ -15,7 +15,7 @@
   padding: var(--column-gap) 0;
   margin-bottom: 20vh;
   grid-column: 1 / -1;
-  font-size: clamp(16px, 0.751rem + 1.17vw, 24px);
+  font-size: calculate-size-between(16, 24);
 
   > p {
     font-size: 24px;
@@ -165,7 +165,7 @@
 
 .home__project__block__name {
   margin-top: 0.7em;
-  font-size: clamp(24px, 0.754rem + 3.509vw, 48px);
+  font-size: calculate-size-between(24, 48);
 
   @include media(">=desktop") {
     display: none;
@@ -180,7 +180,7 @@
   right: var(--column-gap);
   pointer-events: none;
   font-family: "Gambetta-Bold", serif;
-  font-size: clamp(110px, 5.943rem + 4.386vw, 140px);
+  font-size: calculate-size-between(110, 140);
 }
 
 .project-names__project {

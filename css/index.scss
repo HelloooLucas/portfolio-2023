@@ -1,18 +1,20 @@
-// DONE
-// Extend/inherit => https://sass-lang.com/guide/#extend-inheritance => for grids? Or also for all HTML elements where I put multiple classes
-
-// ONGOING
-// For responsive, use @import '../../node_modules/include-media/dist/_include-media.scss'; like LH Bizarro
-
-// TODO
-// Elements that I target by their nesting in their parent
-// All pseudo elements, hover, etc.
+// WON'T DO
 // Interpolation for prefixes => https://sass-lang.com/documentation/style-rules/declarations/#interpolation
 // Nesting shorthand => https://sass-lang.com/documentation/style-rules/declarations/#nesting
+
+// DONE
+// Extend/inherit => https://sass-lang.com/guide/#extend-inheritance => for grids? Or also for all HTML elements where I put multiple classes
+// For responsive, use @import '../../node_modules/include-media/dist/_include-media.scss'; like LH Bizarro
+// Elements that I target by their nesting in their parent
+// All pseudo elements, hover, etc.
 // Adding suffixes (specially cool for BEM) => https://sass-lang.com/documentation/style-rules/parent-selector/#adding-suffixes => use it everywhere
+// Create a mixin or an scss function to automatically calculate font sizes/ranges given a min and a max?
+
+// ONGOING
+
+// TODO
 // Variables for z-indexes like in LH Bizarro's styles/utils/variables.scss
 // Take example on how he created his link hover animations => styles/shared/links.scss
-// Create a mixin or an scss function to automatically calculate font sizes/ranges given a min and a max?
 
 @import "./base/reset";
 @import "./base/fonts";

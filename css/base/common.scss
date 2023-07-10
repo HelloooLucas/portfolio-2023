@@ -54,7 +54,7 @@ video {
 }
 
 p {
-  font-size: clamp(10px, 0.426rem + 0.935vw, 14px);
+  font-size: calculate-size-between(10, 14);
   line-height: 1.5;
 
   @include media(">=tablet") {
@@ -207,12 +207,12 @@ footer {
 
 .footer__label {
   display: block;
-  font-size: clamp(10px, 0.501rem + 0.585vw, 14px);
+  font-size: calculate-size-between(10, 14);
   margin-bottom: 10px;
 }
 
 .footer__info {
-  font-size: clamp(14px, 0.751rem + 0.585vw, 18px);
+  font-size: calculate-size-between(14, 18);
 
   &:not(:last-of-type) {
     margin-bottom: 40px;
