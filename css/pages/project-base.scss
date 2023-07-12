@@ -377,6 +377,7 @@ video {
     background-size: cover;
     filter: grayscale(100%);
     transition: filter 0.3s ease-in-out;
+    // TODO: this section will be reworked anyway
     z-index: -1;
   }
 

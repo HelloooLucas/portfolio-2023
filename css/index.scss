@@ -9,11 +9,11 @@
 // All pseudo elements, hover, etc.
 // Adding suffixes (specially cool for BEM) => https://sass-lang.com/documentation/style-rules/parent-selector/#adding-suffixes => use it everywhere
 // Create a mixin or an scss function to automatically calculate font sizes/ranges given a min and a max?
+// Variables for z-indexes like in LH Bizarro's styles/utils/variables.scss
 
 // ONGOING
 
 // TODO
-// Variables for z-indexes like in LH Bizarro's styles/utils/variables.scss
 // Take example on how he created his link hover animations => styles/shared/links.scss
 
 @import "./base/reset";
@@ -21,6 +21,7 @@
 
 @import "./utils/responsive";
 @import "./utils/variables";
+@import "./utils/functions";
 
 @import "./base/common";
 
