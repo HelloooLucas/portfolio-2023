@@ -1,8 +1,8 @@
 import gsap from "gsap";
 import NormalizeWheel from "normalize-wheel";
 
-import Component, { ComponentProps } from "./component";
 import BackgroundLoad from "./background-load";
+import Component, { ComponentProps } from "./component";
 
 /*
  * INFO
@@ -15,20 +15,39 @@ type PageProps = ComponentProps;
 
 export default class Page extends Component {
   handleWheelBound: (event: WheelEvent) => void;
-  scroll!: {
+  handleTouchDownBound: (event: TouchEvent) => void;
+  handleTouchMoveBound: (event: TouchEvent) => void;
+  handleTouchEndBound: () => void;
+  scroll: {
     current: number;
     target: number;
     limit: number;
+  };
+
+  touch: {
+    isDown: boolean;
+    start: number;
+    position: number;
   };
 
   constructor(props: PageProps) {
     super(props);
 
     this.handleWheelBound = this.handleWheel.bind(this);
+    this.handleTouchDownBound = this.handleTouchDown.bind(this);
+    this.handleTouchMoveBound = this.handleTouchMove.bind(this);
+    this.handleTouchEndBound = this.handleTouchEnd.bind(this);
+
     this.scroll = {
       current: 0,
       target: 0,
       limit: 0,
+    };
+
+    this.touch = {
+      isDown: false,
+      start: 0,
+      position: 0,
     };
   }
 
@@ -60,6 +79,7 @@ export default class Page extends Component {
   show() {
     // This is called by instances of Page (Home, About, etc.) when their showing animations are completed
     this.addWheelListener();
+    this.addTouchListeners();
   }
 
   hide() {
@@ -75,18 +95,29 @@ export default class Page extends Component {
     this.scroll.limit = this.elements.content.clientHeight - window.innerHeight;
   }
 
-  addWheelListener() {
-    window.addEventListener("wheel", this.handleWheelBound);
-  }
-
-  removeWheelListener() {
-    window.removeEventListener("wheel", this.handleWheelBound);
-  }
-
   // TODO: not working on Safari right now, fix it
   handleWheel(event: WheelEvent) {
     const { pixelY } = NormalizeWheel(event);
     this.scroll.target += pixelY;
+  }
+
+  handleTouchDown(event: TouchEvent) {
+    this.touch.isDown = true;
+    this.touch.position = this.scroll.current;
+    this.touch.start = event.touches[0].clientY;
+  }
+
+  handleTouchMove(event: TouchEvent) {
+    if (!this.touch.isDown) return;
+
+    const y = event.touches[0].clientY;
+    const distance = (this.touch.start - y) * 3;
+
+    this.scroll.target = this.touch.position + distance;
+  }
+
+  handleTouchEnd() {
+    this.touch.isDown = false;
   }
 
   update() {
@@ -118,8 +149,29 @@ export default class Page extends Component {
     this.scroll.target = 0;
   }
 
+  addWheelListener() {
+    window.addEventListener("wheel", this.handleWheelBound);
+  }
+
+  removeWheelListener() {
+    window.removeEventListener("wheel", this.handleWheelBound);
+  }
+
+  addTouchListeners() {
+    window.addEventListener("touchstart", this.handleTouchDownBound);
+    window.addEventListener("touchmove", this.handleTouchMoveBound);
+    window.addEventListener("touchend", this.handleTouchEndBound);
+  }
+
+  removeTouchListeners() {
+    window.removeEventListener("touchend", this.handleTouchDownBound);
+    window.removeEventListener("touchmove", this.handleTouchMoveBound);
+    window.removeEventListener("touchend", this.handleTouchEndBound);
+  }
+
   destroy() {
     this.removeWheelListener();
+    this.removeTouchListeners();
     // TODO: add a remove resize listener and make sure it's properly removed with logs ==> use arrow function
   }
 }

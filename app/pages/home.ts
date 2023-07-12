@@ -33,6 +33,7 @@ export default class Home extends Page {
       },
     });
 
+    // TODO: refactor this in a cleaner way if possible?
     this.widthObserver = new WidthObserver({
       matches: "(min-width: 1024px)",
       handleChange: () => {
