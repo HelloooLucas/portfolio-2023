@@ -11,6 +11,7 @@
   @extend %grid;
 
   height: 100vh;
+  height: 100svh;
   align-items: end;
   padding: var(--column-gap) 0;
   margin-bottom: 20vh;
