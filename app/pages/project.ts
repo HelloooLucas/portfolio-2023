@@ -25,7 +25,7 @@ export default class Project extends Page {
         content: ".content",
         coverImageWrapper: ".project__header__image-wrapper",
         headerInfo: ".project__header__info",
-        title: ".project__title",
+        title: ".project__title, .project__middle-title",
         // TODO: try using regex here instead of a list?
         paragraphs: [
           ".project__text-1",

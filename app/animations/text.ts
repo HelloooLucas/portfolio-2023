@@ -57,8 +57,6 @@ export default class Text extends Observer {
   }
 
   resetAnimations() {
-    if (this.manualTrigger) return;
-
     this.timeline.progress(0).pause();
   }
 }
