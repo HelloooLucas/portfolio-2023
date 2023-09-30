@@ -1,7 +1,5 @@
 import gsap from "gsap";
 import NormalizeWheel from "normalize-wheel";
-// eslint-disable-next-line
-import { UAParser } from "ua-parser-js";
 
 import BackgroundLoad from "./background-load";
 import Component, { ComponentProps } from "./component";
@@ -16,7 +14,6 @@ export type Template = "home" | "about" | "project";
 type PageProps = ComponentProps;
 
 export default class Page extends Component {
-  parser: UAParser;
   handleWheelBound: (event: WheelEvent) => void;
   handleTouchDownBound: (event: TouchEvent) => void;
   handleTouchMoveBound: (event: TouchEvent) => void;
@@ -36,8 +33,6 @@ export default class Page extends Component {
   constructor(props: PageProps) {
     super(props);
 
-    // eslint-disable-next-line
-    this.parser = new UAParser();
     this.handleWheelBound = this.handleWheel.bind(this);
     this.handleTouchDownBound = this.handleTouchDown.bind(this);
     this.handleTouchMoveBound = this.handleTouchMove.bind(this);
@@ -155,18 +150,7 @@ export default class Page extends Component {
   }
 
   addWheelListener() {
-    if (
-      /* eslint-disable */
-      this.parser &&
-      this.parser.getBrowser() &&
-      this.parser.getBrowser().name === "Safari"
-      /* eslint-disable */
-    ) {
-      const html = document.querySelector("html") as HTMLElement;
-      html.addEventListener("wheel", this.handleWheelBound);
-    } else {
-      window.addEventListener("wheel", this.handleWheelBound);
-    }
+    window.addEventListener("wheel", this.handleWheelBound);
   }
 
   removeWheelListener() {

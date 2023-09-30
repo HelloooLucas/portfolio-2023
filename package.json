@@ -25,10 +25,8 @@
     "vite": "^4.2.0"
   },
   "dependencies": {
-    "@types/ua-parser-js": "^0.7.37",
     "gsap": "^3.11.5",
     "include-media": "^2.0.0",
-    "normalize-wheel": "^1.0.1",
-    "ua-parser-js": "^1.0.36"
+    "normalize-wheel": "^1.0.1"
   }
 }
