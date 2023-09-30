@@ -39,6 +39,7 @@ export default class HomeProject extends Observer {
 
   resetAnimations() {
     this.timeline.progress(0).pause();
+    this.projectBlock.style.pointerEvents = "none";
   }
 
   detectDomNodes() {
@@ -83,6 +84,9 @@ export default class HomeProject extends Observer {
           stagger: 0.1,
         },
         0.7
-      );
+      )
+      .add(() => {
+        this.projectBlock.style.pointerEvents = "all";
+      }, "<50%");
   }
 }
