@@ -5,6 +5,7 @@
 
 interface Elements {
   // Common to all pages
+  html: HTMLHtmlElement;
   content: HTMLDivElement;
   footer: HTMLElement;
   preloadImages: HTMLImageElement[];

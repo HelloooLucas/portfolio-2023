@@ -22,6 +22,7 @@ export default class Project extends Page {
     super({
       selector: ".project",
       selectorChildren: {
+        html: "html",
         content: ".content",
         coverImageWrapper: ".project__header__image-wrapper",
         headerInfo: ".project__header__info",

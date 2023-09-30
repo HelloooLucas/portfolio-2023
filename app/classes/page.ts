@@ -150,7 +150,8 @@ export default class Page extends Component {
   }
 
   addWheelListener() {
-    window.addEventListener("wheel", this.handleWheelBound);
+    // Attaching the listener to html instead of window, because of Safari bug
+    this.elements.html.addEventListener("wheel", this.handleWheelBound);
   }
 
   removeWheelListener() {

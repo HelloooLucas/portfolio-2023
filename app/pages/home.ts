@@ -24,6 +24,7 @@ export default class Home extends Page {
     super({
       selector: ".home",
       selectorChildren: {
+        html: "html",
         content: ".content",
         topSectionPosition: ".home__top-section__position",
         topSectionPortfolio: ".home__top-section__portfolio",

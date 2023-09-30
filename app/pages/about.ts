@@ -20,6 +20,7 @@ export default class About extends Page {
     super({
       selector: ".about",
       selectorChildren: {
+        html: "html",
         content: ".content",
         preloadImages: ["[data-src]"],
         coverImageWrapper: ".about__header__image-wrapper",
