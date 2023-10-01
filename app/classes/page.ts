@@ -1,7 +1,7 @@
 import gsap from "gsap";
 import NormalizeWheel from "normalize-wheel";
 
-import BackgroundLoad from "./background-load";
+import ImagesLoader from "./images-loader";
 import Component, { ComponentProps } from "./component";
 
 /*
@@ -12,11 +12,12 @@ import Component, { ComponentProps } from "./component";
 export type Template = "home" | "about" | "project";
 
 type PageProps = ComponentProps;
+type TouchEventBound = (event: TouchEvent) => void;
 
 export default class Page extends Component {
   handleWheelBound: (event: WheelEvent) => void;
-  handleTouchDownBound: (event: TouchEvent) => void;
-  handleTouchMoveBound: (event: TouchEvent) => void;
+  handleTouchDownBound: TouchEventBound;
+  handleTouchMoveBound: TouchEventBound;
   handleTouchEndBound: () => void;
   scroll: {
     current: number;
@@ -58,7 +59,7 @@ export default class Page extends Component {
 
   async handleChange() {
     this.detectDomNodes();
-    await this.backgroundLoad();
+    await this.LoadImages();
     this.createAnimations();
     this.onResize();
     this.scrollTop();
@@ -71,9 +72,9 @@ export default class Page extends Component {
     });
   }
 
-  async backgroundLoad() {
-    const loader = new BackgroundLoad({ images: this.elements.preloadImages });
-    await loader.loadImageAssets();
+  async LoadImages() {
+    const loader = new ImagesLoader({ images: this.elements.preloadImages });
+    await loader.loadImages();
   }
 
   show() {

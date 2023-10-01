@@ -1,19 +1,22 @@
-interface BackgroundLoadProps {
+type OnTick = (percentage: number) => void;
+
+interface ImagesLoaderProps {
   images: HTMLImageElement[];
+  onTick?: OnTick;
 }
 
-// TODO: see if I can find a better name?
-export default class BackgroundLoad {
-  loadedLength: number;
+export default class ImagesLoader {
   images: HTMLImageElement[];
+  onTick?: OnTick;
+  loadedLength: number;
 
-  constructor({ images }: BackgroundLoadProps) {
+  constructor({ images, onTick }: ImagesLoaderProps) {
     this.images = images;
+    this.onTick = onTick;
     this.loadedLength = 0;
   }
 
-  async loadImageAssets() {
-    // TODO: investigate this other "Promise.resolve()" syntax I saw somewhere else
+  async loadImages() {
     return new Promise<void>(resolve => {
       this.images.forEach(img => {
         img.src = img.getAttribute("data-src") as string;
@@ -24,6 +27,7 @@ export default class BackgroundLoad {
 
   imageAssetLoaded(resolve: () => void) {
     this.loadedLength += 1;
+    this.onTick?.((this.loadedLength / this.images.length) * 100);
 
     if (this.loadedLength === this.images.length) {
       resolve();

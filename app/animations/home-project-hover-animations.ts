@@ -10,6 +10,8 @@ const projectNames = {
   "atelier-tote-bag": ["atelier", "tote bag"],
 };
 
+type MouseEventBound = (e: MouseEvent) => void;
+
 interface HomeProjectHoverAnimationProps {
   projects: HTMLElement[];
 }
@@ -19,8 +21,8 @@ export default class HomeProjectHoverAnimation {
   mainContainer!: HTMLDivElement;
   projectNameContainersMap: { [key: string]: HTMLDivElement };
   hoveredProjectLetters!: Element[];
-  handleMouseEnterBound: (e: MouseEvent) => void;
-  handleMouseLeaveBound: (e: MouseEvent) => void;
+  handleMouseEnterBound: MouseEventBound;
+  handleMouseLeaveBound: MouseEventBound;
 
   constructor({ projects }: HomeProjectHoverAnimationProps) {
     this.projectBlocks = projects;

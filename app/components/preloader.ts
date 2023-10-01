@@ -2,6 +2,7 @@ import gsap from "gsap";
 import splitIntoLines from "../utils/text";
 
 import Component from "../classes/component";
+import ImagesLoader from "../classes/images-loader";
 
 export const PRELOADING_FINISHED_EVENT = "preloading-finished";
 
@@ -17,7 +18,6 @@ export default class Preloader extends Component {
         title: ".preloader__title",
         counter: ".preloader__counter > span",
         columns: [".preloader__columns > div"],
-        // TODO: try to see if I can use BackgroundPreload here instead of duplicating the logic
         preloadImages: ["[data-src]"],
       },
     });
@@ -26,28 +26,22 @@ export default class Preloader extends Component {
 
     this.titleInnerSpans = splitIntoLines(this.elements.title);
 
-    this.loadImageAssets();
+    this.init();
   }
 
-  loadImageAssets() {
-    this.elements.preloadImages.forEach(img => {
-      img.src = img.getAttribute("data-src") as string;
-      img.onload = () => this.imageAssetLoaded();
+  async init() {
+    const loader = new ImagesLoader({
+      images: this.elements.preloadImages,
+      onTick: this.updateCounter.bind(this),
     });
+    await loader.loadImages();
+
+    await this.hidePreloader();
+    this.destroyPreloader();
   }
 
-  async imageAssetLoaded() {
-    this.loadedLength += 1;
-
-    const percentage =
-      (this.loadedLength / this.elements.preloadImages.length) * 100;
-
+  updateCounter(percentage: number) {
     this.elements.counter.innerHTML = `${Math.round(percentage)}%`;
-
-    if (this.loadedLength === this.elements.preloadImages.length) {
-      await this.hidePreloader();
-      this.destroyPreloader();
-    }
   }
 
   hidePreloader() {
