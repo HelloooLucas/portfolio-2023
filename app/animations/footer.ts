@@ -6,7 +6,7 @@ type FooterProps = {
 };
 
 export default class Footer extends Observer {
-  timeline: ReturnType<typeof gsap.timeline>;
+  timeline: gsap.core.Timeline;
 
   constructor({ element }: FooterProps) {
     super({ element });

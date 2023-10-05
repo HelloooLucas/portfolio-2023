@@ -5,13 +5,13 @@ import splitIntoLines from "../utils/text";
 
 interface AwardLineProps {
   element: HTMLDivElement;
-  timeline: ReturnType<typeof gsap.timeline>;
+  timeline: gsap.core.Timeline;
 }
 
 export default class AwardLine extends Observer {
   lineTexts!: HTMLSpanElement[][];
   lineAfterClass!: string;
-  timeline: ReturnType<typeof gsap.timeline>;
+  timeline: gsap.core.Timeline;
 
   constructor({ element, timeline }: AwardLineProps) {
     super({ element });

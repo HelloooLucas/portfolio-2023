@@ -7,14 +7,14 @@ import getProjectColor from "../utils/colors";
 interface TitleProps {
   colored?: boolean;
   element: HTMLElement;
-  timeline?: ReturnType<typeof gsap.timeline>;
+  timeline?: gsap.core.Timeline;
   manualTrigger?: boolean;
 }
 
 export default class Text extends Observer {
   colored: boolean;
   titleLines!: HTMLSpanElement[];
-  timeline: ReturnType<typeof gsap.timeline>;
+  timeline: gsap.core.Timeline;
   manualTrigger: boolean;
 
   constructor({ element, timeline, manualTrigger, colored }: TitleProps) {

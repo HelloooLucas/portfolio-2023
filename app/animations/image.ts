@@ -5,13 +5,13 @@ import getProjectColor from "../utils/colors";
 
 interface ImageProps {
   element: HTMLDivElement;
-  timeline?: ReturnType<typeof gsap.timeline>;
+  timeline?: gsap.core.Timeline;
   manualTrigger?: boolean;
 }
 
 export default class Image extends Observer {
   image: HTMLImageElement;
-  timeline: ReturnType<typeof gsap.timeline>;
+  timeline: gsap.core.Timeline;
   manualTrigger: boolean;
 
   constructor({ element, timeline, manualTrigger }: ImageProps) {

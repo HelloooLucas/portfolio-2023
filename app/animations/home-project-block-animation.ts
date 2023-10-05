@@ -11,7 +11,7 @@ interface ComponentProps {
 
 // TODO: refactor this to use Text and Image classes
 export default class HomeProject extends Observer {
-  timeline: ReturnType<typeof gsap.timeline>;
+  timeline: gsap.core.Timeline;
   project!: ProjectName;
   projectIndex!: HTMLSpanElement[];
   projectBlock!: HTMLAnchorElement;

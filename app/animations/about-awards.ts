@@ -9,7 +9,7 @@ interface AboutAwardsProps {
 }
 
 export default class AboutAwards extends Observer {
-  timeline: ReturnType<typeof gsap.timeline>;
+  timeline: gsap.core.Timeline;
   awardsTitle!: Text;
   awardsLines!: AwardLine[];
 

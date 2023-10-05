@@ -7,19 +7,17 @@
   display: grid;
   place-items: end end;
   padding: 40px 60px;
-  z-index: z("preloader");
-}
-
-.preloader__title {
-  place-self: center;
-  font-size: 24px;
-  text-align: center;
+  background-color: white;
   z-index: z("preloader");
 }
 
 .preloader__counter {
-  font-size: 60px;
+  position: absolute;
+  bottom: 5px;
+  right: 30px;
+  font-size: 100px;
   z-index: z("preloader");
+  mix-blend-mode: plus-lighter;
 }
 
 .preloader__columns {
@@ -34,5 +32,6 @@
 }
 
 .preloader__columns > div {
-  background: white;
+  background-color: #334;
+  height: 0;
 }
