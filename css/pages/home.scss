@@ -130,7 +130,6 @@
 .home__project__block {
   display: block;
   grid-column: 1 / -1;
-  // pointer-events: all;
 
   @include media(">=desktop") {
     grid-column: 2 / span 4;
@@ -143,6 +142,8 @@
 
 .home__project__block__image-wrapper {
   aspect-ratio: 5 / 3;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .home__project__block__image {
@@ -154,11 +155,13 @@
 }
 
 .solers-cover {
+  border-radius: 12px;
   background: white;
   border: 1px solid #ccc;
 }
 
 .atelier-cover {
+  border-radius: 12px;
   padding: 0;
   object-fit: cover;
   border: 1px solid #ccc;

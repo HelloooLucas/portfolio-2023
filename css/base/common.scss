@@ -174,7 +174,7 @@ nav {
 
 footer {
   border: 1px solid #ccc;
-  border-radius: 20px 20px 0 0;
+  border-radius: 12px 12px 0 0;
   margin: 256px -10px 0;
   overflow: hidden;
   grid-column: 1 / -1;
@@ -186,7 +186,7 @@ footer {
   @include media(">=desktop") {
     grid-column: 2 / -2;
     margin: 384px 0 10vh;
-    border-radius: 20px;
+    border-radius: 12px;
     align-items: end;
   }
 }

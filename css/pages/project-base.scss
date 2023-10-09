@@ -20,6 +20,8 @@
 
 .project__header__image-wrapper {
   margin-bottom: 16px;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
 }
 
 .project__header__image {
@@ -43,7 +45,7 @@
 .project__header__info {
   @extend %grid;
 
-  border-radius: 0 0 20px 20px;
+  border-radius: 0 0 12px 12px;
   background: rgba(238, 238, 238, 0.3);
   border: 1px solid #ccc;
 
@@ -241,6 +243,8 @@ video {
 .image-6 {
   grid-column: 1 / -1;
   margin-bottom: 64px;
+  border-radius: 12px;
+  overflow: hidden;
 
   @include media(">=desktop") {
     margin-bottom: 96px;

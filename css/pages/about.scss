@@ -19,6 +19,8 @@ $about-color: #dfdfdf;
   margin-left: 1px;
   margin-right: 1px;
   grid-column: 1 / -1;
+  border-radius: 12px;
+  overflow: hidden;
   margin-bottom: 96px;
 
   @include media(">=tablet") {
