@@ -174,29 +174,32 @@ nav {
 
 footer {
   border: 1px solid #ccc;
-  border-radius: 12px 12px 0 0;
-  margin: 256px -10px 0;
+  border-radius: 12px;
+  margin: 256px 0 10px;
   overflow: hidden;
   grid-column: 1 / -1;
 
   @include media(">=tablet") {
-    margin: 384px -15px 0;
+    margin: 384px 0 15px;
   }
 
   @include media(">=desktop") {
     grid-column: 2 / -2;
     margin: 384px 0 10vh;
-    border-radius: 12px;
     align-items: end;
   }
 }
 
 .default-footer {
-  background: rgba(238, 238, 238, 0.3);
-  padding: 60px var(--column-gap) 40px;
+  background: rgba(211, 211, 211, 0.3);
+  padding: 60px 0 40px;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: var(--column-gap);
+
+  @include media(">=tablet") {
+    grid-template-columns: repeat(6, 1fr);
+  }
 
   @include media(">=desktop") {
     padding: 45px 0;
@@ -205,28 +208,26 @@ footer {
   @include media(">=large-desktop") {
     grid-template-columns: repeat(8, 1fr);
   }
-}
 
-.footer__label {
-  display: block;
-  font-size: calculate-size-between(10, 14);
-  margin-bottom: 10px;
-}
-
-.footer__info {
-  font-size: calculate-size-between(14, 18);
-
-  &:not(:last-of-type) {
-    margin-bottom: 40px;
-  }
-}
-
-.info {
-  @include media(">=desktop") {
+  &__info-block {
     grid-column: 2 / span 2;
-  }
 
-  @include media(">=large-desktop") {
-    grid-column: 3 / span 2;
+    @include media(">=large-desktop") {
+      grid-column: 3 / span 2;
+    }
+
+    &__label {
+      display: block;
+      font-size: calculate-size-between(10, 14);
+      margin-bottom: 10px;
+    }
+
+    &__info {
+      font-size: calculate-size-between(14, 18);
+
+      &:not(:last-of-type) {
+        margin-bottom: 40px;
+      }
+    }
   }
 }

@@ -170,5 +170,4 @@ export default class HomeProjectHoverAnimation {
 // Also, the fact that I had to pass this.onMouseEnter.bind(this) to the add and remove event listeners
 // Actually caused that I was passing different instances of the function to the listeners
 // And since the functions passed to add and removeListeners were different, listeners were not correctly matched and not removed
-// This is why I created handleMouseEnterBound and handleMouseEnterLeave, so the callbacks passed to add and remove event listeners are pointing to the same function instance
-// I chose not to use arrow functions for a matter of consistency in the code
+// This is why I created handleMouseEnterBound and handleMouseLeaveBound, so the callbacks passed to add and remove event listeners are pointing to the same function instance

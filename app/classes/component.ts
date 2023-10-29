@@ -27,6 +27,7 @@ interface Elements {
   headerInfo: HTMLDivElement;
   media: HTMLImageElement[];
   middleTitle: HTMLHeadingElement;
+  projectNavigation: HTMLAnchorElement[];
 
   // About
   awardsBlock: HTMLDivElement;

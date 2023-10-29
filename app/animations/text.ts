@@ -51,8 +51,9 @@ export default class Text extends Observer {
     this.timeline.from(this.titleLines, {
       y: "100%",
       delay: this.manualTrigger ? 0 : 0.5,
-      duration: 0.5,
-      stagger: this.titleLines.length > 3 ? 0.05 : 0.2,
+      stagger: {
+        amount: this.titleLines.length * 0.1,
+      },
     });
   }
 

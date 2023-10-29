@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import Page from "../classes/page";
 import Text from "../animations/text";
 import Image from "../animations/image";
-import Footer from "../animations/footer";
+import ProjectNavigation from "../animations/project-navigation";
 
 /*
  * INFO
@@ -16,7 +16,7 @@ export default class Project extends Page {
   paragraphs!: Text[];
   media!: Image[];
   middleTitle!: Text;
-  footer!: Footer;
+  projectNavigation!: ProjectNavigation[];
 
   constructor() {
     super({
@@ -37,7 +37,7 @@ export default class Project extends Page {
         preloadImages: ["[data-src]"],
         media: [".project__image__wrapper"],
         middleTitle: ".project__middle-title",
-        footer: "footer",
+        projectNavigation: [".project-navigation"],
       },
     });
   }
@@ -66,7 +66,7 @@ export default class Project extends Page {
       ...this.paragraphs.map(paragraph => paragraph.hide()),
       ...this.media.map(media => media.hide()),
       this.middleTitle.hide(),
-      this.footer.hide(),
+      this.projectNavigation.map(navigation => navigation.hide()),
     ]);
   }
 
@@ -99,7 +99,9 @@ export default class Project extends Page {
       element: this.elements.middleTitle,
       colored: true,
     });
-    this.footer = new Footer({ element: this.elements.footer });
+    this.projectNavigation = this.elements.projectNavigation.map(
+      element => new ProjectNavigation({ element })
+    );
 
     super.createAnimations();
   }
