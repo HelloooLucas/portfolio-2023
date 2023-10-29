@@ -16,6 +16,7 @@
   bottom: 5px;
   right: 30px;
   font-size: 100px;
+  font-family: "Gambetta-Bold", serif;
   z-index: z("preloader");
   mix-blend-mode: plus-lighter;
 }
@@ -32,6 +33,6 @@
 }
 
 .preloader__columns > div {
-  background-color: #334;
+  background-color: #333;
   height: 0;
 }

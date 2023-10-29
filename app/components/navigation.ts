@@ -7,7 +7,7 @@ import Component from "../classes/component";
 const ABOUT_TEXTS = "#dfdfdf";
 const ABOUT_COLUMNS = "rgba(85, 85, 85, 0.6)";
 const ABOUT_BACKGROUND = "#333";
-const DEFAULT_TEXTS = "#334";
+const DEFAULT_TEXTS = "#333";
 const DEFAULT_COLUMNS = "rgba(233, 233, 233, 0.8)";
 const DEFAULT_BACKGROUND = "#fff";
 
