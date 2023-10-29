@@ -62,6 +62,7 @@ export default class Preloader extends Component {
         this.destroyPreloader();
       },
     });
+
     this.elements.columns.slice(0, this.columnsNumber).forEach(column => {
       this.columnsTimeline.add(
         gsap.to(column, {
@@ -72,6 +73,14 @@ export default class Preloader extends Component {
         "<0.1"
       );
     });
+
+    if (window.location.pathname.includes("about")) {
+      this.element.style.background = "#333";
+      this.elements.counter.style.color = "white";
+      this.elements.columns.forEach(column => {
+        column.style.background = "white";
+      });
+    }
   }
 
   updateProgression(percentage: number) {
