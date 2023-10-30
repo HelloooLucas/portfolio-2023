@@ -434,50 +434,24 @@ video {
   }
 }
 
-[data-project="sopra-banking-software"] {
-  .prev-project::before {
-    background-image: url("/images/atelier-tote-bag/cover.webp");
-  }
-  .next-project::before {
-    background-image: url("/images/last-quest/cover.png");
-  }
+.sbs-summit-thumbnail::before {
+  background-image: url("/images/sbs-summit/cover.png");
+  background-color: black;
+  background-size: 90%;
+  background-repeat: no-repeat;
 }
 
-[data-project="last-quest"] {
-  .prev-project::before {
-    background-image: url("/images/sbs-summit/cover.png");
-    background-color: black;
-    background-size: 90%;
-    background-repeat: no-repeat;
-  }
-  .next-project::before {
-    background-image: url("/images/solers-io/solers-logo.svg");
-    background-color: white;
-    background-size: 90%;
-    background-repeat: no-repeat;
-  }
+.last-quest-thumbnail::before {
+  background-image: url("/images/last-quest/cover.png");
 }
 
-[data-project="solers-io"] {
-  .prev-project::before {
-    background-image: url("/images/last-quest/cover.png");
-  }
-  .next-project::before {
-    background-image: url("/images/atelier-tote-bag/cover.webp");
-  }
+.solers-io-thumbnail::before {
+  background-image: url("/images/solers-io/solers-logo.svg");
+  background-color: white;
+  background-size: 90%;
+  background-repeat: no-repeat;
 }
 
-[data-project="atelier-tote-bag"] {
-  .prev-project::before {
-    background-image: url("/images/solers-io/solers-logo.svg");
-    background-color: white;
-    background-size: 90%;
-    background-repeat: no-repeat;
-  }
-  .next-project::before {
-    background-image: url("/images/sbs-summit/cover.png");
-    background-color: black;
-    background-size: 90%;
-    background-repeat: no-repeat;
-  }
+.atelier-tote-bag-thumbnail::before {
+  background-image: url("/images/atelier-tote-bag/cover.webp");
 }
