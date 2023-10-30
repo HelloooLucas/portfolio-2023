@@ -76,6 +76,14 @@ export default class HomeProject extends Observer {
         delay: 0.5,
       })
       .from(
+        this.projectName,
+        {
+          y: "100%",
+          duration: 0.4,
+        },
+        0.9
+      )
+      .from(
         [this.projectImageWrapper, this.projectImage],
         {
           clipPath: "inset(100% 0 0)",
