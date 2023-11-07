@@ -41,7 +41,7 @@ class App {
 
   onPreloaded() {
     // Calling this here to be sure the height is calculated when all images are loaded
-    this.page.onResize();
+    this.page.handleResize();
     this.navigation.show();
     this.page.show();
   }
@@ -99,8 +99,8 @@ class App {
         "data-template"
       ) as Template;
 
-      // onPageChange needs to be before updateUrl so the color changing works properly
-      await this.navigation.onPageChange(this.template);
+      // handlePageChange needs to be before updateUrl so the color changing works properly
+      await this.navigation.handlePageChange(this.template);
       this.navigation.updateUrl(url, backwards);
 
       this.pageTitle.innerHTML = nextPageTitle.innerHTML;

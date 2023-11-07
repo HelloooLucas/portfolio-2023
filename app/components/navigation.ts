@@ -79,7 +79,7 @@ export default class Navigation extends Component {
     }
   }
 
-  async onPageChange(destination: Template) {
+  async handlePageChange(destination: Template) {
     this.setLinks(destination);
     await this.setColors(destination);
   }

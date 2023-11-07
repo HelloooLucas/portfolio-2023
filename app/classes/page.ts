@@ -61,7 +61,7 @@ export default class Page extends Component {
     this.detectDomNodes();
     await this.LoadImages();
     this.createAnimations();
-    this.onResize();
+    this.handleResize();
     this.scrollTop();
     this.show();
   }
@@ -88,15 +88,13 @@ export default class Page extends Component {
   }
 
   addResizeListener() {
-    window.addEventListener("resize", this.onResize.bind(this));
+    window.addEventListener("resize", this.handleResize.bind(this));
   }
 
-  // TODO: rename to handleResize here, and for all other "on" functions?
-  onResize() {
+  handleResize() {
     this.scroll.limit = this.elements.content.clientHeight - window.innerHeight;
   }
 
-  // TODO: not working on Safari right now, fix it
   handleWheel(event: WheelEvent) {
     const { pixelY } = NormalizeWheel(event);
     this.scroll.target += pixelY;
