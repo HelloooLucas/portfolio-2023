@@ -151,19 +151,33 @@ nav {
 }
 
 .nav__links {
-  // TODO: remove this when I implement my own link animations
-  // @extend %link--hidden;
-
   width: 100px;
-  height: 24px;
+  height: 16px;
   position: relative;
   overflow: hidden;
+
+  @include media(">=tablet") {
+    height: 24px;
+  }
 
   &__about,
   &__home {
     position: absolute;
     right: 0;
     pointer-events: none;
+
+    & > a {
+      display: block;
+      position: relative;
+    }
+  }
+}
+
+.nav-item {
+  display: flex;
+
+  & > span {
+    display: block;
   }
 }
 

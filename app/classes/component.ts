@@ -14,8 +14,8 @@ interface Elements {
   body: HTMLBodyElement;
   navName: HTMLHeadingElement;
   navLinks: HTMLDivElement;
-  navHome: HTMLAnchorElement;
-  navAbout: HTMLAnchorElement;
+  navHome: HTMLDivElement;
+  navAbout: HTMLDivElement;
   backgroundColumns: HTMLDivElement[];
 
   // Home
